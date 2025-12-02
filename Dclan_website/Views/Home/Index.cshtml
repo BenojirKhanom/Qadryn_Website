@@ -61,7 +61,7 @@
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.8);
-            border-radius: 100px;
+            border-radius: 10px;
             padding: 12px 30px;
             box-shadow: 0 4px 20px rgba(112, 71, 235, 0.03);
         }
@@ -126,15 +126,16 @@
             font-size: 0.9rem;
             font-weight: 500;
             display: inline-block;
-            margin-bottom: 25px;
+            margin-bottom: 140px;
         }
 
         .hero-title {
-            font-size: 4rem;
-            font-weight: 800;
+            font-size: 3.5rem;
+            font-family: Archivo;
+            font-weight: 550;
             line-height: 1.1;
             color: #120A38;
-            margin-bottom: 25px;
+            margin-top: -75px;
             letter-spacing: -0.02em;
         }
 
@@ -142,7 +143,7 @@
             font-size: 1.1rem;
             color: var(--text-muted);
             line-height: 1.6;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
             max-width: 90%;
         }
 
@@ -201,48 +202,48 @@
 
         /* Payroll Card */
         .card-payroll {
-            width: 300px;
+            width: 310px; 
             top: 0;
             right: 20px;
             padding: 30px;
             z-index: 1;
+            border-radius: 20px 20px 0 0;
         }
 
         .chart-bars {
             display: flex;
             align-items: flex-end;
             justify-content: space-between;
-            height: 150px;
-            margin-top: 20px;
+            height: 140px;
+            margin-top: 25px;
+        }
+
+        .bar-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
         }
 
         .bar {
-            width: 20px;
-            background: #D8CEFF;
-            border-radius: 50px;
+            width: 20px; 
+            background: #C4B5FD;
+            border-radius: 50px 50px 0 0;
             position: relative;
+            transition: height 0.3s ease;
         }
 
-            .bar.high {
-                height: 100%;
-                background: #C4B5FD;
-            }
-
-            .bar.mid {
-                height: 60%;
-            }
-
-            .bar.low {
-                height: 40%;
-            }
+           /*  .bar:hover {
+                background: #7047EB;
+                cursor: pointer;
+            } */
 
         .month-label {
-            font-size: 10px;
-            color: #999;
+            font-size: 11px;
+            color: #666;
+            font-weight: 500;
             text-align: center;
-            margin-top: 8px;
         }
-
         /* Stats Card */
         .card-stats {
             width: 260px;
@@ -289,7 +290,113 @@
             transform: rotate(-30deg);
             text-shadow: 0 10px 20px rgba(112, 71, 235, 0.3);
         }
+        /* --- STATS BANNER SECTION --- */
+        .stats-section-wrapper {
+            margin-top: -50px;
+            padding-bottom: 80px;
+            position: relative;
+            z-index: 10;
+            margin-top:50px;
+        }
 
+        .stats-banner {
+            background-color: #120A38; 
+            border-radius: 24px;
+            position: relative;
+            overflow: hidden;
+            color: #fff;
+            padding: 40px;
+        }
+        .banner-grid {
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .banner-content {
+            position: relative;
+            z-index: 1;
+        }
+        .highlight-box {
+            background-color: #7047EB;
+            border-radius: 16px;
+            padding: 30px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: #fff;
+        }
+
+            .highlight-box h4 {
+                font-size: 1.8rem;
+                font-weight: 800;
+                margin-bottom: 5px;
+            }
+
+            .highlight-box h5 {
+                font-size: 1.2rem;
+                font-weight: 600;
+                margin-bottom: 15px;
+                opacity: 0.95;
+            }
+
+            .highlight-box p {
+                font-size: 0.9rem;
+                line-height: 1.5;
+                margin: 0;
+                opacity: 0.9;
+            }
+
+        .stat-item {
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+            .stat-item h2 {
+                font-size: 2.8rem;
+                font-weight: 700;
+                margin-bottom: 10px;
+                line-height: 1;
+                color: #fff;
+            }
+
+            .stat-item p {
+                font-size: 0.9rem;
+                color: rgba(255, 255, 255, 0.7); 
+                line-height: 1.5;
+                max-width: 200px;
+            }
+
+        @@media (max-width: 991px) {
+            .stats-banner
+
+        {
+            padding: 30px;
+        }
+
+        .stat-item {
+            margin-bottom: 30px;
+        }
+
+        }
+
+        @@media (max-width: 768px) {
+            .highlight-box
+
+        {
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .stat-item h2 {
+            font-size: 2.2rem;
+        }
+
+        }
         /* --- RESPONSIVE CSS (Razor Syntax @@media) --- */
         @@media (max-width: 991px) {
             .hero-title {
@@ -327,6 +434,543 @@
             .visual-container {
                 display: none;
             }
+        }
+        /* --- TRUSTED PARTNERS TEXT SECTION --- */
+        .partners-text-section {
+            padding-top: 100px; 
+            padding-bottom: 60px;
+            background-color: transparent;
+        }
+
+        .badge-outlined {
+            display: inline-block;
+            border: 1px solid #C4B5FD;
+            background-color: #fff;
+            color: #100C29; 
+            padding: 8px 24px;
+            border-radius: 8px; 
+            font-size: 0.95rem;
+            font-weight: 500;
+            margin-bottom: 30px;
+        }
+
+        .big-heading {
+            font-family: Archivo;
+            font-size: 3.2rem;
+            font-weight: 700;
+            color: #433582; 
+            line-height: 1.25;
+            letter-spacing: -0.02em;
+        }
+        @@media (max-width: 768px) {
+            .partners-text-section
+
+        {
+            padding-top: 60px;
+        }
+
+        .big-heading {
+            font-size: 2rem; 
+        }
+
+        }
+        /* --- LOGO GRID SECTION --- */
+        .logo-grid-section {
+            padding-bottom: 100px;
+        }
+
+        .logo-box {
+            background-color: #F6F6F8; 
+            border-radius: 12px;
+            height: 160px; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s ease;
+            cursor: pointer;
+        }
+            .logo-box:hover {
+                background-color: #EAEAF0;
+                transform: translateY(-3px);
+            }
+        .partner-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #9090A0; 
+            font-family: 'Times New Roman', serif; 
+            opacity: 0.8;
+        }
+
+        .font-sans {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+        /* --- FEATURES HEADER SECTION --- */
+        .features-header-section {
+            padding-top: 50px; 
+            padding-bottom: 50px;
+        }
+        .badge-outlined {
+            display: inline-block;
+            border: 1px solid #C4B5FD; 
+            background-color: #fff;
+            color: #100C29;
+            padding: 8px 24px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            margin-bottom: 25px;
+        }
+
+        .big-heading {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #433582; 
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+        @@media (max-width: 768px) {
+            .features-header-section
+
+        {
+            padding-top: 60px;
+        }
+
+        .big-heading {
+            font-size: 2rem;
+        }
+
+        }
+        /* --- FEATURES GRID SECTION --- */
+        .features-grid-section {
+            padding-bottom: 100px;
+        }
+
+        .feature-card {
+            background: #fff;
+            border: 1px solid #EAEAEA;
+            border-radius: 24px;
+            padding: 30px;
+            height: 100%;
+            position: relative;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+            .feature-card.active-card {
+                border: 2px solid #7047EB;
+                box-shadow: 0 10px 30px rgba(112, 71, 235, 0.1);
+            }
+
+            .feature-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
+            }
+        .f-icon-box {
+            width: 50px;
+            height: 50px;
+            background-color: #F3F0FF;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #100C29;
+            margin-bottom: 20px;
+        }
+
+        .f-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #100C29;
+            margin-bottom: 15px;
+        }
+
+        .f-desc {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        /* --- VISUAL ELEMENTS INSIDE CARDS --- */
+
+        /* CARD 1: Employee Data Visuals */
+        .mini-stat-card {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 16px;
+            padding: 15px;
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        }
+
+        .stat-icon-s {
+            width: 40px;
+            height: 40px;
+            background: #120A38;
+            color: #fff;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .employee-list-mock {
+            background: #F9FAFB;
+            border-radius: 16px;
+            padding: 15px;
+            border: 1px solid #eee;
+        }
+
+        .list-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+            color: #333;
+        }
+
+        .checkbox-mock {
+            width: 16px;
+            height: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        /* CARD 2: Collaboration Orbit */
+        .orbit-visual {
+            position: relative;
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .orbit-ring {
+            position: absolute;
+            border: 1px solid rgba(0,0,0,0.05);
+            border-radius: 50%;
+        }
+
+        .ring-1 {
+            width: 140px;
+            height: 140px;
+        }
+
+        .ring-2 {
+            width: 200px;
+            height: 200px;
+        }
+
+        .center-circle {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #E0D9FF, #7047EB);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            z-index: 2;
+        }
+
+        .orbit-icon {
+            position: absolute;
+            width: 36px;
+            height: 36px;
+            background: #fff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            color: #333;
+        }
+        /* Positioning Orbit Icons manually to match image */
+        .oi-1 {
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        /* Top */
+        .oi-2 {
+            bottom: 30px;
+            left: 30px;
+        }
+        /* Bottom Left */
+        .oi-3 {
+            bottom: 30px;
+            right: 30px;
+        }
+        /* Bottom Right */
+        .oi-4 {
+            top: 60px;
+            right: 10px;
+        }
+        /* Mid Right */
+        .oi-5 {
+            top: 60px;
+            left: 10px;
+        }
+        /* Mid Left */
+
+
+        /* CARD 3: Role & Skills Tree */
+        .system-track-box {
+            background: #F3F4F6;
+            padding: 12px 15px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .tree-visual {
+            background: #FAFAFA;
+            border: 1px solid #eee;
+            border-radius: 16px;
+            padding: 20px;
+        }
+
+        .tree-root {
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tree-branch {
+            position: relative;
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+
+        .tree-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            position: relative;
+            font-size: 0.9rem;
+            color: #555;
+        }
+            /* Connecting Lines */
+            .tree-item::before {
+                content: '';
+                position: absolute;
+                left: -15px;
+                top: -15px;
+                bottom: 50%;
+                width: 15px;
+                border-left: 1px solid #ccc;
+                border-bottom: 1px solid #ccc;
+            }
+
+        .status-box {
+            width: 24px;
+            height: 24px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.7rem;
+        }
+
+        .bg-purple {
+            background: #7047EB;
+        }
+
+        .bg-dark {
+            background: #120A38;
+        }
+
+        /* --- BIG FEATURE CARDS SECTION --- */
+        .big-features-section {
+            padding-bottom: 100px;
+        }
+
+        .big-feature-card {
+            background: #fff;
+            border: 1px solid #EAEAEA;
+            border-radius: 24px;
+            padding: 40px;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Header part of the card */
+        .bf-header {
+            margin-bottom: 40px;
+        }
+
+        .bf-icon-box {
+            width: 48px;
+            height: 48px;
+            background-color: #F3F0FF; /* Light Purple Bg */
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #100C29;
+            margin-bottom: 20px;
+        }
+
+        .bf-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #100C29;
+            margin-bottom: 10px;
+        }
+
+        .bf-desc {
+            color: #666;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* --- INTERNAL VISUAL BOXES ( The "Screens" inside the card) --- */
+        .visual-mockup-box {
+            border: 1px solid #eee;
+            border-radius: 20px;
+            padding: 30px;
+            background: #fff;
+            /* Box shadow to make it pop slightly inside the card */
+            box-shadow: 0 5px 20px rgba(0,0,0,0.02);
+        }
+
+        /* --- LEFT CARD: BAR CHART STYLES --- */
+        .chart-container {
+            display: flex;
+            align-items: flex-end;
+            height: 300px;
+            gap: 15px;
+            padding-top: 20px;
+        }
+
+        .y-axis {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            text-align: right;
+            padding-right: 10px;
+            color: #999;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .bars-wrapper {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            flex-grow: 1;
+            height: 100%;
+            padding-bottom: 5px; /* Alignment fix */
+        }
+
+        .chart-bar {
+            width: 5%; /* Responsive width */
+            border-radius: 6px 6px 0 0; /* Rounded top only */
+            position: relative;
+            transition: height 0.5s ease;
+        }
+
+        .bar-dark {
+            background-color: #6343D8;
+        }
+        /* Dark Purple */
+        .bar-light {
+            background-color: #EAE6FF;
+        }
+        /* Light Purple */
+
+        /* --- RIGHT CARD: AUTOMATION STYLES --- */
+        .automation-row {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #F5F5F5;
+            border-radius: 16px;
+        }
+
+        /* Circular Progress (Donut Chart) using CSS Conic Gradient */
+        .circular-progress {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            /* The trick: 82% purple, rest light gray */
+            background: conic-gradient(#7047EB 82%, #EAE6FF 0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+            /* The white hole in the middle */
+            .circular-progress::before {
+                content: "";
+                position: absolute;
+                width: 60px;
+                height: 60px;
+                background-color: #fff;
+                border-radius: 50%;
+            }
+
+        /* Metric List Items */
+        .metric-box {
+            border: 1px solid #F0F0F0;
+            border-radius: 12px;
+            padding: 15px 20px;
+            margin-top: 15px;
+        }
+
+        .metric-label {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .metric-value {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #100C29;
+        }
+
+        /* Responsive */
+        @@media (max-width: 991px) {
+            .big-feature-card
+
+        {
+            margin-bottom: 30px;
+        }
+
+        }
+        /* Responsive */
+        @@media (max-width: 991px) {
+            .feature-card
+
+        {
+            margin-bottom: 30px;
+            height: auto;
+        }
+
         }
     </style>
 </head>
@@ -404,14 +1048,44 @@
 
                         <div class="floating-card card-payroll">
                             <p class="text-muted mb-1" style="font-size: 0.8rem;">Payroll Summary</p>
-                            <h3>$36,000</h3>
+                            <h3 style="font-weight: 700; color: #100C29;">$36,000</h3>
+
                             <div class="chart-bars">
-                                <div><div class="bar mid"></div><div class="month-label">Jan</div></div>
-                                <div><div class="bar low"></div><div class="month-label">Feb</div></div>
-                                <div><div class="bar high"></div><div class="month-label">Mar</div></div>
-                                <div><div class="bar low"></div><div class="month-label">Apr</div></div>
-                                <div><div class="bar mid"></div><div class="month-label">May</div></div>
-                                <div><div class="bar mid"></div><div class="month-label">Jun</div></div>
+                                <!-- Jan -->
+                                <div class="bar-group">
+                                    <div class="bar" style="height: 140px;"></div>
+                                    <div class="month-label">Jan</div>
+                                </div>
+                                <!-- Feb -->
+                                <div class="bar-group">
+                                    <div class="bar" style="height: 60px;"></div>
+                                    <div class="month-label">Feb</div>
+                                </div>
+                                <!-- March -->
+                                <div class="bar-group">
+                                    <div class="bar" style="height: 140px;"></div>
+                                    <div class="month-label">March</div>
+                                </div>
+                                <!-- April -->
+                                <div class="bar-group">
+                                    <div class="bar" style="height: 45px;"></div>
+                                    <div class="month-label">April</div>
+                                </div>
+                                <!-- May -->
+                                <div class="bar-group">
+                                    <div class="bar" style="height: 140px;"></div>
+                                    <div class="month-label">May</div>
+                                </div>
+                                <!-- June -->
+                                <div class="bar-group">
+                                    <div class="bar" style="height: 70px;"></div>
+                                    <div class="month-label">June</div>
+                                </div>
+                                <!-- June (Last one as per image) -->
+                                <div class="bar-group">
+                                    <div class="bar" style="height: 70px;"></div>
+                                    <div class="month-label">June</div>
+                                </div>
                             </div>
                         </div>
 
@@ -426,8 +1100,345 @@
 
                         <i class="fas fa-mouse-pointer cursor-icon"></i>
                     </div>
-                </div>
 
+                </div>
+                <!-- === NEW SECTION: STATS BANNER === -->
+                <div class="container stats-section-wrapper">
+                    <div class="stats-banner">
+
+                        <!-- Grid Background Overlay -->
+                        <div class="banner-grid"></div>
+
+                        <div class="row align-items-center banner-content">
+
+                            <div class="col-lg-4 mb-4 mb-lg-0">
+                                <div class="highlight-box">
+                                    <h4>#1</h4>
+                                    <h5>HRM Platform</h5>
+                                    <p>From employee onboarding to performance tracking and payroll all in one place.</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-8">
+                                <div class="row ps-lg-4">
+
+                                    <!-- Stat 1 -->
+                                    <div class="col-md-4 col-sm-6 stat-item">
+                                        <h2>1M+</h2>
+                                        <p>Employees managed through our HRM system</p>
+                                    </div>
+
+                                    <!-- Stat 2 -->
+                                    <div class="col-md-4 col-sm-6 stat-item">
+                                        <h2>100K+</h2>
+                                        <p>Teams using our tools to streamline HR operations</p>
+                                    </div>
+
+                                    <!-- Stat 3 -->
+                                    <div class="col-md-4 col-sm-12 stat-item">
+                                        <h2>20K+</h2>
+                                        <p>Organizations growing efficiently with our platform</p>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- === TRUSTED PARTNERS TEXT SECTION === -->
+                    <section class="partners-text-section text-center">
+                        <div class="container">
+                            <div class="mb-3">
+                                <span class="badge-outlined">Trusted partners</span>
+                            </div>
+                            <h2 class="big-heading">
+                                Managing people made effortless.<br>
+                                Because great teams deserve great systems.
+                            </h2>
+
+                        </div>
+                    </section>
+                    <!-- === LOGO GRID SECTION === -->
+                    <section class="logo-grid-section">
+                        <div class="container">
+                            <!-- Row with spacing (g-3 = gap) -->
+                            <div class="row g-3">
+
+                                <!-- Row 1 -->
+                                <div class="col-6 col-md-3">
+                                    <div class="logo-box">
+                                        <span class="partner-logo font-sans">TechCrunch</span>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <div class="logo-box">
+                                        <span class="partner-logo font-sans">Bloomberg</span>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <div class="logo-box">
+                                        <span class="partner-logo">The Washington Post</span>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <div class="logo-box">
+                                        <span class="partner-logo">Forbes</span>
+                                    </div>
+                                </div>
+
+                                <!-- Row 2 -->
+                                <div class="col-6 col-md-3">
+                                    <div class="logo-box">
+                                        <span class="partner-logo font-sans" style="text-transform: uppercase; letter-spacing: 2px;">GIZMODO</span>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <div class="logo-box">
+                                        <span class="partner-logo">Forbes</span>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <div class="logo-box">
+                                        <span class="partner-logo font-sans">Bloomberg</span>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <div class="logo-box">
+                                        <span class="partner-logo font-sans">Tech <span style="font-weight:400">Tech</span></span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </section>
+                    <!-- === CORE FEATURES HEADER === -->
+                    <section class="features-header-section text-center">
+                        <div class="container">
+
+                            <div class="mb-3">
+                                <span class="badge-outlined">Core Features</span>
+                            </div>
+                            <h2 class="big-heading">
+                                Everything Your HR Team Needs
+                            </h2>
+
+                        </div>
+                    </section>
+                    <!-- === FEATURES GRID SECTION === -->
+                    <section class="features-grid-section">
+                        <div class="container">
+                            <div class="row g-4">
+
+                                <!-- CARD 1: Employee Data (Active/Purple Border) -->
+                                <div class="col-lg-4">
+                                    <div class="feature-card active-card">
+                                        <div class="f-icon-box">
+                                            <i class="fas fa-user-circle"></i>
+                                        </div>
+                                        <h3 class="f-title">Employee Data</h3>
+                                        <p class="f-desc">Hire date, milestones, and role info at a glance. All employee records updated in real time.</p>
+
+                                        <!-- Visual Area -->
+                                        <div class="mt-4">
+                                            <!-- Mini Stats Row -->
+                                            <div class="mini-stat-card">
+                                                <div class="d-flex align-items-center gap-2 w-50">
+                                                    <div class="stat-icon-s"><i class="fas fa-users"></i></div>
+                                                    <div style="line-height:1.2">
+                                                        <small class="text-muted" style="font-size:10px">Total Employee</small><br>
+                                                        <span style="font-weight:700; font-size:12px">34 Employee</span>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex align-items-center gap-2 w-50">
+                                                    <div class="stat-icon-s"><i class="fas fa-wallet"></i></div>
+                                                    <div style="line-height:1.2">
+                                                        <small class="text-muted" style="font-size:10px">Total Payroll</small><br>
+                                                        <span style="font-weight:700; font-size:12px">$24,764</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Mock Table -->
+                                            <div class="employee-list-mock">
+                                                <h6 class="mb-3" style="font-weight:600">Employee</h6>
+                                                <div class="list-row text-muted">
+                                                    <div class="checkbox-mock"></div> <span class="ms-1">Name</span>
+                                                    <span class="ms-auto">Role</span> <div class="checkbox-mock ms-2"></div>
+                                                </div>
+                                                <hr style="margin: 5px 0; opacity:0.1">
+                                                <div class="list-row">
+                                                    <div class="checkbox-mock"></div> <span class="ms-1 fw-bold">William Clark</span>
+                                                    <span class="ms-auto small">Developer</span> <div class="checkbox-mock ms-2"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- CARD 2: Collaboration (Orbit) -->
+                                <div class="col-lg-4">
+                                    <div class="feature-card">
+                                        <div class="f-icon-box" style="background-color: #F8F5FF;">
+                                            <i class="fas fa-user-group"></i>
+                                        </div>
+                                        <h3 class="f-title">Collaboration</h3>
+                                        <p class="f-desc">Unite your team with seamless communication tools that keep everyone aligned and productive.</p>
+
+                                        <!-- Visual Area -->
+                                        <div class="orbit-visual mt-4">
+                                            <div class="orbit-ring ring-1"></div>
+                                            <div class="orbit-ring ring-2"></div>
+
+                                            <!-- Center -->
+                                            <div class="center-circle">
+                                                <i class="fas fa-people-arrows"></i>
+                                            </div>
+
+                                            <!-- Orbiting Icons -->
+                                            <div class="orbit-icon oi-1"><i class="fas fa-share-nodes"></i></div>
+                                            <div class="orbit-icon oi-2"><i class="fas fa-bell"></i></div>
+                                            <div class="orbit-icon oi-3"><i class="fas fa-envelope"></i></div>
+                                            <div class="orbit-icon oi-4"><i class="fas fa-file-invoice"></i></div>
+                                            <div class="orbit-icon oi-5"><i class="fas fa-share"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- CARD 3: Role & Skills (Tree) -->
+                                <div class="col-lg-4">
+                                    <div class="feature-card">
+                                        <div class="f-icon-box" style="background-color: #F8F5FF;">
+                                            <i class="fas fa-chalkboard-user"></i>
+                                        </div>
+                                        <h3 class="f-title">Role & Skills</h3>
+                                        <p class="f-desc">Organize employee roles, departments, and skill tags. Easily map team capabilities.</p>
+
+                                        <!-- Visual Area -->
+                                        <div class="mt-4">
+                                            <div class="system-track-box">
+                                                <span><i class="fas fa-suitcase me-2"></i> HR systems track</span>
+                                                <i class="fas fa-chevron-down text-muted"></i>
+                                            </div>
+
+                                            <div class="tree-visual">
+                                                <div class="tree-root">
+                                                    <i class="fas fa-briefcase"></i> Job roles
+                                                </div>
+                                                <div class="tree-branch">
+                                                    <div class="tree-item">
+                                                        <span>Departments</span>
+                                                        <div class="status-box bg-purple"><i class="fas fa-check"></i></div>
+                                                    </div>
+                                                    <div class="tree-item">
+                                                        <span>Skill types</span>
+                                                        <div class="status-box bg-dark"><i class="fas fa-check"></i></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </section>
+                    <!-- === PAYROLL & AUTOMATION SECTION === -->
+                    <section class="big-features-section">
+                        <div class="container">
+                            <div class="row g-4">
+
+                                <!-- LEFT CARD: Payroll & Finance -->
+                                <div class="col-lg-6">
+                                    <div class="big-feature-card">
+
+                                        <!-- Header -->
+                                        <div class="bf-header">
+                                            <div class="bf-icon-box">
+                                                <i class="fas fa-wallet"></i>
+                                            </div>
+                                            <h3 class="bf-title">Payroll & Finance</h3>
+                                            <p class="bf-desc">Process salaries, deductions, and payouts accurately with clear financial insights and reports.</p>
+                                        </div>
+
+                                        <!-- Visual: Bar Chart -->
+                                        <div class="visual-mockup-box">
+                                            <h5 class="mb-4" style="font-weight:600;">Payroll Insights</h5>
+
+                                            <div class="chart-container">
+                                                <!-- Y Axis Labels -->
+                                                <div class="y-axis">
+                                                    <span>$60k</span>
+                                                    <span>$45k</span>
+                                                    <span>$30k</span>
+                                                    <span>$15k</span>
+                                                </div>
+
+                                                <!-- Bars -->
+                                                <div class="bars-wrapper">
+                                                    <!-- Alternating Dark and Light bars with different heights -->
+                                                    <div class="chart-bar bar-dark" style="height: 60%;"></div>
+                                                    <div class="chart-bar bar-light" style="height: 45%;"></div>
+                                                    <div class="chart-bar bar-dark" style="height: 35%;"></div>
+                                                    <div class="chart-bar bar-light" style="height: 60%;"></div>
+                                                    <div class="chart-bar bar-dark" style="height: 50%;"></div>
+                                                    <div class="chart-bar bar-light" style="height: 65%;"></div>
+                                                    <div class="chart-bar bar-dark" style="height: 85%;"></div>
+                                                    <div class="chart-bar bar-light" style="height: 70%;"></div>
+                                                    <div class="chart-bar bar-dark" style="height: 40%;"></div>
+                                                    <div class="chart-bar bar-light" style="height: 60%;"></div>
+                                                    <div class="chart-bar bar-dark" style="height: 75%;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <!-- RIGHT CARD: HR Automation -->
+                                <div class="col-lg-6">
+                                    <div class="big-feature-card">
+
+                                        <!-- Header -->
+                                        <div class="bf-header">
+                                            <div class="bf-icon-box" style="background-color: #F3F0FF;">
+                                                <i class="fas fa-network-wired"></i>
+                                            </div>
+                                            <h3 class="bf-title">HR Automation</h3>
+                                            <p class="bf-desc">Automate leave, attendance, and approval tasks to reduce manual work and speed up HR operations.</p>
+                                        </div>
+
+                                        <!-- Visual: Automation Stats -->
+                                        <div class="visual-mockup-box">
+
+                                            <!-- Top Row: Donut Chart -->
+                                            <div class="automation-row">
+                                                <div class="circular-progress"></div>
+                                                <div>
+                                                    <small class="text-muted d-block mb-1">Automation Efficiency</small>
+                                                    <h2 class="m-0" style="color: #433582; font-weight: 700;">82%</h2>
+                                                </div>
+                                            </div>
+
+                                            <!-- Bottom Rows: Metrics -->
+                                            <div class="metric-box">
+                                                <div class="metric-label">Manual hours saved</div>
+                                                <div class="metric-value">1,240 hrs/month</div>
+                                            </div>
+
+                                            <div class="metric-box" style="opacity: 0.6;">
+                                                <!-- Faded slightly like image -->
+                                                <div class="metric-label">Process acceleration</div>
+                                                <div class="metric-value" style="height: 10px; background: #eee; width: 60%; border-radius: 4px; margin-top:5px;"></div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </section>
+                </div>
             </div>
         </div>
     </div>
