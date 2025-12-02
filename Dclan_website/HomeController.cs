@@ -8,6 +8,10 @@ namespace Dclan_website
         {
             return View();
         }
+        public IActionResult blog ()
+        {
+            return View();
+        }
     }
 }
 

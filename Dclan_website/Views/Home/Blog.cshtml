@@ -1,0 +1,848 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qadryn - Blog</title>
+
+    <!-- 1. Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-purple: #7047EB;
+            --text-dark: #100C29;
+            --text-muted: #52525B;
+            --bg-body: #F8F5FF;
+        }
+
+        body {
+
+            font-family: 'Archivo', sans-serif;
+            background-color: var(--bg-body);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            background: linear-gradient(180deg, #9a85ff 0%, #f3f0ff 100%);
+            background-image: linear-gradient(to right, rgba(0,0,0,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            );
+        }
+
+        /* --- BACKGROUND GRADIENT & GRID --- */
+        .page-wrapper {
+            position: relative;
+            width: 100%;
+            min-height: 120vh;
+            background: radial-gradient(circle at 50% -20%, rgba(112, 71, 235, 0.2) 0%, transparent 60%), linear-gradient(180deg, #F3F0FF 0%, #FFFFFF 100%);
+        }
+
+        .grid-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(112, 71, 235, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(112, 71, 235, 0.05) 1px, transparent 1px);
+            background-size: 60px 60px;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* --- NAVBAR STYLES --- */
+        .navbar-container {
+            padding-top: 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .custom-navbar {
+            background: rgba(255,255,255,0.3);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(74, 59, 137, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            padding: 25px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1600px;
+        }
+
+        .brand-logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: black;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+        }
+
+            .nav-links a {
+                text-decoration: none;
+                color: var(--text-dark);
+                font-weight: 600;
+                font-size: 0.95rem;
+            }
+
+                .nav-links a:hover, .nav-links a.active {
+                    color: var(--primary-purple);
+                }
+
+        .btn-purple {
+            background: var(--primary-purple);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border: none;
+        }
+
+        /* --- HEADER SECTION (Recent News) --- */
+        .blog-header {
+            text-align: center;
+            padding-top: 80px;
+            padding-bottom: 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .header-title {
+            font-size: 3.5rem; 
+            font-weight: 500;
+            color: #33026b;
+            margin-bottom: 15px;
+        }
+
+        .header-subtitle {
+            font-size: 1.1rem;
+            color: #667085;
+            margin-bottom: 40px;
+        }
+
+        /* SEARCH BAR */
+        .search-box-wrapper {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 18px 25px 18px 55px; 
+            border-radius: 12px;
+            border: 1px solid #7047EB; 
+            background: #fff;
+            font-size: 1rem;
+            outline: none;
+            box-shadow: 0 4px 20px rgba(112, 71, 235, 0.05);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+            font-size: 1.2rem;
+        }
+
+        /* --- BLOG CARDS SECTION --- */
+        .blog-grid-section {
+            padding-top: 50px;
+            padding-bottom: 100px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .qadryn-card {
+            background: #FFFFFF;
+            border: 1px solid #EAE6FF;
+            border-radius: 24px;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            min-height: 600px;
+            transition: all 0.3s ease-in-out;
+        }
+
+
+        .card-thumb-box {
+            height: 280px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .card-thumb-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card-content {
+            padding: 24px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
+        }
+
+        .card-badge {
+            background-color: #7047EB;
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 6px 12px;
+            border-radius: 6px;
+            margin-bottom: 16px;
+            display: inline-block;
+            letter-spacing: 0.5px;
+        }
+
+        .card-title-text {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #100C29;
+            margin-bottom: 12px;
+            line-height: 1.4;
+            font-family: 'Archivo', sans-serif;
+        }
+
+        .card-desc-text {
+            font-size: 0.95rem;
+            color: #52525B;
+            line-height: 1.6;
+            margin-bottom: 24px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .btn-card-action {
+            margin-top: auto;
+            border: 1px solid #7047EB;
+            color: #7047EB;
+            background: transparent;
+            padding: 8px 24px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+            .btn-card-action:hover {
+                background-color: #7047EB;
+                color: #fff;
+            }
+        /* --- PAGINATION STYLE --- */
+        .pagination-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 25px; 
+            margin-top: 60px; 
+            font-family: 'Archivo', sans-serif;
+        }
+
+    
+        .pagination-arrow {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1.5px solid #7047EB; 
+            border-radius: 12px; 
+            color: #7047EB;
+            font-size: 14px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            background: transparent;
+        }
+
+            .pagination-arrow:hover {
+                background-color: #7047EB;
+                color: #fff;
+                box-shadow: 0 4px 10px rgba(112, 71, 235, 0.2);
+            }
+
+        .page-numbers-box {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .page-link-text {
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            color: #100C29;
+            transition: 0.3s;
+        }
+            .page-link-text.active {
+                color: #7047EB; 
+            }
+
+            .page-link-text:hover {
+                color: #7047EB;
+            }
+        /* --- FOOTER SECTION STYLES --- */
+        .footer-container {
+            padding: 50px 20px;
+            display: flex;
+            justify-content: center;
+            width: 100%
+        }
+
+        .footer-card {
+            background: #6b43fa; /* The exact color from your code */
+            width: 100%;
+            border-radius: 40px;
+            padding: 60px 80px; /* Increased side padding */
+            color: #fff;
+            font-family: 'Archivo', sans-serif;
+            position: relative;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+          /*   min-height: 200px; /* Ensures height matches image */ */
+        }
+
+        /* --- MAIN CONTENT (Top Split) --- */
+        .footer-main-content {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 60px;
+        }
+
+        /* Left Column Styles */
+        .footer-col-left {
+            max-width: 70%;
+        }
+
+        .footer-brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 35px;
+        }
+
+        .footer-desc {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 35px;
+            max-width: 620px;
+        }
+
+        .btn-footer-outline {
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            color: #fff;
+            background: transparent;
+            padding: 12px 28px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+            .btn-footer-outline:hover {
+                background: #fff;
+                color: #7047EB;
+            }
+
+        /* Right Column Styles (Stacked Info) */
+        .footer-col-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end; 
+            text-align: right;
+            gap: 20px; 
+        }
+
+        /* 1. Nav Links */
+        .footer-nav-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+            .footer-nav-links a {
+                color: #fff;
+                text-decoration: none;
+                font-weight: 500;
+                font-size: 1rem;
+                transition: 0.3s;
+            }
+
+                .footer-nav-links a:hover {
+                    opacity: 0.8;
+                }
+
+        /* 2. Info Blocks (Contact & Location) */
+        .info-block {
+            text-align: left; 
+            width: 100%;
+            max-width: 300px; 
+            margin-right:100px;
+            margin-top:80px;
+            gap:10px;
+            margin-bottom:20px;
+        }
+
+        .footer-info-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .footer-info-text {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* --- BOTTOM ROW (Socials, Copyright, Lang) --- */
+        .footer-bottom-row {
+            display: flex;
+            align-items: flex-end; /* Aligns items to the bottom */
+            justify-content: space-between;
+            padding-top: 20px;
+        }
+
+        /* Social Icons */
+        .social-icons-wrapper {
+            display: flex;
+            flex-direction: column; 
+            align-items: flex-start; 
+            gap: 5px; 
+        }
+
+
+        .social-circle {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px; 
+            height: 40px;
+            border-radius: 50%;
+            background-color: #fff;
+            color: #4252e3;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        .social-row {
+            display: flex;
+            gap: 10px; 
+        }
+
+            .social-circle:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            }
+
+        /* Copyright */
+        .copyright-wrapper {
+            text-align: center;
+            flex: 1; 
+            margin-right: 150px;
+        }
+
+        .copyright-text {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin: 2px 0;
+        }
+
+        /* Languages */
+        .language-selector {
+            text-align: right;
+            flex: 1; /* Takes up right space */
+        }
+
+        .lang-list {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+            .lang-list span {
+                cursor: pointer;
+                margin: 0 2px;
+            }
+
+                .lang-list span:hover {
+                    text-decoration: underline;
+                }
+
+        /* --- RESPONSIVE DESIGN --- */
+            @@media (max-width: 991px) {
+            .footer-card
+
+        {
+            padding: 40px;
+        }
+
+        .footer-main-content {
+            flex-direction: column;
+            gap: 50px;
+        }
+
+        .footer-col-left {
+            max-width: 100%;
+        }
+
+        .footer-col-right {
+            align-items: flex-start;
+            text-align: left;
+        }
+
+        .footer-nav-links {
+            flex-wrap: wrap;
+        }
+
+        .footer-bottom-row {
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            text-align: center;
+        }
+
+        .social-icons-wrapper, .copyright-wrapper, .language-selector {
+            flex: auto;
+            text-align: center;
+        }
+
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="page-wrapper">
+        <div class="grid-lines"></div>
+
+        <!-- 1. NAVBAR -->
+        <div class="container navbar-container">
+            <nav class="custom-navbar">
+                <a href="/Home/Index" class="brand-logo">
+                    <i class="fas fa-layer-group" style="color: var(--primary-purple);"></i>
+                    Qadryn
+                </a>
+
+                <ul class="nav-links d-none d-lg-flex">
+                    <li><a href="/Home/Index#home">Home</a></li>
+                    <li><a href="/Home/Index#features">Features</a></li>
+                    <li><a href="/Home/Index#pricing">Pricing</a></li>
+                    <li><a href="/Home/Index#devices">Devices</a></li>
+                    <li><a href="/Home/Blog" class="active">Blog</a></li>
+                    <li><a href="/Home/Index#contact">Contact</a></li>
+                </ul>
+
+                <a href="#" class="btn-purple">Get Started For Free</a>
+            </nav>
+        </div>
+
+        <!-- 2. HEADER & SEARCH -->
+        <div class="container blog-header">
+            <h1 class="header-title">Recent News & Information</h1>
+            <p class="header-subtitle">Get Latest and Updated News About HRM Softwares in Bangladesh</p>
+
+            <div class="search-box-wrapper">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-input" placeholder="Search any blog">
+            </div>
+        </div>
+
+        <!-- 3. BLOG CARDS GRID -->
+        <div class="container blog-grid-section">
+            <div class="row g-4">
+
+                <!-- Card 1 -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="qadryn-card">
+                        <div class="card-thumb-box">
+                            <img src="~/image/Human Resource Management System).png" alt="HR" class="card-thumb-img">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-badge">Human Resource Management</span>
+                            <h3 class="card-title-text">Top 10 Functions of Human Resource Management System</h3>
+                            <p class="card-desc-text">Read the article to know more about the top 10 functions of a human resource management system of any particular firm in detail.</p>
+                            <a href="#" class="btn-card-action">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="qadryn-card">
+                        <div class="card-thumb-box">
+                            <img src="~/image/Functions of Human Resource Management System)-1.png" alt="Salary" class="card-thumb-img">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-badge">HR Software</span>
+                            <h3 class="card-title-text">Appointment Letter Format in Bangladesh</h3>
+                            <p class="card-desc-text">Find the best appointment letter format in Bangladesh with 12 editable templates for various jobs and industries.</p>
+                            <a href="#" class="btn-card-action">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="qadryn-card">
+                        <div class="card-thumb-box">
+                            <img src="~/image/Image (Top 10 Functions of Human Resource Management System)-2.png" alt="Resignation" class="card-thumb-img">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-badge">HR Software</span>
+                            <h3 class="card-title-text">Resignation Letter Format in Bangladesh</h3>
+                            <p class="card-desc-text">Learn the proper resignation letter format in Bangladesh with legal guidelines, notice period rules, and free templates.</p>
+                            <a href="#" class="btn-card-action">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="container blog-grid-section">
+            <div class="row g-4">
+
+                <!-- Card 1 -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="qadryn-card">
+                        <div class="card-thumb-box">
+                            <img src="~/image/Human Resource Management System).png" alt="HR" class="card-thumb-img">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-badge">Human Resource Management</span>
+                            <h3 class="card-title-text">Top 10 Functions of Human Resource Management System</h3>
+                            <p class="card-desc-text">Read the article to know more about the top 10 functions of a human resource management system of any particular firm in detail.</p>
+                            <a href="#" class="btn-card-action">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="qadryn-card">
+                        <div class="card-thumb-box">
+                            <img src="~/image/Functions of Human Resource Management System)-1.png" alt="Salary" class="card-thumb-img">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-badge">HR Software</span>
+                            <h3 class="card-title-text">Appointment Letter Format in Bangladesh</h3>
+                            <p class="card-desc-text">Find the best appointment letter format in Bangladesh with 12 editable templates for various jobs and industries.</p>
+                            <a href="#" class="btn-card-action">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="qadryn-card">
+                        <div class="card-thumb-box">
+                            <img src="~/image/Image (Top 10 Functions of Human Resource Management System)-2.png" alt="Resignation" class="card-thumb-img">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-badge">HR Software</span>
+                            <h3 class="card-title-text">Resignation Letter Format in Bangladesh</h3>
+                            <p class="card-desc-text">Learn the proper resignation letter format in Bangladesh with legal guidelines, notice period rules, and free templates.</p>
+                            <a href="#" class="btn-card-action">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="container blog-grid-section">
+            <div class="row g-4">
+
+                <!-- Card 1 -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="qadryn-card">
+                        <div class="card-thumb-box">
+                            <img src="~/image/Human Resource Management System).png" alt="HR" class="card-thumb-img">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-badge">Human Resource Management</span>
+                            <h3 class="card-title-text">Top 10 Functions of Human Resource Management System</h3>
+                            <p class="card-desc-text">Read the article to know more about the top 10 functions of a human resource management system of any particular firm in detail.</p>
+                            <a href="#" class="btn-card-action">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="qadryn-card">
+                        <div class="card-thumb-box">
+                            <img src="~/image/Functions of Human Resource Management System)-1.png" alt="Salary" class="card-thumb-img">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-badge">HR Software</span>
+                            <h3 class="card-title-text">Appointment Letter Format in Bangladesh</h3>
+                            <p class="card-desc-text">Find the best appointment letter format in Bangladesh with 12 editable templates for various jobs and industries.</p>
+                            <a href="#" class="btn-card-action">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="qadryn-card">
+                        <div class="card-thumb-box">
+                            <img src="~/image/Image (Top 10 Functions of Human Resource Management System)-2.png" alt="Resignation" class="card-thumb-img">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-badge">HR Software</span>
+                            <h3 class="card-title-text">Resignation Letter Format in Bangladesh</h3>
+                            <p class="card-desc-text">Learn the proper resignation letter format in Bangladesh with legal guidelines, notice period rules, and free templates.</p>
+                            <a href="#" class="btn-card-action">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="pagination-wrapper">
+                    <!-- Previous Arrow -->
+                    <a href="#" class="pagination-arrow">
+                        <i class="fas fa-chevron-left"></i>
+                    </a>
+
+                    <!-- Numbers -->
+                    <div class="page-numbers-box">
+                        <a href="#" class="page-link-text active">1</a>
+                        <a href="#" class="page-link-text">2</a>
+                        <a href="#" class="page-link-text">3</a>
+                        <a href="#" class="page-link-text">4</a>
+                    </div>
+
+                    <!-- Next Arrow -->
+                    <a href="#" class="pagination-arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </a>
+                </div>
+                <!-- Footer Section -->
+                <div class="footer-container">
+                    <div class="footer-card">
+
+                        <!-- Top & Middle Section (Grid Layout) -->
+                        <div class="footer-main-content">
+
+                            <!-- Left Column: Brand, Desc, Button -->
+                            <div class="footer-col-left">
+                                <a href="#" class="footer-brand">
+                                    <i class="fa-solid fa-layer-group"></i> <!-- Icon placeholder -->
+                                    Qadryn
+                                </a>
+
+                                <p class="footer-desc">
+                                    All-in-one ERP built for next-gen finance and accounting. Designed for general ledger, revenue automation, and close management.
+                                </p>
+
+                                <a href="#" class="btn-footer-outline">Learn more</a>
+                            </div>
+
+                            <!-- Right Column: Nav, Contact, Location -->
+                            <div class="footer-col-right">
+
+                                <!-- 1. Navigation Links -->
+                                <ul class="footer-nav-links">
+                                    <li><a href="#">Features</a></li>
+                                    <li><a href="#">Pricing</a></li>
+                                    <li><a href="#">Devices</a></li>
+                                    <li><a href="#">Blog</a></li>
+                                    <li><a href="#">Contact</a></li>
+                                </ul>
+
+                                <!-- 2. Contact Us Info -->
+                                <div class="info-block">
+                                    <span class="footer-info-title">Contact us</span>
+                                    <p class="footer-info-text">+1 (888) 283-77-04</p>
+                                    <p class="footer-info-text">help@solvcompany.com</p>
+                                </div>
+
+                                <!-- 3. Location Info -->
+                                <div class="info-block">
+                                    <span class="footer-info-title">Location</span>
+                                    <p class="footer-info-text">48/82C, Moscow,</p>
+                                    <p class="footer-info-text">Myasnitskaya 22/24, Office 43</p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- Bottom Section: Socials, Copyright, Language -->
+                        <div class="footer-bottom-row">
+
+                            <!-- Social Icons (Bottom Left) -->
+                            <div class="social-icons-wrapper">
+                                <a href="#" class="social-circle"><i class="fa-brands fa-facebook-f"></i></a>
+                                <div class="social-row">
+                                    <a href="#" class="social-circle"><i class="fa-brands fa-instagram"></i></a>
+                                    <a href="#" class="social-circle"><i class="fa-solid fa-x"></i></a> <!-- X Icon -->
+                                </div>
+                            </div>
+
+
+                            <!-- Copyright (Center) -->
+                            <div class="copyright-wrapper">
+                                <p class="copyright-text">© 2025 Rivo.</p>
+                                <p class="copyright-text">All rights reserved.</p>
+                            </div>
+
+                            <!-- Languages (Bottom Right) -->
+                            <div class="language-selector">
+                                <span class="footer-info-title" style="margin-bottom: 5px;">Languages</span>
+                                <div class="lang-list">
+                                    <span>EN</span> | <span>ES</span> | <span>FR</span> | <span>DE</span> | <span>RU</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            </div>
+        </div>
+  
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
