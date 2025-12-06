@@ -1219,23 +1219,34 @@
         }
 
         .about-image-wrapper {
+            position: relative;
             padding-right: 0;
             padding-bottom: 80px;
-            margin-bottom: 40px;
+            margin-bottom: 150px;
             text-align: center;
         }
 
         .main-human-img {
-            height: 400px;
-            width: 90%;
+            height: auto;
+            max-height: 450px;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 20px;
         }
 
         .salary-floating-card {
-            right: 50%;
-            transform: translateX(50%);
-            bottom: 0;
+          
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -100px;
             width: 90%;
-            max-width: 320px;
+            max-width: 340px;
+            z-index: 10;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
         }
 
         .about-heading {
@@ -2968,7 +2979,7 @@
                 <!-- Links -->
                 <ul class="nav-links d-none d-lg-flex">
                     <li><a href="/Home/index" class="active">Home</a></li>
-                    <li><a href="#features">Features</a></li>
+                    <li><a href="/Home/feature" style="color: var(--primary-purple); font-weight:700;">Features</a></li>
                     <li><a href="#pricing">Pricing</a></li>
                     <li><a href="#devices">Devices</a></li>
 

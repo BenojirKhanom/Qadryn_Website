@@ -12,6 +12,10 @@ namespace Dclan_website
         {
             return View();
         }
+        public IActionResult feature()
+        {
+            return View();
+        }
     }
 }
 
