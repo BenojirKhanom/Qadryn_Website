@@ -79,43 +79,7 @@
             font-weight: 600;
             border: none;
         }
-        /* This class is added via JavaScript when you click the menu icon */
-        .nav-links.mobile-menu-active {
-            display: flex !important;
-            flex-direction: column;
-            position: absolute;
-            top: 100%; /* Pushes it right below the navbar */
-            left: 0;
-            width: 50%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            z-index: 1000;
-            text-align: left;
-            margin-top: 10px;
-        }
 
-        @@media (max-width: 991px) {
-            .hero-title {
-                font-size: 3rem;
-            }
-
-            .visual-container {
-                height: 500px;
-                margin-top: 50px;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .card-payroll {
-                right: 0;
-                width: 260px;
-            }
-        }
         /* Features Section Styles */
         .features-header-section {
             padding-top: 80px;
@@ -297,31 +261,27 @@
 
         /* --- RESPONSIVE --- */
         @@media (max-width: 991px) {
-            .showcase-text-col
+            .showcase-text-col {
+                padding-left: 15px;
+                margin-top: 60px;
+                text-align: center;
+            }
 
-        {
-            padding-left: 15px;
-            margin-top: 60px;
-            text-align: center;
-        }
+            .showcase-title {
+                font-size: 2rem;
+            }
 
-        .showcase-title {
-            font-size: 2rem;
-        }
-
-        .devices-wrapper {
-            justify-content: center;
-            margin-bottom: 20px;
-            min-height: 300px;
-        }
-
-        /* Adjust overlap for mobile */
-        .img-tablet {
-            width: 50%;
-            bottom: -20px;
-            right: 0;
-        }
-
+            .devices-wrapper {
+                justify-content: center;
+                margin-bottom: 20px;
+                min-height: 300px;
+            }
+            /* Adjust overlap for mobile */
+            .img-tablet {
+                width: 50%;
+                bottom: -20px;
+                right: 0;
+            }
         }
 
         .features-section-wrapper {
@@ -676,17 +636,14 @@
 
         /* Responsive Adjustments */
         @@media (max-width: 991px) {
-            .ft-card
+            .ft-card {
+                margin-bottom: 20px;
+                min-height: auto;
+            }
 
-        {
-            margin-bottom: 20px;
-            min-height: auto;
-        }
-
-        .feature-main-title {
-            font-size: 2rem;
-        }
-
+            .feature-main-title {
+                font-size: 2rem;
+            }
         }
 
         /* --- BIG FEATURE CARDS SECTION --- */
@@ -1043,20 +1000,17 @@
 
         /* --- RESPONSIVE ADJUSTMENTS --- */
         @@media (max-width: 768px) {
-            .comparison-section
+            .comparison-section {
+                padding: 60px 20px;
+            }
 
-        {
-            padding: 60px 20px;
-        }
+            .comp-title {
+                font-size: 1.8rem;
+            }
 
-        .comp-title {
-            font-size: 1.8rem;
-        }
-
-        .comp-desc {
-            font-size: 1rem;
-        }
-
+            .comp-desc {
+                font-size: 1rem;
+            }
         }
         /* --- COMPARISON TABLE SECTION --- */
         .comparison-table-section {
@@ -1142,18 +1096,15 @@
 
         /* --- RESPONSIVE SCROLL --- */
         @@media (max-width: 768px) {
-            .th-features, .col-feature-name
+            .th-features, .col-feature-name {
+                padding-left: 15px !important;
+                font-size: 0.9rem;
+            }
 
-        {
-            padding-left: 15px !important;
-            font-size: 0.9rem;
-        }
-
-        .comp-table th {
-            font-size: 0.95rem;
-            padding: 15px 5px;
-        }
-
+            .comp-table th {
+                font-size: 0.95rem;
+                padding: 15px 5px;
+            }
         }
 
         .header-section {
@@ -1206,8 +1157,8 @@
             }
         }
         /* =========================================
-                           MAIN PRICING SECTION
-                           ========================================= */
+                                   MAIN PRICING SECTION
+                                   ========================================= */
         .pricing-section {
             width: 100%;
             padding: 4rem 20px;
@@ -1327,7 +1278,7 @@
             list-style: none;
             display: flex;
             flex-direction: column;
-             gap: 6px;
+            gap: 6px;
         }
 
         .feature-item {
@@ -1372,7 +1323,6 @@
         /* Container styling to match the rounded card look */
         .cta-banner {
             background-image: url('/image/Frame 2087328685.png');
-
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -1457,8 +1407,8 @@
         }
 
         /* ============================
-                            (LEFT COLUMN)
-                           ============================ */
+                                    (LEFT COLUMN)
+                                   ============================ */
         .footer-left {
             width: 45%;
             display: flex;
@@ -1544,8 +1494,8 @@
         }
 
         /* ============================
-                           (RIGHT COLUMN)
-                           ============================ */
+                                   (RIGHT COLUMN)
+                                   ============================ */
         .footer-right {
             width: 45%;
             display: flex;
@@ -1618,8 +1568,8 @@
             }
 
         /* ============================
-                          Responsive (MOBILE)
-                           ============================ */
+                                  Responsive (MOBILE)
+                                   ============================ */
         @@media (max-width: 900px) {
             .footer-container {
                 flex-direction: column;
@@ -1631,7 +1581,7 @@
                 width: 100%;
             }
 
-            .nav-linksfooter {
+            .nav-links {
                 flex-wrap: wrap;
                 margin-bottom: 30px;
             }
@@ -1650,6 +1600,283 @@
                 text-align: left;
                 margin-top: 20px;
             }
+        }
+        /* --- TRUSTED PARTNERS TEXT SECTION --- */
+        .partners-text-section {
+            padding-top: 100px;
+            padding-bottom: 60px;
+            background-color: transparent;
+        }
+
+        .badge-outlined {
+            display: inline-block;
+            border: 1px solid #C4B5FD;
+            background-color: #fff;
+            color: #100C29;
+            padding: 8px 24px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            margin-bottom: 30px;
+        }
+
+        .big-heading {
+            font-family: Archivo;
+            font-size: 3.2rem;
+            font-weight: 700;
+            color: #433582;
+            line-height: 1.25;
+            letter-spacing: -0.02em;
+        }
+
+        @@media (max-width: 768px) {
+            .partners-text-section {
+                padding-top: 60px;
+            }
+
+            .big-heading {
+                font-size: 2rem;
+            }
+        }
+        /* --- LOGO GRID SECTION --- */
+        .logo-grid-section {
+            padding-bottom: 100px;
+        }
+
+        .logo-box {
+            background-color: #F6F6F8;
+            border-radius: 12px;
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s ease;
+            cursor: pointer;
+        }
+
+            .logo-box:hover {
+                background-color: #EAEAF0;
+                transform: translateY(-3px);
+            }
+
+        .partner-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #9090A0;
+            font-family: 'Times New Roman', serif;
+            opacity: 0.8;
+        }
+
+        .font-sans {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+        /* --- Hero Promo Section --- */
+        .hero-promo-section {
+            position: relative;
+            width: 100%;
+            background: linear-gradient(180deg, #FFF5F2 0%, #F4F0FF 40%, #8C82FA 100%);
+            padding-top: 5px;
+            padding-bottom: 80px;
+            overflow: hidden;
+            margin-top: -30px;
+        }
+
+        /* Image Styling */
+        .hero-img-wrapper {
+            position: relative;
+            padding-right: 20px; 
+        }
+
+        .main-hero-img {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            filter: drop-shadow(0px 20px 40px rgba(0, 0, 0, 0.15));
+            transition: transform 0.3s ease;
+        }
+
+            .main-hero-img:hover {
+                transform: scale(1.02);
+            }
+
+        /* Content Styling */
+        .hero-content {
+            padding-left: 20px;
+        }
+
+        .hero-title {
+            font-family: 'Inter', sans-serif;
+            color: #483285;
+            font-size: 3rem; 
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero-desc {
+            color: #555555;
+            font-size: 1.15rem;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            max-width: 450px; 
+        }
+
+        /* Button Styling */
+        .btn-talk {
+            background-color: #6366F1; 
+            color: #ffffff;
+            padding: 14px 32px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            border: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+            display: inline-flex;
+            align-items: center;
+        }
+
+            .btn-talk:hover {
+                background-color: #4F46E5;
+                color: white;
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(99, 102, 241, 0.6);
+            }
+
+        /* ============================
+           RESPONSIVE (MOBILE VIEW)
+           ============================ */
+        @@media (max-width: 991px) {
+            .hero-promo-section
+
+        {
+            padding: 60px 0;
+        }
+
+        .hero-title {
+            font-size: 2.2rem;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .hero-desc {
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1rem;
+        }
+
+        .hero-content {
+            padding-left: 0;
+            text-align: center;
+        }
+
+        .hero-img-wrapper {
+            padding-right: 0;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        }
+        /* --- FAQ Section Styling --- */
+        .faq-section {
+            background-color: #FAFAFC; 
+            padding: 80px 0;
+            font-family: Archivo;
+            
+        }
+
+        /* Header Badge */
+        .badge-pill {
+            display: inline-block;
+            border: 1px solid #E0E0E0;
+            border-radius: 6px;
+            padding: 6px 16px;
+            font-size: 0.9rem;
+            color: #555;
+            background: #fff;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        /* Title */
+        .faq-title {
+            color: #483285;
+            font-weight: 700;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        /* Subtitle */
+        .faq-subtitle {
+            color: #666;
+            font-size: 1.07rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* --- FAQ Card Box (The Bordered Container) --- */
+        .faq-card-box {
+            background: #fff;
+            border: 1px solid #9485C9; 
+            border-radius: 12px;
+            padding: 10px 30px; 
+            box-shadow: 0 5px 20px rgba(0,0,0,0.02);
+            margin-top: 40px;
+        }
+
+        /* --- Accordion Items Styling --- */
+
+        .custom-item {
+            border: none;
+            border-bottom: 1px solid #EAEAEA;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+            .custom-item:last-child {
+                border-bottom: none;
+            }
+        .custom-btn {
+            background-color: transparent !important;
+            color: #444;
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 20px 0; 
+            box-shadow: none !important; 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+            .custom-btn:hover {
+                color: #7047EB; 
+            }
+        .accordion-button::after {
+            background-size: 14px;
+            opacity: 0.4;
+            transition: transform 0.3s;
+        }
+        .accordion-button:not(.collapsed) {
+            color: #7047EB;
+            background-color: transparent;
+            box-shadow: none;
+        }
+
+            .accordion-button:not(.collapsed)::after {
+                filter: invert(32%) sepia(53%) saturate(3062%) hue-rotate(244deg) brightness(91%) contrast(97%);
+                opacity: 1;
+            }
+        .accordion-body {
+            padding-left: 0;
+            padding-right: 20px;
+            padding-bottom: 20px;
+            padding-top: 0;
+            font-size: 0.95rem;
+            line-height: 1.6;
         }
     </style>
 </head>
@@ -1674,520 +1901,6 @@
             <a href="#" class="btn-purple d-none d-sm-inline-flex">Get Started</a>
         </nav>
     </div>
-
-    <!-- FEATURES GRID -->
-    <section class="device-showcase-section" id="devices">
-        <!-- Background Grid Pattern -->
-        <div class="device-grid-bg"></div>
-
-        <div class="container showcase-content">
-            <div class="row align-items-center">
-
-                <!-- LEFT COLUMN: Overlapping Devices -->
-                <div class="col-lg-6">
-                    <div class="devices-wrapper">
-
-                        <!-- 1. Laptop Image (The Back Layer) -->
-                        <!-- REPLACE src below with your actual Laptop Mockup Image -->
-                        <img src="~/image/Group 1413373422.png"
-                             alt="Qadryn Laptop View" class="img-laptop">
-
-                        <!-- 2. Tablet Image (The Front Layer) -->
-                        <!-- REPLACE src below with your actual Tablet Mockup Image -->
-                        @* <img src="https://placehold.co/500x350/ffffff/7047EB/png?text=Tablet+App"
-                             alt="Qadryn Tablet View" class="img-tablet"> *@
-
-                    </div>
-                </div>
-
-                <!-- RIGHT COLUMN: Text Content -->
-                <div class="col-lg-6">
-                    <div class="showcase-text-col">
-                        <h2 class="showcase-title">
-                            Qadryn HRM: The Complete Cloud Solution for Workforce Management
-                        </h2>
-
-                        <p class="showcase-desc">
-                            Qadryn HRM is built to automate your entire human resource ecosystem — from attendance and payroll to compliance and workflow management. With advanced biometric integration and secure cloud-based attendance tracking, Qadryn streamlines daily operations and ensures accuracy across all departments.
-                        </p>
-
-                        <p class="showcase-desc">
-                            By unifying all HR functions into one powerful platform, Qadryn enables organizations to work smarter, stay organized, and operate efficiently across Bangladesh.
-                        </p>
-
-                        <a href="#" class="btn-showcase">
-                            Request a Demo
-                            <i class="fas fa-arrow-up-right-from-square"></i>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-    <section class="features-section-wrapper text-center">
-        <div class="container">
-            <!-- HEADER -->
-            <span class="feature-badge">Core Features</span>
-            <h2 class="feature-main-title">Everything Your HR Team Needs</h2>
-
-            <div class="row g-4 text-start">
-
-                <!-- CARD 1: EMPLOYEE DATA (Active Purple) -->
-                <div class="col-lg-4">
-                    <div class="ft-card active">
-                        <div class="ft-icon-box" style="background: #F4EBFF; color: #7047EB;">
-                            <i class="fas fa-user-circle"></i>
-                        </div>
-                        <h3 class="ft-title">Employee Data</h3>
-                        <p class="ft-desc">Hire date, milestones, and role info at a glance. All employee records updated in real time.</p>
-
-                        <!-- VISUAL PART -->
-                        <div class="mt-auto">
-                            <!-- Stats Row -->
-                            <div class="stats-row">
-                                <div class="stat-pill">
-                                    <div class="stat-icon-sm"><i class="fas fa-users"></i></div>
-                                    <div class="stat-text">
-                                        <h6>Total Employee</h6>
-                                        <span>34 Employee</span>
-                                    </div>
-                                </div>
-                                <div class="stat-pill">
-                                    <div class="stat-icon-sm"><i class="fas fa-wallet"></i></div>
-                                    <div class="stat-text">
-                                        <h6>Total Payroll</h6>
-                                        <span>$24,764</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Mock Table -->
-                            <div class="mock-table">
-                                <h5>Employee</h5>
-                                <div class="table-header">
-                                    <div class="checkbox-sq"></div>
-                                    <span>Name</span>
-                                    <span class="ms-auto">Role</span>
-                                    <div class="checkbox-sq"></div>
-                                </div>
-                                <div class="table-row">
-                                    <div class="checkbox-sq"></div>
-                                    <span>William Clark</span>
-                                    <span class="role-badge">Developer</span>
-                                    <div class="checkbox-sq ms-2"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CARD 2: COLLABORATION (Circular Orbit) -->
-                <div class="col-lg-4">
-                    <div class="ft-card">
-                        <div class="ft-icon-box">
-                            <i class="fas fa-user-group"></i>
-                        </div>
-                        <h3 class="ft-title">Collaboration</h3>
-                        <p class="ft-desc">Unite your team with seamless communication tools that keep everyone aligned and productive.</p>
-
-                        <!-- VISUAL PART: Orbit System -->
-                        <div class="orbit-wrapper">
-                            <!-- Rings -->
-                            <div class="orbit-ring ring-outer"></div>
-                            <div class="orbit-ring ring-inner"></div>
-
-                            <!-- Center -->
-                            <div class="center-core">
-                                <i class="fas fa-people-arrows"></i>
-                            </div>
-
-                            <!-- Orbit Icons (Positions match the image) -->
-                            <div class="orbit-item pos-1"><i class="fas fa-file-lines"></i></div>
-                            <div class="orbit-item pos-2"><i class="fas fa-share"></i></div>
-                            <div class="orbit-item pos-3"><i class="fas fa-pen"></i></div>
-                            <div class="orbit-item pos-4"><i class="fas fa-envelope"></i></div>
-                            <div class="orbit-item pos-5"><i class="fas fa-bell"></i></div>
-                            <!-- Extra icon inside inner ring -->
-                            <div class="orbit-item" style="top: 50%; left: 25px; transform: translateY(-50%); width: 35px; height: 35px; box-shadow:none; background:transparent;"><i class="fas fa-share-nodes" style="color:#ccc"></i></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CARD 3: ROLE & SKILLS (Tree Structure) -->
-                <div class="col-lg-4">
-                    <div class="ft-card">
-                        <div class="ft-icon-box">
-                            <i class="fas fa-sitemap"></i>
-                        </div>
-                        <h3 class="ft-title">Role & Skills</h3>
-                        <p class="ft-desc">Organize employee roles, departments, and skill tags. Easily map team capabilities and track training.</p>
-
-                        <!-- VISUAL PART -->
-                        <div class="mt-auto">
-                            <!-- Top Dropdown Lookalike -->
-                            <div class="sys-track-bar">
-                                <div class="d-flex align-items-center">
-                                    <div class="icon-sq-dark"><i class="fas fa-briefcase"></i></div>
-                                    <span>HR systems track</span>
-                                </div>
-                                <i class="fas fa-chevron-down text-muted"></i>
-                            </div>
-
-                            <!-- Tree Diagram Box -->
-                            <div class="tree-box">
-                                <div class="tree-header">
-                                    <i class="fas fa-suitcase me-2"></i> Job roles
-                                </div>
-
-                                <!-- The Tree Lines -->
-                                <div class="tree-branch">
-                                    <div class="tree-item">
-                                        <span class="item-label">Departments</span>
-                                        <div class="status-check bg-indigo"><i class="fas fa-chevron-down"></i></div>
-                                    </div>
-                                    <div class="tree-item">
-                                        <span class="item-label">Skill types</span>
-                                        <div class="status-check bg-dark"><i class="fas fa-check"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-    <!-- === PAYROLL & AUTOMATION SECTION === -->
-    <section class="big-features-section">
-        <div class="container">
-            <div class="row g-4">
-
-                <!-- LEFT CARD: Payroll & Finance -->
-                <div class="col-lg-6">
-                    <div class="big-feature-card">
-
-                        <!-- Header -->
-                        <div class="bf-header">
-                            <div class="bf-icon-box">
-                                <i class="fas fa-wallet"></i>
-                            </div>
-                            <h3 class="bf-title">Payroll & Finance</h3>
-                            <p class="bf-desc">Process salaries, deductions, and payouts accurately with clear financial insights and reports.</p>
-                        </div>
-
-                        <!-- Visual: Bar Chart -->
-                        <div class="visual-mockup-box">
-                            <h5 class="mb-4" style="font-weight:600;">Payroll Insights</h5>
-
-                            <div class="chart-container">
-                                <!-- Y Axis Labels -->
-                                <div class="y-axis">
-                                    <span>$60k</span>
-                                    <span>$45k</span>
-                                    <span>$30k</span>
-                                    <span>$15k</span>
-                                </div>
-
-                                <!-- Bars -->
-                                <div class="bars-wrapper">
-                                    <!-- Alternating Dark and Light bars with different heights -->
-                                    <div class="chart-bar bar-dark" style="height: 60%;"></div>
-                                    <div class="chart-bar bar-light" style="height: 45%;"></div>
-                                    <div class="chart-bar bar-dark" style="height: 35%;"></div>
-                                    <div class="chart-bar bar-light" style="height: 60%;"></div>
-                                    <div class="chart-bar bar-dark" style="height: 50%;"></div>
-                                    <div class="chart-bar bar-light" style="height: 65%;"></div>
-                                    <div class="chart-bar bar-dark" style="height: 85%;"></div>
-                                    <div class="chart-bar bar-light" style="height: 70%;"></div>
-                                    <div class="chart-bar bar-dark" style="height: 40%;"></div>
-                                    <div class="chart-bar bar-light" style="height: 60%;"></div>
-                                    <div class="chart-bar bar-dark" style="height: 75%;"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <!-- RIGHT CARD: HR Automation -->
-                <div class="col-lg-6">
-                    <div class="big-feature-card">
-
-                        <!-- Header -->
-                        <div class="bf-header">
-                            <div class="bf-icon-box" style="background-color: #F3F0FF;">
-                                <i class="fas fa-network-wired"></i>
-                            </div>
-                            <h3 class="bf-title">HR Automation</h3>
-                            <p class="bf-desc">Automate leave, attendance, and approval tasks to reduce manual work and speed up HR operations.</p>
-                        </div>
-
-                        <!-- Visual: Automation Stats -->
-                        <div class="visual-mockup-box">
-
-                            <!-- Top Row: Donut Chart -->
-                            <div class="automation-row">
-                                <div class="circular-progress"></div>
-                                <div>
-                                    <small class="text-muted d-block mb-1">Automation Efficiency</small>
-                                    <h2 class="m-0" style="color: #433582; font-weight: 700;">82%</h2>
-                                </div>
-                            </div>
-
-                            <!-- Bottom Rows: Metrics -->
-                            <div class="metric-box">
-                                <div class="metric-label">Manual hours saved</div>
-                                <div class="metric-value">1,240 hrs/month</div>
-                            </div>
-
-                            <div class="metric-box" style="opacity: 0.6;">
-                                <!-- Faded slightly like image -->
-                                <div class="metric-label">Process acceleration</div>
-                                <div class="metric-value" style="height: 10px; background: #eee; width: 60%; border-radius: 4px; margin-top:5px;"></div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-    <!-- === ALL-IN-ONE HEADER SECTION === -->
-    <section class="aio-features-section text-center">
-        <div class="container">
-            <!-- Badge -->
-            <span class="badge-feature">Features</span>
-
-            <!-- Heading -->
-            <h2 class="aio-title">All-in-one HR and Payroll, tailored for you</h2>
-
-            <!-- Subtitle -->
-            <p class="aio-subtitle">
-                Streamline HR operations, from onboarding to payroll, with smart <br class="d-none d-md-block">
-                automation built around your business needs.
-            </p>
-        </div>
-    </section>
-    <!-- === SERVICE CARDS SECTION === -->
-    <section class="service-cards-section">
-        <div class="container">
-            <div class="row g-4">
-
-                <!-- Card 1: Attendance -->
-                <div class="col-lg-4">
-                    <div class="service-card">
-                        <div class="s-icon-box">
-                            <i class="fas fa-id-card"></i>
-                        </div>
-                        <h3 class="s-title">Attendance management</h3>
-                        <p class="s-desc">
-                            Track employee attendance effortlessly with our cloud-based system. Manage time logs, shifts, and attendance data in real-time — anytime, anywhere.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Card 2: Payroll -->
-                <div class="col-lg-4">
-                    <div class="service-card">
-                        <div class="s-icon-box">
-                            <i class="fas fa-wallet"></i>
-                        </div>
-                        <h3 class="s-title">Payroll Management</h3>
-                        <p class="s-desc">
-                            Automate payroll processing with our integrated system. Manage salaries, deductions, and taxes in one place, ensuring accuracy and compliance.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Card 3: Shift -->
-                <div class="col-lg-4">
-                    <div class="service-card">
-                        <div class="s-icon-box">
-                            <i class="far fa-clock"></i>
-                        </div>
-                        <h3 class="s-title">Shift Management</h3>
-                        <p class="s-desc">
-                            Clock in, clock out, and track breaks easily. Our system offers real-time data and detailed reports for optimal workforce management.
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-    <section class="service-cards-section">
-        <div class="container">
-            <div class="row g-4">
-
-                <!-- Card 1: Attendance -->
-                <div class="col-lg-4">
-                    <div class="service-card">
-                        <div class="s-icon-box">
-                            <i class="fas fa-id-card"></i>
-                        </div>
-                        <h3 class="s-title">Attendance management</h3>
-                        <p class="s-desc">
-                            Track employee attendance effortlessly with our cloud-based system. Manage time logs, shifts, and attendance data in real-time — anytime, anywhere.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Card 2: Payroll -->
-                <div class="col-lg-4">
-                    <div class="service-card">
-                        <div class="s-icon-box">
-                            <i class="fas fa-wallet"></i>
-                        </div>
-                        <h3 class="s-title">Payroll Management</h3>
-                        <p class="s-desc">
-                            Automate payroll processing with our integrated system. Manage salaries, deductions, and taxes in one place, ensuring accuracy and compliance.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Card 3: Shift -->
-                <div class="col-lg-4">
-                    <div class="service-card">
-                        <div class="s-icon-box">
-                            <i class="far fa-clock"></i>
-                        </div>
-                        <h3 class="s-title">Shift Management</h3>
-                        <p class="s-desc">
-                            Clock in, clock out, and track breaks easily. Our system offers real-time data and detailed reports for optimal workforce management.
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-    <section class="service-cards-section">
-        <div class="container">
-            <div class="row g-4">
-
-                <!-- Card 1: Attendance -->
-                <div class="col-lg-4">
-                    <div class="service-card">
-                        <div class="s-icon-box">
-                            <i class="fas fa-id-card"></i>
-                        </div>
-                        <h3 class="s-title">Attendance management</h3>
-                        <p class="s-desc">
-                            Track employee attendance effortlessly with our cloud-based system. Manage time logs, shifts, and attendance data in real-time — anytime, anywhere.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Card 2: Payroll -->
-                <div class="col-lg-4">
-                    <div class="service-card">
-                        <div class="s-icon-box">
-                            <i class="fas fa-wallet"></i>
-                        </div>
-                        <h3 class="s-title">Payroll Management</h3>
-                        <p class="s-desc">
-                            Automate payroll processing with our integrated system. Manage salaries, deductions, and taxes in one place, ensuring accuracy and compliance.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Card 3: Shift -->
-                <div class="col-lg-4">
-                    <div class="service-card">
-                        <div class="s-icon-box">
-                            <i class="far fa-clock"></i>
-                        </div>
-                        <h3 class="s-title">Shift Management</h3>
-                        <p class="s-desc">
-                            Clock in, clock out, and track breaks easily. Our system offers real-time data and detailed reports for optimal workforce management.
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-    <!-- ==============================================
-     COMPARISON HEADER HTML
-     ============================================== -->
-    <section class="comparison-section">
-        <div class="container">
-
-            <!-- Badge -->
-            <div class="comp-badge">Comparison</div>
-
-            <!-- Heading -->
-            <h2 class="comp-title">What Differentiates Qadryn From Other HRM Softwares</h2>
-
-            <!-- Subtitle -->
-            <p class="comp-desc">
-                Elevate HR efficiency with Qadryn's automation, designed to adapt to the unique needs of your organization.
-            </p>
-
-        </div>
-    </section>
-    <section class="comparison-table-section">
-        <div class="container">
-            <div class="table-responsive table-container-rounded">
-                <table class="comp-table">
-                    <thead>
-                        <tr>
-                            <th class="th-features">Features</th>
-                            <th class="th-qadryn">Qadryn HRM</th>
-                            <th class="th-others">Other HRM Software</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Row 1 -->
-                        <tr>
-                            <td class="col-feature-name">Web Panel & Mobile App</td>
-                            <td class="col-status"><i class="fa-solid fa-check icon-check"></i></td>
-                            <td class="col-status"><i class="fa-solid fa-xmark icon-cross"></i></td>
-                        </tr>
-
-                        <!-- Row 2 (Cross for Qadryn, Check for Others as per image) -->
-                        <tr>
-                            <td class="col-feature-name">Dedicated PC Required</td>
-                            <td class="col-status"><i class="fa-solid fa-xmark icon-cross"></i></td>
-                            <td class="col-status"><i class="fa-solid fa-check icon-check"></i></td>
-                        </tr>
-
-                        <!-- Row 3 -->
-                        <tr>
-                            <td class="col-feature-name">Central Monitoring</td>
-                            <td class="col-status"><i class="fa-solid fa-check icon-check"></i></td>
-                            <td class="col-status"><i class="fa-solid fa-xmark icon-cross"></i></td>
-                        </tr>
-
-                        <!-- Row 4 -->
-                        <tr>
-                            <td class="col-feature-name">API Integration</td>
-                            <td class="col-status"><i class="fa-solid fa-check icon-check"></i></td>
-                            <td class="col-status"><i class="fa-solid fa-xmark icon-cross"></i></td>
-                        </tr>
-
-                        <!-- Row 5 -->
-                        <tr>
-                            <td class="col-feature-name">Remote Access</td>
-                            <td class="col-status"><i class="fa-solid fa-check icon-check"></i></td>
-                            <td class="col-status"><i class="fa-solid fa-xmark icon-cross"></i></td>
-                        </tr>
-
-                        <!-- Row 6 -->
-                        <tr>
-                            <td class="col-feature-name">Customizable System</td>
-                            <td class="col-status"><i class="fa-solid fa-check icon-check"></i></td>
-                            <td class="col-status"><i class="fa-solid fa-xmark icon-cross"></i></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
     <section class="header-section">
         <!-- 1. Badge -->
         <div class="badge">Packages</div>
@@ -2318,101 +2031,510 @@
 
         </div>
     </section>
-    <section class="container">
-        <div class="cta-banner">
-            <div class="row justify-content-center">
-                <div class="col-lg-8 text-center">
+    <!-- === TRUSTED PARTNERS TEXT SECTION === -->
+    <section class="partners-text-section text-center">
+        <div class="container">
+            <div class="mb-3">
+                <span class="badge-outlined">Trusted partners</span>
+            </div>
+            <h2 class="big-heading">
+                Managing people made effortless.<br>
+                Because great teams deserve great systems.
+            </h2>
 
-                    <h2 class="cta-title">Grab Yours NOW!</h2>
+        </div>
+    </section>
+    <!-- === LOGO GRID SECTION === -->
+    <section class="logo-grid-section">
+        <div class="container">
+            <!-- Row with spacing (g-3 = gap) -->
+            <div class="row g-3">
 
-                    <p class="cta-desc">
-                        Ditch the boring paperwork. Experience unmatched accuracy, speed, and style with Tipsst's Biometric devices. Let's talk and find the perfect fit for you.
-                    </p>
-
-                    <div class="cta-action-btns">
-                        <a href="#" class="btn btn-custom-primary">Get Free Consultation</a>
-                        <a href="#" class="btn btn-custom-outline">Get a Personalised Quote</a>
+                <!-- Row 1 -->
+                <div class="col-6 col-md-3">
+                    <div class="logo-box">
+                        <span class="partner-logo font-sans">TechCrunch</span>
                     </div>
-
                 </div>
+                <div class="col-6 col-md-3">
+                    <div class="logo-box">
+                        <span class="partner-logo font-sans">Bloomberg</span>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="logo-box">
+                        <span class="partner-logo">The Washington Post</span>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="logo-box">
+                        <span class="partner-logo">Forbes</span>
+                    </div>
+                </div>
+
+                <!-- Row 2 -->
+                <div class="col-6 col-md-3">
+                    <div class="logo-box">
+                        <span class="partner-logo font-sans" style="text-transform: uppercase; letter-spacing: 2px;">GIZMODO</span>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="logo-box">
+                        <span class="partner-logo">Forbes</span>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="logo-box">
+                        <span class="partner-logo font-sans">Bloomberg</span>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="logo-box">
+                        <span class="partner-logo font-sans">Tech <span style="font-weight:400">Tech</span></span>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
+    <!-- === ALL-IN-ONE HEADER SECTION === -->
+    <section class="aio-features-section text-center">
+        <div class="container">
+            <!-- Badge -->
+            <span class="badge-feature">Features</span>
+
+            <!-- Heading -->
+            <h2 class="aio-title">All-in-one HR and Payroll, tailored for you</h2>
+
+            <!-- Subtitle -->
+            <p class="aio-subtitle">
+                Streamline HR operations, from onboarding to payroll, with smart <br class="d-none d-md-block">
+                automation built around your business needs.
+            </p>
+        </div>
+    </section>
+    <!-- === SERVICE CARDS SECTION === -->
+    <section class="service-cards-section">
+        <div class="container">
+            <div class="row g-4">
+
+                <!-- Card 1: Attendance -->
+                <div class="col-lg-4">
+                    <div class="service-card">
+                        <div class="s-icon-box">
+                            <i class="fas fa-id-card"></i>
+                        </div>
+                        <h3 class="s-title">Attendance management</h3>
+                        <p class="s-desc">
+                            Track employee attendance effortlessly with our cloud-based system. Manage time logs, shifts, and attendance data in real-time — anytime, anywhere.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 2: Payroll -->
+                <div class="col-lg-4">
+                    <div class="service-card">
+                        <div class="s-icon-box">
+                            <i class="fas fa-wallet"></i>
+                        </div>
+                        <h3 class="s-title">Payroll Management</h3>
+                        <p class="s-desc">
+                            Automate payroll processing with our integrated system. Manage salaries, deductions, and taxes in one place, ensuring accuracy and compliance.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 3: Shift -->
+                <div class="col-lg-4">
+                    <div class="service-card">
+                        <div class="s-icon-box">
+                            <i class="far fa-clock"></i>
+                        </div>
+                        <h3 class="s-title">Shift Management</h3>
+                        <p class="s-desc">
+                            Clock in, clock out, and track breaks easily. Our system offers real-time data and detailed reports for optimal workforce management.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section class="service-cards-section">
+        <div class="container">
+            <div class="row g-4">
+
+                <!-- Card 1: Attendance -->
+                <div class="col-lg-4">
+                    <div class="service-card">
+                        <div class="s-icon-box">
+                            <i class="fas fa-id-card"></i>
+                        </div>
+                        <h3 class="s-title">Attendance management</h3>
+                        <p class="s-desc">
+                            Track employee attendance effortlessly with our cloud-based system. Manage time logs, shifts, and attendance data in real-time — anytime, anywhere.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 2: Payroll -->
+                <div class="col-lg-4">
+                    <div class="service-card">
+                        <div class="s-icon-box">
+                            <i class="fas fa-wallet"></i>
+                        </div>
+                        <h3 class="s-title">Payroll Management</h3>
+                        <p class="s-desc">
+                            Automate payroll processing with our integrated system. Manage salaries, deductions, and taxes in one place, ensuring accuracy and compliance.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 3: Shift -->
+                <div class="col-lg-4">
+                    <div class="service-card">
+                        <div class="s-icon-box">
+                            <i class="far fa-clock"></i>
+                        </div>
+                        <h3 class="s-title">Shift Management</h3>
+                        <p class="s-desc">
+                            Clock in, clock out, and track breaks easily. Our system offers real-time data and detailed reports for optimal workforce management.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="service-cards-section">
+        <div class="container">
+            <div class="row g-4">
+
+                <!-- Card 1: Attendance -->
+                <div class="col-lg-4">
+                    <div class="service-card">
+                        <div class="s-icon-box">
+                            <i class="fas fa-id-card"></i>
+                        </div>
+                        <h3 class="s-title">Attendance management</h3>
+                        <p class="s-desc">
+                            Track employee attendance effortlessly with our cloud-based system. Manage time logs, shifts, and attendance data in real-time — anytime, anywhere.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 2: Payroll -->
+                <div class="col-lg-4">
+                    <div class="service-card">
+                        <div class="s-icon-box">
+                            <i class="fas fa-wallet"></i>
+                        </div>
+                        <h3 class="s-title">Payroll Management</h3>
+                        <p class="s-desc">
+                            Automate payroll processing with our integrated system. Manage salaries, deductions, and taxes in one place, ensuring accuracy and compliance.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 3: Shift -->
+                <div class="col-lg-4">
+                    <div class="service-card">
+                        <div class="s-icon-box">
+                            <i class="far fa-clock"></i>
+                        </div>
+                        <h3 class="s-title">Shift Management</h3>
+                        <p class="s-desc">
+                            Clock in, clock out, and track breaks easily. Our system offers real-time data and detailed reports for optimal workforce management.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="hero-promo-section">
+        <div class="container">
+            <div class="row align-items-center">
+
+                <!-- LEFT SIDE: IMAGE -->
+                <!-- Order-2 for mobile (shows below text), order-lg-1 for desktop (shows left) -->
+                <div class="col-lg-7 order-2 order-lg-1">
+                    <div class="hero-img-wrapper">
+                        <!-- Replace the src below with your actual image path -->
+                        <img src="~/image/Group 1413373422.png" alt="Dashboard Preview" class="img-fluid main-hero-img">
+                    </div>
+                </div>
+
+                <!-- RIGHT SIDE: TEXT -->
+                <!-- Order-1 for mobile (shows top), order-lg-2 for desktop (shows right) -->
+                <div class="col-lg-5 order-1 order-lg-2">
+                    <div class="hero-content">
+                        <h2 class="hero-title">
+                            Spending too much time on HR, not your business? We can fix that..
+                        </h2>
+                        <p class="hero-desc">
+                            Streamline onboarding, benefits, payroll, PTO, and more with our simple, intuitive platform.
+                        </p>
+
+                        <a href="#" class="btn btn-talk">
+                            Talk To Us
+                            <i class="fas fa-arrow-up-right-from-square ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="faq-section">
+        <div class="container">
+
+            <!-- Header Part -->
+            <div class="row justify-content-center text-center mb-5">
+                <div class="col-lg-8">
+                    <div class="badge-pill">Questions</div>
+                    <h2 class="faq-title">Frequently Asked Questions</h2>
+                    <p class="faq-subtitle">
+                        Simplify HR processes, from hiring to payments, with automation designed for your business.
+                    </p>
+                </div>
+            </div>
+
+            <!-- FAQ Box Part -->
+            <div class="row justify-content-center">
+                <div class="col-lg-12">
+                    <div class="faq-card-box">
+                        <div class="accordion accordion-flush" id="faqAccordion">
+
+                            <!-- Item 1 -->
+                            <div class="accordion-item custom-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed custom-btn" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                        What is the price of biometric attendance systems in Bangladesh?
+                                    </button>
+                                </h2>
+                                <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body text-muted">
+                                        Prices vary based on features and capacity, typically ranging from 5,000 BDT to 20,000 BDT.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Item 2 -->
+                            <div class="accordion-item custom-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed custom-btn" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                        How does a time attendance system software work for managing employee attendance?
+                                    </button>
+                                </h2>
+                                <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body text-muted">
+                                        It captures clock-in/out data via biometric devices or apps and processes it for payroll automatically.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Item 3 -->
+                            <div class="accordion-item custom-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed custom-btn" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                        How is Qadryn different from other brands?
+                                    </button>
+                                </h2>
+                                <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body text-muted">
+                                        Qadryn offers an all-in-one cloud solution with real-time sync, mobile app support, and localized payroll features.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Item 4 -->
+                            <div class="accordion-item custom-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed custom-btn" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                        How does attendance software in Bangladesh improve employee productivity and reduce errors?
+                                    </button>
+                                </h2>
+                                <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body text-muted">
+                                        It eliminates manual entry errors, prevents buddy punching, and streamlines approval workflows.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Item 5 -->
+                            <div class="accordion-item custom-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed custom-btn" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                                        How does access control and time attendance management software work together?
+                                    </button>
+                                </h2>
+                                <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body text-muted">
+                                        They use the same biometric data to unlock doors for authorized personnel while logging their entry time.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Item 6 -->
+                            <div class="accordion-item custom-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed custom-btn" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
+                                        What are the advantages of using punch in punch out attendance systems?
+                                    </button>
+                                </h2>
+                                <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body text-muted">
+                                        It provides accurate work hour tracking, overtime calculation, and ensures discipline.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Item 7 -->
+                            <div class="accordion-item custom-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed custom-btn" type="button" data-bs-toggle="collapse" data-bs-target="#faq7">
+                                        How does a fingerprint attendance system enhance security and accuracy in workforce management?
+                                    </button>
+                                </h2>
+                                <div id="faq7" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body text-muted">
+                                        Fingerprints are unique to each individual, making it impossible for employees to punch in for one another.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Item 8 -->
+                            <div class="accordion-item custom-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed custom-btn" type="button" data-bs-toggle="collapse" data-bs-target="#faq8">
+                                        What features do we get if we use Qadryn software?
+                                    </button>
+                                </h2>
+                                <div id="faq8" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body text-muted">
+                                        You get payroll automation, leave management, shift scheduling, and detailed reporting.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Item 9 -->
+                            <div class="accordion-item custom-item border-0">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed custom-btn" type="button" data-bs-toggle="collapse" data-bs-target="#faq9">
+                                        How does a mobile attendance system benefit employees working remotely or in the field?
+                                    </button>
+                                </h2>
+                                <div id="faq9" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body text-muted">
+                                        Employees can check in via GPS from their location, ensuring accountability even without being in the office.
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="footer-container">
-    <footer class="footer-container">
+        <footer class="footer-container">
 
-        <!-- Left part -->
-        <div class="footer-left">
-            <div class="top-content">
-                <div class="brand-logo">
-                    <i class="fa-solid fa-layer-group"></i> Qadryn
-                </div>
-                <p class="brand-desc">
-                    All-in-one ERP built for next-gen finance and accounting. Designed for general ledger, revenue automation, and close management.
-                </p>
-                <a href="#" class="btn-learn">Learn more</a>
-            </div>
-
-            <!-- -->
-            <div class="left-bottom-row">
-                <div class="social-icons-wrapper">
-                    <a href="#" class="social-circle"><i class="fa-brands fa-facebook-f"></i></a>
-                    <div class="social-row">
-                        <a href="#" class="social-circle"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="#" class="social-circle"><i class="fa-solid fa-x"></i></a> <!-- X Icon -->
+            <!-- Left part -->
+            <div class="footer-left">
+                <div class="top-content">
+                    <div class="brand-logo">
+                        <i class="fa-solid fa-layer-group"></i> Qadryn
                     </div>
+                    <p class="brand-desc">
+                        All-in-one ERP built for next-gen finance and accounting. Designed for general ledger, revenue automation, and close management.
+                    </p>
+                    <a href="#" class="btn-learn">Learn more</a>
                 </div>
-                <div class="copyright-text">
-                    © 2025 Rivo.<br>
-                    All rights reserved.
-                </div>
-            </div>
 
-        </div>
-
-        <!-- Right Part -->
-        <div class="footer-right">
-
-            <!-- Footer menu link -->
-            <ul class="nav-linksfooter">
-                <li><a href="#">Features</a></li>
-                <li><a href="#">Pricing</a></li>
-                <li><a href="#">Devices</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-
-            <!-- Contact US -->
-            <div class="contact-section">
-                <h4>Contact us</h4>
-                <div class="contact-info">
-                    <p>+1 (888) 283-77-04</p>
-                    <p>help@solvcompany.com</p>
-                </div>
-            </div>
-
-            <!--  -->
-            <div class="right-bottom-row">
-                <div class="location-section">
-                    <h4>Location</h4>
-                    <div class="location-info">
-                        <p>48/82C, Moscow,</p>
-                        <p>Myasnitskaya 22/24, Office 43</p>
+                <!-- -->
+                <div class="left-bottom-row">
+                    <div class="social-icons-wrapper">
+                        <a href="#" class="social-circle"><i class="fa-brands fa-facebook-f"></i></a>
+                        <div class="social-row">
+                            <a href="#" class="social-circle"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#" class="social-circle"><i class="fa-solid fa-x"></i></a> <!-- X Icon -->
+                        </div>
+                    </div>
+                    <div class="copyright-text">
+                        © 2025 Rivo.<br>
+                        All rights reserved.
                     </div>
                 </div>
 
-                <div class="language-selector">
-                    <span class="lang-title">Languages</span>
-                    <div class="lang-options">
-                        <span>EN</span> | <span>ES</span> | <span>FR</span> | <span>DE</span> | <span>RU</span>
-                    </div>
-                </div>
             </div>
 
-        </div>
+            <!-- Right Part -->
+            <div class="footer-right">
 
-    </footer>
+                <!-- Footer menu link -->
+                <ul class="nav-linksfooter">
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Devices</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+
+                <!-- Contact US -->
+                <div class="contact-section">
+                    <h4>Contact us</h4>
+                    <div class="contact-info">
+                        <p>+1 (888) 283-77-04</p>
+                        <p>help@solvcompany.com</p>
+                    </div>
+                </div>
+
+                <!--  -->
+                <div class="right-bottom-row">
+                    <div class="location-section">
+                        <h4>Location</h4>
+                        <div class="location-info">
+                            <p>48/82C, Moscow,</p>
+                            <p>Myasnitskaya 22/24, Office 43</p>
+                        </div>
+                    </div>
+
+                    <div class="language-selector">
+                        <span class="lang-title">Languages</span>
+                        <div class="lang-options">
+                            <span>EN</span> | <span>ES</span> | <span>FR</span> | <span>DE</span> | <span>RU</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </footer>
     </section>
     <script>
         document.addEventListener("DOMContentLoaded", function () {

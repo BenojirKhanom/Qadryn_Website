@@ -16,6 +16,10 @@ namespace Dclan_website
         {
             return View();
         }
+        public IActionResult pricing()
+        {
+            return View();
+        }
     }
 }
 
