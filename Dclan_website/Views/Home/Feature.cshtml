@@ -25,10 +25,13 @@
             padding: 0;
             overflow-x: hidden;
         }
-        /* Navbar Styles */
+
+        /* --- Navbar Styles --- */
         .navbar-container {
             padding-top: 30px;
             padding-bottom: 30px;
+            position: relative;
+            z-index: 1000; /* Navbar should be on top */
         }
 
         .custom-navbar {
@@ -38,6 +41,7 @@
             border-radius: 10px;
             padding: 12px 30px;
             box-shadow: 0 4px 20px rgba(112, 71, 235, 0.03);
+            position: relative;
         }
 
         .brand-logo {
@@ -50,6 +54,7 @@
             gap: 8px;
         }
 
+        /* Desktop Nav Links */
         .nav-links {
             margin: 0;
             padding: 0;
@@ -79,25 +84,48 @@
             font-weight: 600;
             border: none;
         }
-        /* This class is added via JavaScript when you click the menu icon */
-        .nav-links.mobile-menu-active {
-            display: flex !important;
-            flex-direction: column;
-            position: absolute;
-            top: 100%; /* Pushes it right below the navbar */
-            left: 0;
-            width: 50%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            z-index: 1000;
-            text-align: left;
-            margin-top: 10px;
-        }
 
+        /* --- MOBILE MENU STYLES (Important Fix) --- */
         @@media (max-width: 991px) {
+            /* 1. Hide links by default on mobile */
+            .nav-links {
+                display: none;
+                gap:10px;
+            }
+                /* 2. Show links when active class is added via JS */
+                .nav-links.mobile-menu-active {
+                    display: flex !important;
+                    flex-direction: column;
+                    position: absolute;
+                    top: 100%; /* Position right below navbar */
+                    left: 0;
+                    margin-top: 15px; /* Gap between navbar and menu */
+                    width: 200px; /* Fixed width for the box */
+                    background: #ffffff;
+                    padding: 20px;
+                    border-radius: 12px;
+                    box-shadow: 0 10px 40px rgba(0,0,0,0.15); /* Strong shadow */
+                    border: 1px solid #f0f0f0;
+                    z-index: 9999; /* Ensure it's on top of everything */
+                }
+
+                    .nav-links.mobile-menu-active li {
+                        width: 100%;
+                        margin-bottom: 15px;
+                    }
+
+                        .nav-links.mobile-menu-active li a {
+                            font-size: 1.1rem;
+                            font-weight: 600;
+                            color: #100C29;
+                            display: block;
+                        }
+
+                            .nav-links.mobile-menu-active li a:hover {
+                                color: #7047EB;
+                                transform: translateX(5px); /* Slide effect on hover */
+                            }
+            /* Adjust Hero Section so menu doesn't get cut off */
             .hero-title {
                 font-size: 3rem;
             }
@@ -107,15 +135,12 @@
                 margin-top: 50px;
             }
 
-            .nav-links {
-                display: none;
-            }
-
             .card-payroll {
                 right: 0;
                 width: 260px;
             }
         }
+
         /* Features Section Styles */
         .features-header-section {
             padding-top: 80px;
@@ -297,31 +322,27 @@
 
         /* --- RESPONSIVE --- */
         @@media (max-width: 991px) {
-            .showcase-text-col
+            .showcase-text-col {
+                padding-left: 15px;
+                margin-top: 60px;
+                text-align: center;
+            }
 
-        {
-            padding-left: 15px;
-            margin-top: 60px;
-            text-align: center;
-        }
+            .showcase-title {
+                font-size: 2rem;
+            }
 
-        .showcase-title {
-            font-size: 2rem;
-        }
-
-        .devices-wrapper {
-            justify-content: center;
-            margin-bottom: 20px;
-            min-height: 300px;
-        }
-
-        /* Adjust overlap for mobile */
-        .img-tablet {
-            width: 50%;
-            bottom: -20px;
-            right: 0;
-        }
-
+            .devices-wrapper {
+                justify-content: center;
+                margin-bottom: 20px;
+                min-height: 300px;
+            }
+            /* Adjust overlap for mobile */
+            .img-tablet {
+                width: 50%;
+                bottom: -20px;
+                right: 0;
+            }
         }
 
         .features-section-wrapper {
@@ -676,17 +697,14 @@
 
         /* Responsive Adjustments */
         @@media (max-width: 991px) {
-            .ft-card
+            .ft-card {
+                margin-bottom: 20px;
+                min-height: auto;
+            }
 
-        {
-            margin-bottom: 20px;
-            min-height: auto;
-        }
-
-        .feature-main-title {
-            font-size: 2rem;
-        }
-
+            .feature-main-title {
+                font-size: 2rem;
+            }
         }
 
         /* --- BIG FEATURE CARDS SECTION --- */
@@ -1043,20 +1061,17 @@
 
         /* --- RESPONSIVE ADJUSTMENTS --- */
         @@media (max-width: 768px) {
-            .comparison-section
+            .comparison-section {
+                padding: 60px 20px;
+            }
 
-        {
-            padding: 60px 20px;
-        }
+            .comp-title {
+                font-size: 1.8rem;
+            }
 
-        .comp-title {
-            font-size: 1.8rem;
-        }
-
-        .comp-desc {
-            font-size: 1rem;
-        }
-
+            .comp-desc {
+                font-size: 1rem;
+            }
         }
         /* --- COMPARISON TABLE SECTION --- */
         .comparison-table-section {
@@ -1142,18 +1157,15 @@
 
         /* --- RESPONSIVE SCROLL --- */
         @@media (max-width: 768px) {
-            .th-features, .col-feature-name
+            .th-features, .col-feature-name {
+                padding-left: 15px !important;
+                font-size: 0.9rem;
+            }
 
-        {
-            padding-left: 15px !important;
-            font-size: 0.9rem;
-        }
-
-        .comp-table th {
-            font-size: 0.95rem;
-            padding: 15px 5px;
-        }
-
+            .comp-table th {
+                font-size: 0.95rem;
+                padding: 15px 5px;
+            }
         }
 
         .header-section {
@@ -1206,8 +1218,8 @@
             }
         }
         /* =========================================
-                           MAIN PRICING SECTION
-                           ========================================= */
+                                   MAIN PRICING SECTION
+                                   ========================================= */
         .pricing-section {
             width: 100%;
             padding: 4rem 20px;
@@ -1327,7 +1339,7 @@
             list-style: none;
             display: flex;
             flex-direction: column;
-             gap: 6px;
+            gap: 6px;
         }
 
         .feature-item {
@@ -1372,7 +1384,6 @@
         /* Container styling to match the rounded card look */
         .cta-banner {
             background-image: url('/image/Frame 2087328685.png');
-
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -1457,8 +1468,8 @@
         }
 
         /* ============================
-                            (LEFT COLUMN)
-                           ============================ */
+                                    (LEFT COLUMN)
+                                   ============================ */
         .footer-left {
             width: 45%;
             display: flex;
@@ -1544,8 +1555,8 @@
         }
 
         /* ============================
-                           (RIGHT COLUMN)
-                           ============================ */
+                                   (RIGHT COLUMN)
+                                   ============================ */
         .footer-right {
             width: 45%;
             display: flex;
@@ -1618,8 +1629,8 @@
             }
 
         /* ============================
-                          Responsive (MOBILE)
-                           ============================ */
+                                  Responsive (MOBILE)
+                                   ============================ */
         @@media (max-width: 900px) {
             .footer-container {
                 flex-direction: column;
@@ -1662,7 +1673,7 @@
             <a href="/Home/Index" class="brand-logo">
                 <i class="fas fa-layer-group" style="color: var(--primary-purple);"></i> Qadryn
             </a>
-            <ul class="nav-links d-none d-lg-flex">
+            <ul class="nav-links">
                 <li><a href="/Home/Index">Home</a></li>
                 <!-- Active Feature Page -->
                 <li><a href="/Home/feature" style="color: var(--primary-purple); font-weight:700;">Features</a></li>
@@ -2340,79 +2351,79 @@
     </section>
 
     <section class="footer-container">
-    <footer class="footer-container">
+        <footer class="footer-container">
 
-        <!-- Left part -->
-        <div class="footer-left">
-            <div class="top-content">
-                <div class="brand-logo">
-                    <i class="fa-solid fa-layer-group"></i> Qadryn
-                </div>
-                <p class="brand-desc">
-                    All-in-one ERP built for next-gen finance and accounting. Designed for general ledger, revenue automation, and close management.
-                </p>
-                <a href="#" class="btn-learn">Learn more</a>
-            </div>
-
-            <!-- -->
-            <div class="left-bottom-row">
-                <div class="social-icons-wrapper">
-                    <a href="#" class="social-circle"><i class="fa-brands fa-facebook-f"></i></a>
-                    <div class="social-row">
-                        <a href="#" class="social-circle"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="#" class="social-circle"><i class="fa-solid fa-x"></i></a> <!-- X Icon -->
+            <!-- Left part -->
+            <div class="footer-left">
+                <div class="top-content">
+                    <div class="brand-logo">
+                        <i class="fa-solid fa-layer-group"></i> Qadryn
                     </div>
+                    <p class="brand-desc">
+                        All-in-one ERP built for next-gen finance and accounting. Designed for general ledger, revenue automation, and close management.
+                    </p>
+                    <a href="#" class="btn-learn">Learn more</a>
                 </div>
-                <div class="copyright-text">
-                    © 2025 Rivo.<br>
-                    All rights reserved.
-                </div>
-            </div>
 
-        </div>
-
-        <!-- Right Part -->
-        <div class="footer-right">
-
-            <!-- Footer menu link -->
-            <ul class="nav-linksfooter">
-                <li><a href="#">Features</a></li>
-                <li><a href="#">Pricing</a></li>
-                <li><a href="#">Devices</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-
-            <!-- Contact US -->
-            <div class="contact-section">
-                <h4>Contact us</h4>
-                <div class="contact-info">
-                    <p>+1 (888) 283-77-04</p>
-                    <p>help@solvcompany.com</p>
-                </div>
-            </div>
-
-            <!--  -->
-            <div class="right-bottom-row">
-                <div class="location-section">
-                    <h4>Location</h4>
-                    <div class="location-info">
-                        <p>48/82C, Moscow,</p>
-                        <p>Myasnitskaya 22/24, Office 43</p>
+                <!-- -->
+                <div class="left-bottom-row">
+                    <div class="social-icons-wrapper">
+                        <a href="#" class="social-circle"><i class="fa-brands fa-facebook-f"></i></a>
+                        <div class="social-row">
+                            <a href="#" class="social-circle"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#" class="social-circle"><i class="fa-solid fa-x"></i></a> <!-- X Icon -->
+                        </div>
+                    </div>
+                    <div class="copyright-text">
+                        © 2025 Rivo.<br>
+                        All rights reserved.
                     </div>
                 </div>
 
-                <div class="language-selector">
-                    <span class="lang-title">Languages</span>
-                    <div class="lang-options">
-                        <span>EN</span> | <span>ES</span> | <span>FR</span> | <span>DE</span> | <span>RU</span>
-                    </div>
-                </div>
             </div>
 
-        </div>
+            <!-- Right Part -->
+            <div class="footer-right">
 
-    </footer>
+                <!-- Footer menu link -->
+                <ul class="nav-linksfooter">
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Devices</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+
+                <!-- Contact US -->
+                <div class="contact-section">
+                    <h4>Contact us</h4>
+                    <div class="contact-info">
+                        <p>+1 (888) 283-77-04</p>
+                        <p>help@solvcompany.com</p>
+                    </div>
+                </div>
+
+                <!--  -->
+                <div class="right-bottom-row">
+                    <div class="location-section">
+                        <h4>Location</h4>
+                        <div class="location-info">
+                            <p>48/82C, Moscow,</p>
+                            <p>Myasnitskaya 22/24, Office 43</p>
+                        </div>
+                    </div>
+
+                    <div class="language-selector">
+                        <span class="lang-title">Languages</span>
+                        <div class="lang-options">
+                            <span>EN</span> | <span>ES</span> | <span>FR</span> | <span>DE</span> | <span>RU</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </footer>
     </section>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
