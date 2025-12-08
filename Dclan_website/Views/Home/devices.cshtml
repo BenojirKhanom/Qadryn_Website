@@ -1,0 +1,1432 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qadryn - Devices</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- 1. BASIC RESET --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(180deg, #D4C4FC 0%, #EDE7FF 40%, #FFFFFF 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* --- 2. GRID BACKGROUND --- */
+        .grid-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(124, 93, 250, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(124, 93, 250, 0.1) 1px, transparent 1px);
+            background-size: 60px 60px;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 40px;
+        }
+
+        /* --- 3. NAVBAR --- */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(12px);
+            padding: 15px 30px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            margin-bottom: 50px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+            font-size: 24px;
+            color: #000;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: rgba(124, 93, 250, 0.2);
+            border-radius: 8px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3px;
+            padding: 5px;
+        }
+
+        .logo-dot {
+            background: #7C5DFA;
+            border-radius: 50%;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+            .nav-links a {
+                text-decoration: none;
+                color: #1F1F38;
+                font-weight: 500;
+                font-size: 16px;
+            }
+
+        .btn-nav {
+            background-color: #7C5DFA;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* --- 4. HERO SECTION --- */
+        .hero-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            padding-top: 20px;
+        }
+
+        .text-content {
+            flex: 0 0 40%;
+        }
+
+        .badge {
+            display: inline-block;
+            border: 1px solid #A1A1AA;
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 14px;
+            color: #4B5563;
+            margin-bottom: 25px;
+            background: rgba(255,255,255,0.4);
+        }
+
+        h1 {
+            font-size: 52px;
+            line-height: 1.1;
+            font-weight: 700;
+            color: #312E81;
+            margin-bottom: 25px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #4B5563;
+            margin-bottom: 40px;
+            max-width: 90%;
+        }
+
+        .btn-order {
+            background-color: #7C5DFA;
+            color: white;
+            padding: 16px 36px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 8px 20px rgba(124,93,250,0.3);
+        }
+
+        .arrow {
+            background: white;
+            color: #7C5DFA;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        /* --- 5. SINGLE IMAGE STYLE --- */
+        .image-wrapper {
+            flex: 0 0 55%; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main-image {
+            width: 100%; 
+            max-width: 700px; 
+            height: auto; 
+            filter: drop-shadow(0px 20px 30px rgba(0,0,0,0.25));
+        }
+
+        /* Mobile Responsive */
+        @@media (max-width: 1024px) {
+            .hero-section
+
+        {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .image-wrapper {
+            width: 100%;
+            margin-top: 40px;
+        }
+
+        p {
+            margin: 0 auto 30px auto;
+        }
+
+        }
+        /* --- PRICING HEADER SECTION --- */
+        .pricing-section {
+            text-align: center;
+            padding: 80px 20px; /* Adjust spacing as needed */
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .price-badge {
+            display: inline-block;
+            border: 1px solid #9CA3AF; /* Grey border */
+            padding: 8px 24px;
+            border-radius: 6px;
+            font-size: 15px;
+            color: #1F1F38;
+            margin-bottom: 25px;
+            font-weight: 500;
+            background-color: transparent;
+        }
+
+        .pricing-title {
+            font-size: 48px; /* Large purple heading */
+            font-weight: 700;
+            color: #483D8B; /* Dark Purple matches "Qadryn" theme */
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .pricing-desc {
+            font-size: 18px;
+            color: #4B5563; /* Grey text */
+            line-height: 1.6;
+            margin: 0 auto;
+        }
+
+        /* Mobile Responsiveness */
+        @@media (max-width: 768px) {
+            .pricing-title
+
+        {
+            font-size: 32px;
+        }
+
+        .pricing-desc {
+            font-size: 16px;
+        }
+
+        }
+        /* --- PRODUCT CARDS SECTION --- */
+        .products-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px; 
+            flex-wrap: wrap;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto 80px auto; 
+        }
+
+        /* Card Design (Based on Image 1) */
+        .product-card {
+            background: #FFFFFF;
+            border: 1px solid #E0D4FC; 
+            border-radius: 20px; 
+            padding: 30px;
+            width: 100%;
+            max-width: 480px; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease;
+        }
+
+            .product-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 30px rgba(124, 93, 250, 0.1);
+            }
+
+        /* Image Box (Based on Image 1) */
+        .product-image-box {
+            background-color: #E8E0FF; 
+            border-radius: 16px;
+            height: 280px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 30px;
+            padding: 20px;
+        }
+
+            .product-image-box img {
+                max-height: 100%;
+                max-width: 100%;
+                object-fit: contain;
+                filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
+            }
+
+        /* Typography (Based on Image 2) */
+        .product-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1F1F38;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .product-specs {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+            .product-specs li {
+                font-size: 16px; 
+                color: #4B5563;
+                margin-bottom: 15px; 
+                display: flex;
+                align-items: center;
+                gap: 12px;
+            }
+
+        /* Check Icon Style */
+        .check-icon {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #3B82F6; 
+            color: #3B82F6;
+            border-radius: 50%;
+            font-size: 12px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        /* Button (Based on Image 1) */
+        .card-footer {
+            margin-top: auto; 
+            text-align: center;
+        }
+
+        .btn-details {
+            background-color: #7C5DFA;
+            color: white;
+            padding: 14px 40px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: background 0.3s;
+        }
+
+            .btn-details:hover {
+                background-color: #6a4ce0;
+            }
+
+        .btn-arrow {
+            background: rgba(255,255,255,0.2);
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px;
+        }
+
+        /* Mobile Responsive */
+        @@media (max-width: 768px) {
+            .products-container
+
+        {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .product-card {
+            width: 100%;
+        }
+
+        }
+           /* --- TRUSTED PARTNERS TEXT SECTION --- */
+        .partners-text-section {
+            padding-top: 100px; 
+            padding-bottom: 60px;
+            background-color: transparent;
+            text-align:center;
+        }
+
+        .badge-outlined {
+            display: inline-block;
+            border: 1px solid #C4B5FD;
+            background-color: #fff;
+            color: #100C29; 
+            padding: 8px 24px;
+            border-radius: 8px; 
+            font-size: 0.95rem;
+            font-weight: 500;
+            margin-bottom: 30px;
+        }
+
+        .big-heading {
+            font-family: Archivo;
+            font-size: 3.2rem;
+            font-weight: 700;
+            color: #433582; 
+            line-height: 1.25;
+            letter-spacing: -0.02em;
+            text-align:center;
+        }
+        @@media (max-width: 768px) {
+            .partners-text-section
+
+        {
+            padding-top: 60px;
+        }
+
+        .big-heading {
+            font-size: 2rem; 
+        }
+
+        }
+        /* --- PARTNERS SECTION STYLES --- */
+        .partners-section {
+            max-width: 1200px;
+            margin: 0 auto 80px auto;
+            padding: 0 20px;
+        }
+
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 20px;
+        }
+
+        .partner-card {
+            background-color: #F8F9FA; 
+            height: 120px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.3s;
+            user-select: none;
+        }
+
+            .partner-card:hover {
+                background-color: #F3F4F6;
+            }
+
+        /* --- TEXT STYLES TO MIMIC LOGOS --- */
+
+        /* TechCrunch Style */
+        .text-techcrunch {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            color: #8899A6; 
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            letter-spacing: -0.5px;
+        }
+
+        .tc-box {
+            background-color: #8899A6;
+            color: #F8F9FA;
+            padding: 2px 5px;
+            border-radius: 2px;
+        }
+
+        /* Bloomberg Style */
+        .text-bloomberg {
+            font-family: 'Inter', sans-serif;
+            font-weight: 800;
+            color: #8899A6;
+            font-size: 22px;
+            letter-spacing: -0.5px;
+        }
+
+        /* Washington Post Style */
+        .text-washpost {
+            font-family: 'Times New Roman', serif; 
+            font-weight: 700;
+            color: #8899A6;
+            font-size: 24px;
+            text-align: center;
+            line-height: 1;
+        }
+
+        /* Forbes Style */
+        .text-forbes {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-weight: 700;
+            color: #8899A6;
+            font-size: 26px;
+            letter-spacing: -0.5px;
+        }
+
+        /* Gizmodo Style */
+        .text-gizmodo {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase; 
+            color: #8899A6;
+            font-size: 20px;
+            letter-spacing: 2px; 
+        }
+
+        /* Mobile Responsive */
+        @@media (max-width: 900px) {
+            .partners-grid
+
+        {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        }
+        /* --- WHY SECTION STYLES --- */
+        .why-section {
+            background-color: #FDFBFB; 
+            padding: 80px 20px;
+            margin-bottom: 50px;
+        }
+
+        .container-why {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center; 
+            justify-content: space-between;
+            gap: 60px; 
+        }
+
+        /* Left Image Styling */
+        .why-image-box {
+            flex: 1; 
+            display: flex;
+            justify-content: center;
+        }
+
+        .why-img {
+            max-width: 100%;
+            height: auto;
+            filter: drop-shadow(0 15px 30px rgba(0,0,0,0.15));
+        }
+
+        /* Right Content Styling */
+        .why-content-box {
+            flex: 1; 
+        }
+
+            .why-content-box h2 {
+                font-size: 42px;
+                font-weight: 700;
+                color: #483D8B;
+                line-height: 1.2;
+                margin-bottom: 25px;
+            }
+
+            .why-content-box p {
+                font-size: 18px;
+                line-height: 1.6;
+                color: #1F1F38; 
+                margin-bottom: 35px;
+                text-align: justify; 
+            }
+
+        /* Button Styling (Same as Image) */
+        .btn-contact {
+            background-color: #7C5DFA; 
+            color: white;
+            padding: 14px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: transform 0.2s ease, background 0.3s;
+        }
+
+            .btn-contact:hover {
+                background-color: #6a4ce0;
+                transform: translateY(-2px);
+            }
+
+        .arrow-circle {
+            background: rgba(255,255,255,0.9);
+            color: #7C5DFA;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        /* Mobile Responsive */
+        @@media (max-width: 900px) {
+            .container-why
+
+        {
+            flex-direction: column; 
+            text-align: center;
+        }
+
+        .why-content-box p {
+            text-align: center; 
+        }
+
+        .why-content-box h2 {
+            font-size: 32px;
+        }
+
+        }
+        /* --- ATTENDANCE SECTION STYLES --- */
+        .attendance-section {
+            background-color: #FFFFFF; 
+            padding: 80px 20px;
+            margin-bottom: 50px;
+        }
+
+        .container-attendance {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center; 
+            justify-content: space-between;
+            gap: 60px;
+        }
+
+        /* Left Text Styling */
+        .attendance-content {
+            flex: 1; 
+        }
+
+            .attendance-content h2 {
+                font-size: 42px;
+                font-weight: 700;
+                color: #483D8B; 
+                margin-bottom: 25px;
+                line-height: 1.2;
+            }
+
+            .attendance-content p {
+                font-size: 18px;
+                line-height: 1.6;
+                color: #1F1F38; 
+                margin-bottom: 35px;
+                text-align: justify;
+            }
+
+        /* Right Image Styling */
+        .attendance-image-wrapper {
+            flex: 1; 
+            display: flex;
+        }
+
+        .attendance-img {
+            max-width: 100%;
+            height: auto;
+            filter: drop-shadow(10px 15px 30px rgba(0,0,0,0.15));
+            transition: transform 0.3s ease;
+        }
+
+            .attendance-img:hover {
+                transform: scale(1.02); 
+            }
+
+        /* Mobile Responsive */
+        @@media (max-width: 900px) {
+            .container-attendance
+
+        {
+            flex-direction: column-reverse; 
+            text-align: center;
+        }
+
+        .attendance-image-wrapper {
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .attendance-content h2 {
+            font-size: 32px;
+        }
+
+        }
+        /* --- TIME TRACKING SECTION STYLES --- */
+        .tracking-section {
+            background-color: #F9FAFB; 
+            padding: 80px 20px;
+            margin-bottom: 50px;
+        }
+
+        .container-tracking {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center; 
+            justify-content: space-between;
+            gap: 60px;
+        }
+
+        /* Left Image Styling */
+        .tracking-image-box {
+            flex: 1; 
+            display: flex;
+            justify-content: center;
+        }
+
+        .tracking-img {
+            max-width: 100%;
+            height: auto;
+            filter: drop-shadow(0 10px 25px rgba(0,0,0,0.1));
+        }
+
+        /* Right Content Styling */
+        .tracking-content {
+            flex: 1;
+        }
+
+            .tracking-content h2 {
+                font-size: 42px;
+                font-weight: 700;
+                color: #483D8B;
+                margin-bottom: 25px;
+                line-height: 1.2;
+            }
+
+            .tracking-content p {
+                font-size: 18px;
+                line-height: 1.6;
+                color: #1F1F38;
+                margin-bottom: 35px;
+                text-align: justify;
+            }
+
+        /* Button Styling (Reusing previous button style for consistency) */
+        .btn-contact {
+            background-color: #7C5DFA;
+            color: white;
+            padding: 14px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: transform 0.2s ease, background 0.3s;
+        }
+
+            .btn-contact:hover {
+                background-color: #6a4ce0;
+                transform: translateY(-2px);
+            }
+
+        .arrow-circle {
+            background: rgba(255,255,255,0.9);
+            color: #7C5DFA;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        /* Mobile Responsive */
+        @@media (max-width: 900px) {
+            .container-tracking
+
+        {
+            flex-direction: column; 
+            text-align: center;
+        }
+
+        .tracking-content h2 {
+            font-size: 32px;
+        }
+
+        .tracking-content p {
+            text-align: center;
+        }
+
+        }
+        /* --- Footer Section --- */
+        .footer-container {
+            width: 100%;
+            max-width: 1300px;
+            background-color: #7065f0;
+            border-radius: 24px;
+            padding: 20px;
+            color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            min-height: 500px;
+            margin: 50px auto;
+        }
+
+        /* ============================
+                                            (LEFT COLUMN)
+                                           ============================ */
+        .footer-left {
+            width: 45%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .brand-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 24px;
+        }
+
+        .brand-desc {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            max-width: 400px;
+            opacity: 0.9;
+            color: white;
+        }
+
+        .btn-learn {
+            display: inline-block;
+            padding: 10px 24px;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+            width: fit-content;
+        }
+
+            .btn-learn:hover {
+                background-color: white;
+                color: #7065f0;
+            }
+
+        .left-bottom-row {
+            display: flex;
+            align-items: flex-end;
+            gap: 40px;
+        }
+
+        social-icons-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 5px;
+            color: #4252e3;
+        }
+
+
+        .social-circle {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #fff;
+            color: #4252e3;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        .social-row {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-circle:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .copyright-text {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            line-height: 1.5;
+        }
+
+        /* ============================
+                                           (RIGHT COLUMN)
+                                           ============================ */
+        .footer-right {
+            width: 45%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /*  (Features, Pricing...) */
+        .nav-linksfooter {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            font-weight: 500;
+        }
+
+            .nav-linksfooter a {
+                color: white;
+                text-decoration: none;
+                opacity: 0.9;
+                transition: 0.2s;
+            }
+
+                .nav-linksfooter a:hover {
+                    opacity: 1;
+                    text-decoration: underline;
+                }
+
+        /*contact location */
+        .contact-section h4,
+        .location-section h4 {
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            font-weight: 600;
+            color: white;
+        }
+
+        .contact-info p,
+        .location-info p {
+            font-size: 1rem;
+            opacity: 0.85;
+            margin-bottom: 6px;
+            line-height: 1.5;
+            color: white;
+        }
+
+
+        .right-bottom-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .language-selector {
+            text-align: right;
+        }
+
+        .lang-title {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .lang-options span {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            cursor: pointer;
+        }
+
+            .lang-options span:hover {
+                opacity: 1;
+            }
+
+        /* ============================
+                                          Responsive (MOBILE)
+                                           ============================ */
+        @@media (max-width: 900px) {
+            .footer-container {
+                flex-direction: column;
+                padding: 40px 24px;
+                gap: 50px;
+            }
+
+            .footer-left, .footer-right {
+                width: 100%;
+            }
+
+            .nav-linksfooter {
+                flex-wrap: wrap;
+                margin-bottom: 30px;
+            }
+
+            .footer-left {
+                gap: 40px;
+            }
+
+            .right-bottom-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+
+            .language-selector {
+                text-align: left;
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="grid-overlay"></div>
+
+    <div class="container">
+
+        <nav class="navbar">
+            <div class="logo">
+                <div class="logo-icon">
+                    <div class="logo-dot"></div><div class="logo-dot"></div>
+                    <div class="logo-dot"></div><div class="logo-dot"></div>
+                </div>
+                Qadryn
+            </div>
+            <ul class="nav-links">
+                <li><a href="/Home/Index">Home</a></li>
+                <!-- Active Feature Page -->
+                <li><a href="/Home/feature" style="color: var(--primary-purple); font-weight:700;">Features</a></li>
+                <li><a href="/Home/Index#pricing">Pricing</a></li>
+                <li><a href="/Home/Index#devices">Devices</a></li>
+                <li><a href="/Home/Blog">Blog</a></li>
+                <li><a href="/Home/Index#contact">Contact</a></li>
+            </ul>
+            <button class="btn-nav">Get Started For Free</button>
+        </nav>
+
+        <div class="hero-section">
+
+            <div class="text-content">
+                <div class="badge">Devices</div>
+                <h1>Fingerprint Attendance Tracking Machine</h1>
+                <p>From clock-ins to comprehensive reports, Qadryn's devices offer seamless integration with our HRM software. Experience real-time data, enhanced security, and effortless attendance management across your organization.</p>
+                <button class="btn-order">
+                    Order Now
+                    <span class="arrow">↗</span>
+                </button>
+            </div>
+
+            <!-- SINGLE IMAGE SECTION -->
+            <div class="image-wrapper">
+                <img src="~/image/device.png" alt="All Devices" class="main-image">
+
+            </div>
+
+        </div>
+
+    </div>
+    <section class="pricing-section">
+        <div class="price-badge">Prices</div>
+        <h2 class="pricing-title">Best Fingerprint Attendance Machines</h2>
+        <p class="pricing-desc">
+            Revolutionize time tracking with our advanced attendance machines, <br>
+            designed to boost productivity.
+        </p>
+    </section>
+    <!-- PRODUCT CARDS SECTION -->
+    <section class="products-container">
+
+        <!-- Card 1: ZKTeco F18 -->
+        <div class="product-card">
+            <div class="product-image-box">
+                <img src="~/image/imgi_2_f22-01-500x500.png" alt="ZKTeco F18">
+            </div>
+
+            <h3 class="product-title">ZKTeco F18</h3>
+
+            <ul class="product-specs">
+                <li>
+                    <span class="check-icon">✓</span> Fingerprint capacity: 3000
+                </li>
+                <li>
+                    <span class="check-icon">✓</span> Card Capacity: 5000
+                </li>
+                <li>
+                    <span class="check-icon">✓</span> Transaction Capacity: 30000
+                </li>
+                <li>
+                    <span class="check-icon">✓</span> Brand: ZKTeco
+                </li>
+                <li>
+                    <span class="check-icon">✓</span> Price: 10500 Tk
+                </li>
+            </ul>
+
+            <div class="card-footer">
+                <button class="btn-details">
+                    See Details
+                    <span class="btn-arrow">↗</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Card 2: ZKTeco K40 -->
+        <div class="product-card">
+            <div class="product-image-box">
+                <img src="~/image/imgi_2_k40-main-500x500 1.png" alt="ZKTeco K40">
+            </div>
+
+            <h3 class="product-title">ZKTeco K40</h3>
+
+            <ul class="product-specs">
+                <li>
+                    <span class="check-icon">✓</span> Fingerprint capacity: 3000
+                </li>
+                <li>
+                    <span class="check-icon">✓</span> Card Capacity: 3000 & User: 3000
+                </li>
+                <li>
+                    <span class="check-icon">✓</span> Specialty: Built-in Battery Backup
+                </li>
+                <li>
+                    <span class="check-icon">✓</span> Brand: ZKTeco
+                </li>
+                <li>
+                    <span class="check-icon">✓</span> Price: 7500 Tk
+                </li>
+            </ul>
+
+            <div class="card-footer">
+                <button class="btn-details">
+                    See Details
+                    <span class="btn-arrow">↗</span>
+                </button>
+            </div>
+        </div>
+
+    </section>
+    <section class="products-container">
+
+        <!-- Card 1: ZKTeco F18 -->
+        <div class="product-card">
+            <div class="product-image-box">
+                <img src="~/image/imgi_2_f22-01-500x500.png" alt="ZKTeco F18">
+            </div>
+
+            <h3 class="product-title">ZKTeco F18</h3>
+
+            <ul class="product-specs">
+                <li>
+                    <span class="check-icon">✓</span> Fingerprint capacity: 3000
+                </li>
+                <li>
+                    <span class="check-icon">✓</span> Card Capacity: 5000
+                </li>
+                <li>
+                    <span class="check-icon">✓</span> Transaction Capacity: 30000
+                </li>
+                <li>
+                    <span class="check-icon">✓</span> Brand: ZKTeco
+                </li>
+                <li>
+                    <span class="check-icon">✓</span> Price: 10500 Tk
+                </li>
+            </ul>
+
+            <div class="card-footer">
+                <button class="btn-details">
+                    See Details
+                    <span class="btn-arrow">↗</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Card 2: ZKTeco K40 -->
+        <div class="product-card">
+            <div class="product-image-box">
+                <img src="~/image/imgi_2_k40-main-500x500 1.png" alt="ZKTeco K40">
+            </div>
+
+            <h3 class="product-title">ZKTeco K40</h3>
+
+            <ul class="product-specs">
+                <li>
+                    <span class="check-icon">✓</span> Fingerprint capacity: 3000
+                </li>
+                <li>
+                    <span class="check-icon">✓</span> Card Capacity: 3000 & User: 3000
+                </li>
+                <li>
+                    <span class="check-icon">✓</span> Specialty: Built-in Battery Backup
+                </li>
+                <li>
+                    <span class="check-icon">✓</span> Brand: ZKTeco
+                </li>
+                <li>
+                    <span class="check-icon">✓</span> Price: 7500 Tk
+                </li>
+            </ul>
+
+            <div class="card-footer">
+                <button class="btn-details">
+                    See Details
+                    <span class="btn-arrow">↗</span>
+                </button>
+            </div>
+        </div>
+
+    </section>
+    <!-- === TRUSTED PARTNERS TEXT SECTION === -->
+    <section class="partners-text-section text-center">
+        <div class="container">
+            <div class="mb-3">
+                <span class="badge-outlined">Trusted partners</span>
+            </div>
+            <h2 class="big-heading">
+                Managing people made effortless.<br>
+                Because great teams deserve great systems.
+            </h2>
+
+        </div>
+    </section>
+    <!-- PARTNERS TEXT SECTION -->
+    <section class="partners-section">
+        <div class="partners-grid">
+
+            <!-- TechCrunch -->
+            <div class="partner-card">
+                <span class="text-techcrunch"><span class="tc-box">TC</span> TechCrunch</span>
+            </div>
+
+            <!-- Bloomberg -->
+            <div class="partner-card">
+                <span class="text-bloomberg">Bloomberg</span>
+            </div>
+
+            <!-- The Washington Post -->
+            <div class="partner-card">
+                <span class="text-washpost">The Washington Post</span>
+            </div>
+
+            <!-- Forbes -->
+            <div class="partner-card">
+                <span class="text-forbes">Forbes</span>
+            </div>
+
+            <!-- Gizmodo -->
+            <div class="partner-card">
+                <span class="text-gizmodo">GIZMODO</span>
+            </div>
+
+            <!-- Forbes (Repeated) -->
+            <div class="partner-card">
+                <span class="text-forbes">Forbes</span>
+            </div>
+
+            <!-- Bloomberg (Repeated) -->
+            <div class="partner-card">
+                <span class="text-bloomberg">Bloomberg</span>
+            </div>
+
+            <!-- Tech -->
+            <div class="partner-card">
+                <span class="text-techcrunch"><span class="tc-box">TC</span> Tech</span>
+            </div>
+
+        </div>
+    </section>
+    <!-- WHY CHOOSE SECTION -->
+    <section class="why-section">
+        <div class="container-why">
+
+            <!-- Left Side: Your Image -->
+            <div class="why-image-box">
+                <img src="~/image/device1.png" alt="Fingerprint Devices" class="why-img">
+            </div>
+
+            <!-- Right Side: Content -->
+            <div class="why-content-box">
+                <h2>Why Fingerprint Attendance <br> System</h2>
+
+                <p>
+                    A fingerprint attendance system ensures fast and accurate tracking of employee hours. It eliminates buddy punching by verifying each person’s unique identity. HR teams get real-time, error-free attendance data for easier payroll. The system reduces paperwork and saves valuable time. Overall, it provides a secure and modern solution for managing attendance.
+                </p>
+
+                <button class="btn-contact">
+                    Contact Us
+                    <span class="arrow-circle">↗</span>
+                </button>
+            </div>
+
+        </div>
+    </section>
+    <!-- ATTENDANCE MANAGEMENT SECTION -->
+    <section class="attendance-section">
+        <div class="container-attendance">
+
+            <!-- Left Side: Text Content -->
+            <div class="attendance-content">
+                <h2>Attendance Management Machine</h2>
+
+                <p>
+                    An attendance management machine helps businesses record employee check-ins with speed and accuracy. It removes manual errors and prevents misuse by using secure verification methods like fingerprints or RFID. HR teams can track attendance in real time, making payroll and reporting much easier. The system reduces paperwork and saves valuable administrative time. Overall, it provides a reliable and modern solution for managing daily workforce attendance.
+                </p>
+
+                <button class="btn-contact">
+                    Contact Us
+                    <span class="arrow-circle">↗</span>
+                </button>
+            </div>
+
+            <!-- Right Side: Image -->
+            <div class="attendance-image-wrapper">
+                <img src="~/image/device1.png" alt="ZKTeco K40 Device" class="attendance-img">
+            </div>
+
+        </div>
+    </section>
+    <!-- TIME AND ATTENDANCE TRACKING SECTION -->
+    <section class="tracking-section">
+        <div class="container-tracking">
+
+            <!-- Left Side: Image -->
+            <div class="tracking-image-box">
+                <img src="~/image/rafiki.png" alt="Time Tracking Illustration" class="tracking-img">
+            </div>
+
+            <!-- Right Side: Text Content -->
+            <div class="tracking-content">
+                <h2>Time and Attendance Tracking</h2>
+
+                <p>
+                    Time and attendance tracking helps businesses monitor employee work hours with complete accuracy. It automates check-ins and check-outs, reducing manual errors and saving HR valuable time. Managers get real-time visibility into shifts, leave, and overtime. The system also streamlines payroll by syncing reliable attendance data. Overall, it ensures smoother workforce management and higher organizational efficiency.
+                </p>
+
+                <button class="btn-contact">
+                    Contact Us
+                    <span class="arrow-circle">↗</span>
+                </button>
+            </div>
+
+        </div>
+    </section>
+    <section class="footer-container">
+        <footer class="footer-container">
+
+            <!-- Left part -->
+            <div class="footer-left">
+                <div class="top-content">
+                    <div class="brand-logo">
+                        <i class="fa-solid fa-layer-group"></i> Qadryn
+                    </div>
+                    <p class="brand-desc">
+                        All-in-one ERP built for next-gen finance and accounting. Designed for general ledger, revenue automation, and close management.
+                    </p>
+                    <a href="#" class="btn-learn">Learn more</a>
+                </div>
+
+                <!-- -->
+                <div class="left-bottom-row">
+                    <div class="social-icons-wrapper">
+                        <a href="#" class="social-circle"><i class="fa-brands fa-facebook-f"></i></a>
+                        <div class="social-row">
+                            <a href="#" class="social-circle"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#" class="social-circle"><i class="fa-solid fa-x"></i></a> <!-- X Icon -->
+                        </div>
+                    </div>
+                    <div class="copyright-text">
+                        © 2025 Rivo.<br>
+                        All rights reserved.
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right Part -->
+            <div class="footer-right">
+
+                <!-- Footer menu link -->
+                <ul class="nav-linksfooter">
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Devices</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+
+                <!-- Contact US -->
+                <div class="contact-section">
+                    <h4>Contact us</h4>
+                    <div class="contact-info">
+                        <p>+1 (888) 283-77-04</p>
+                        <p>help@solvcompany.com</p>
+                    </div>
+                </div>
+
+                <!--  -->
+                <div class="right-bottom-row">
+                    <div class="location-section">
+                        <h4>Location</h4>
+                        <div class="location-info">
+                            <p>48/82C, Moscow,</p>
+                            <p>Myasnitskaya 22/24, Office 43</p>
+                        </div>
+                    </div>
+
+                    <div class="language-selector">
+                        <span class="lang-title">Languages</span>
+                        <div class="lang-options">
+                            <span>EN</span> | <span>BN</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </footer>
+    </section>
+</body>
+</html>

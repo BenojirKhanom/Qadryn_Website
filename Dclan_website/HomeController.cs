@@ -20,6 +20,10 @@ namespace Dclan_website
         {
             return View();
         }
+        public IActionResult devices()
+        {
+            return View();
+        }
     }
 }
 
