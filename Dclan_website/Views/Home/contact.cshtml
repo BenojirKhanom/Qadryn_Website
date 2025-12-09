@@ -27,7 +27,10 @@
         }
 
         body {
-            background: linear-gradient(180deg, #CBB6FC 0%, #EBE5FF 30%, #FFF5F5 100%);
+            background-image: linear-gradient(180deg, #CBB6FC 0%, #EBE5FF 30%, #FFF5F5 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 100vh;
+            background-color: #ffffff;
             min-height: 100vh;
             position: relative;
             padding-bottom: 50px;
@@ -39,11 +42,13 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
+            height: 100vh;
             background-image: linear-gradient(var(--bg-grid-color) 1px, transparent 1px), linear-gradient(90deg, var(--bg-grid-color) 1px, transparent 1px);
             background-size: 60px 60px;
             z-index: -1;
             pointer-events: none;
+            mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
         }
 
         /* --- CONTAINER --- */
@@ -122,6 +127,11 @@
             padding-top: 20px;
         }
 
+        .contact-info p1 {
+            flex: 0 0 45%;
+            padding-top: 20px;
+            color:#000;
+        }
             .contact-info h1 {
                 font-size: 48px;
                 font-weight: 700;
@@ -644,6 +654,462 @@
         }
 
         }
+        /* --- TRUSTED PARTNERS TEXT SECTION --- */
+        .partners-text-section {
+            padding-top: 100px;
+            padding-bottom: 60px;
+            background-color: #ffffff;
+            text-align: center;
+        }
+
+        .badge-outlined {
+            display: inline-block;
+            border: 1px solid #C4B5FD;
+            background-color: #fff;
+            color: #100C29;
+            padding: 8px 24px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            margin-bottom: 30px;
+        }
+
+        .big-heading {
+            font-family: Archivo;
+            font-size: 3.2rem;
+            font-weight: 700;
+            color: #433582;
+            line-height: 1.25;
+            letter-spacing: -0.02em;
+            text-align: center;
+        }
+
+        @@media (max-width: 768px) {
+            .partners-text-section {
+                padding-top: 60px;
+            }
+
+            .big-heading {
+                font-size: 2rem;
+            }
+        }
+        /* --- PARTNERS SECTION STYLES --- */
+        .partners-section {
+            max-width: 1200px;
+            margin: 0 auto 80px auto;
+            padding: 0 20px;
+            background-color: #ffffff;
+        }
+
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .partner-card {
+            background-color: #F8F9FA;
+            height: 120px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.3s;
+            user-select: none;
+        }
+
+            .partner-card:hover {
+                background-color: #F3F4F6;
+            }
+
+        /* --- TEXT STYLES TO MIMIC LOGOS --- */
+
+        /* TechCrunch Style */
+        .text-techcrunch {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            color: #8899A6;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            letter-spacing: -0.5px;
+        }
+
+        .tc-box {
+            background-color: #8899A6;
+            color: #F8F9FA;
+            padding: 2px 5px;
+            border-radius: 2px;
+        }
+
+        /* Bloomberg Style */
+        .text-bloomberg {
+            font-family: 'Inter', sans-serif;
+            font-weight: 800;
+            color: #8899A6;
+            font-size: 22px;
+            letter-spacing: -0.5px;
+        }
+
+        /* Washington Post Style */
+        .text-washpost {
+            font-family: 'Times New Roman', serif;
+            font-weight: 700;
+            color: #8899A6;
+            font-size: 24px;
+            text-align: center;
+            line-height: 1;
+        }
+
+        /* Forbes Style */
+        .text-forbes {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-weight: 700;
+            color: #8899A6;
+            font-size: 26px;
+            letter-spacing: -0.5px;
+        }
+
+        /* Gizmodo Style */
+        .text-gizmodo {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #8899A6;
+            font-size: 20px;
+            letter-spacing: 2px;
+        }
+
+        /* Mobile Responsive */
+        @@media (max-width: 900px) {
+            .partners-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        /* --- Section Layout --- */
+        .contact-map-section {
+            padding: 100px 0;
+            background-color: #fff;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .contact-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 60px; 
+        }
+
+        /* --- Left Side Styling --- */
+        .contact-content {
+            flex: 1;
+            max-width: 500px;
+            padding-top: 40px;
+        }
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+            gap: 15px;
+        }
+
+        .icon-box {
+            color: #7C3AED;
+            font-size: 1.2rem;
+            min-width: 25px; 
+            margin-top: 2px; 
+        }
+
+        .address-text {
+            color: #374151;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .email-link {
+            color: #7C3AED;
+            font-size: 1.1rem;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+            .email-link:hover {
+                text-decoration: underline;
+            }
+
+        /* --- Sales & Office Headings --- */
+        .info-block {
+            margin-bottom: 35px;
+        }
+
+        .mt-large {
+            margin-top: 50px;
+        }
+
+        .info-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1F2937;
+            margin-bottom: 10px;
+        }
+
+        .info-desc {
+            color: #4B5563;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* --- Right Side (Map) Styling --- */
+        .map-container {
+            flex: 1.2; 
+        }
+
+        .map-img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            display: block;
+        }
+
+        /* --- Mobile Responsive --- */
+        @@media (max-width: 900px) {
+            .contact-wrapper
+
+        {
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .contact-content {
+            padding-top: 0;
+            max-width: 100%;
+        }
+
+        }
+         /* --- Footer Section --- */
+        .footer-container {
+            width: 100%;
+            max-width: 1300px;
+            background-color: #7065f0;
+            border-radius: 24px;
+            padding: 20px;
+            color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            min-height: 500px;
+            margin: 50px auto;
+        }
+
+        /* ============================
+                                            (LEFT COLUMN)
+                                           ============================ */
+        .footer-left {
+            width: 45%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .brand-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 24px;
+        }
+
+        .brand-desc {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            max-width: 400px;
+            opacity: 0.9;
+            color: white;
+        }
+
+        .btn-learn {
+            display: inline-block;
+            padding: 10px 24px;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+            width: fit-content;
+        }
+
+            .btn-learn:hover {
+                background-color: white;
+                color: #7065f0;
+            }
+
+        .left-bottom-row {
+            display: flex;
+            align-items: flex-end;
+            gap: 40px;
+        }
+
+        social-icons-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 5px;
+            color: #4252e3;
+        }
+
+
+        .social-circle {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #fff;
+            color: #4252e3;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        .social-row {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-circle:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .copyright-text {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            line-height: 1.5;
+        }
+
+        /* ============================
+                                           (RIGHT COLUMN)
+                                           ============================ */
+        .footer-right {
+            width: 45%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /*  (Features, Pricing...) */
+        .nav-linksfooter {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            font-weight: 500;
+        }
+
+            .nav-linksfooter a {
+                color: white;
+                text-decoration: none;
+                opacity: 0.9;
+                transition: 0.2s;
+            }
+
+                .nav-linksfooter a:hover {
+                    opacity: 1;
+                    text-decoration: underline;
+                }
+
+        /*contact location */
+        .contact-section h4,
+        .location-section h4 {
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            font-weight: 600;
+            color: white;
+        }
+
+        .contact-info p,
+        .location-info p {
+            font-size: 1rem;
+            opacity: 0.85;
+            margin-bottom: 6px;
+            line-height: 1.5;
+            color: white;
+        }
+
+
+        .right-bottom-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .language-selector {
+            text-align: right;
+        }
+
+        .lang-title {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .lang-options span {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            cursor: pointer;
+        }
+
+            .lang-options span:hover {
+                opacity: 1;
+            }
+
+        /* ============================
+                                          Responsive (MOBILE)
+                                           ============================ */
+        @@media (max-width: 900px) {
+            .footer-container {
+                flex-direction: column;
+                padding: 40px 24px;
+                gap: 50px;
+            }
+
+            .footer-left, .footer-right {
+                width: 100%;
+            }
+
+            .nav-linksfooter {
+                flex-wrap: wrap;
+                margin-bottom: 30px;
+            }
+
+            .footer-left {
+                gap: 40px;
+            }
+
+            .right-bottom-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+
+            .language-selector {
+                text-align: left;
+                margin-top: 20px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -659,12 +1125,13 @@
                 <i class="fa-solid fa-layer-group"></i> Qadryn
             </div>
             <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Features</a></li>
-                <li><a href="#">Pricing</a></li>
-                <li><a href="#">Devices</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#" style="color:var(--primary-purple)">Contact</a></li>
+                <li><a href="/Home/Index">Home</a></li>
+                <!-- Active Feature Page -->
+                <li><a href="/Home/feature">Features</a></li>
+                <li><a href="/Home/pricing" >Pricing</a></li>
+                <li><a href="/Home/devices">Devices</a></li>
+                <li><a href="/Home/Blog">Blog</a></li>
+                <li><a href="/Home/contact" style="color: var(--primary-purple); font-weight:700;">Contact</a></li>
             </ul>
             <a href="#" class="btn-nav">Get Started For Free</a>
         </nav>
@@ -688,10 +1155,10 @@
                     </li>
                 </ul>
 
-                <p class="trust-text">
+                <p1 class="trust-text">
                     Trusted, 100% Secure. To Book a Time To Learn More About Qadryn<br>
                     Please Complete The Contact Form Or Call Us Now At +880 4567321
-                </p>
+                </p1>
 
                 <div class="reviews">
                     <div class="avatar-group">
@@ -873,6 +1340,181 @@
             </h2>
 
         </div>
+    </section>
+    <!-- PARTNERS TEXT SECTION -->
+    <section class="partners-section">
+        <div class="partners-grid">
+
+            <!-- TechCrunch -->
+            <div class="partner-card">
+                <span class="text-techcrunch"><span class="tc-box">TC</span> TechCrunch</span>
+            </div>
+
+            <!-- Bloomberg -->
+            <div class="partner-card">
+                <span class="text-bloomberg">Bloomberg</span>
+            </div>
+
+            <!-- The Washington Post -->
+            <div class="partner-card">
+                <span class="text-washpost">The Washington Post</span>
+            </div>
+
+            <!-- Forbes -->
+            <div class="partner-card">
+                <span class="text-forbes">Forbes</span>
+            </div>
+
+            <!-- Gizmodo -->
+            <div class="partner-card">
+                <span class="text-gizmodo">GIZMODO</span>
+            </div>
+
+            <!-- Forbes (Repeated) -->
+            <div class="partner-card">
+                <span class="text-forbes">Forbes</span>
+            </div>
+
+            <!-- Bloomberg (Repeated) -->
+            <div class="partner-card">
+                <span class="text-bloomberg">Bloomberg</span>
+            </div>
+
+            <!-- Tech -->
+            <div class="partner-card">
+                <span class="text-techcrunch"><span class="tc-box">TC</span> Tech</span>
+            </div>
+
+        </div>
+    </section>
+    <section class="contact-map-section">
+        <div class="container">
+            <div class="contact-wrapper">
+
+                <!-- Left Side: Content -->
+                <div class="contact-content">
+
+                    <!-- Address Section (House No) -->
+                    <div class="contact-item">
+                        <div class="icon-box">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <p class="address-text">
+                            House: 445, Road: 11 (3rd Floor), Avenue: 4,<br>
+                            Mirpur DOHS, Dhaka - 1216
+                        </p>
+                    </div>
+
+                    <!-- Email Section -->
+                    <div class="contact-item">
+                        <div class="icon-box">
+                            <i class="fa-regular fa-envelope"></i>
+                        </div>
+                        <a href="mailto:Support@Qadryn.com" class="email-link">Support@Qadryn.com</a>
+                    </div>
+
+                    <!-- Sales Enquiries -->
+                    <div class="info-block mt-large">
+                        <h3 class="info-title">Sales Enquiries</h3>
+                        <p class="info-desc">
+                            Interested in Qadryn Software? Just pick up the<br>
+                            phone to chat with our team.
+                        </p>
+                    </div>
+
+                    <!-- Our Office -->
+                    <div class="info-block">
+                        <h3 class="info-title">Our Office</h3>
+                        <p class="info-desc">
+                            House 12, Road 5, Block C, Mohammadpur,<br>
+                            Dhaka 1207.
+                        </p>
+                    </div>
+
+                </div>
+
+                <!-- Right Side: Map -->
+                <div class="map-container">
+                    <img src="~/image/map.png" alt="Map Location" class="map-img">
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="footer-container">
+        <footer class="footer-container">
+
+            <!-- Left part -->
+            <div class="footer-left">
+                <div class="top-content">
+                    <div class="brand-logo">
+                        <i class="fa-solid fa-layer-group"></i> Qadryn
+                    </div>
+                    <p class="brand-desc">
+                        All-in-one ERP built for next-gen finance and accounting. Designed for general ledger, revenue automation, and close management.
+                    </p>
+                    <a href="#" class="btn-learn">Learn more</a>
+                </div>
+
+                <!-- -->
+                <div class="left-bottom-row">
+                    <div class="social-icons-wrapper">
+                        <a href="#" class="social-circle"><i class="fa-brands fa-facebook-f"></i></a>
+                        <div class="social-row">
+                            <a href="#" class="social-circle"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#" class="social-circle"><i class="fa-solid fa-x"></i></a> <!-- X Icon -->
+                        </div>
+                    </div>
+                    <div class="copyright-text">
+                        © 2025 Rivo.<br>
+                        All rights reserved.
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right Part -->
+            <div class="footer-right">
+
+                <!-- Footer menu link -->
+                <ul class="nav-linksfooter">
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Devices</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+
+                <!-- Contact US -->
+                <div class="contact-section">
+                    <h4>Contact us</h4>
+                    <div class="contact-info">
+                        <p>+1 (888) 283-77-04</p>
+                        <p>help@solvcompany.com</p>
+                    </div>
+                </div>
+
+                <!--  -->
+                <div class="right-bottom-row">
+                    <div class="location-section">
+                        <h4>Location</h4>
+                        <div class="location-info">
+                            <p>48/82C, Moscow,</p>
+                            <p>Myasnitskaya 22/24, Office 43</p>
+                        </div>
+                    </div>
+
+                    <div class="language-selector">
+                        <span class="lang-title">Languages</span>
+                        <div class="lang-options">
+                            <span>EN</span> | <span>BN</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </footer>
     </section>
 </body>
 </html>
