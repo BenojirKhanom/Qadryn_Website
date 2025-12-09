@@ -24,6 +24,10 @@ namespace Dclan_website
         {
             return View();
         }
+        public IActionResult contact()
+        {
+            return View();
+        }
     }
 }
 
