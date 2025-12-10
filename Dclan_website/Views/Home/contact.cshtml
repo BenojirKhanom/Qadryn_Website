@@ -217,13 +217,16 @@
         }
 
         .trust-text {
-            display: block; /* <p1> fix */
+            display: block;
             font-size: 14px;
             color: #6B7280;
             line-height: 1.5;
             margin-bottom: 20px;
         }
 
+            .trust-text p1{
+                color:#000;
+            }
         .reviews {
             display: flex;
             align-items: center;
@@ -775,60 +778,104 @@
 
         }
 
-        /* --- MAP SECTION --- */
+        /* --- MAP SECTION (UPDATED) --- */
         .contact-map-section {
             padding: 100px 0;
             background-color: #fff;
         }
 
-        .contact-item {
+        .map-section-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center; 
+            gap: 50px;
+        }
+
+        /* Left Text Content */
+        .map-text-content {
+            flex: 1;
+            max-width: 500px;
+        }
+
+        .info-row {
             display: flex;
             align-items: flex-start;
-            margin-bottom: 25px;
             gap: 15px;
+            margin-bottom: 25px;
         }
 
-        .icon-box {
-            color: #7C3AED;
-            font-size: 1.2rem;
-            min-width: 25px;
-            margin-top: 2px;
+        .info-icon {
+            font-size: 24px;
+            color: #6366F1; /* Purple Icon */
+            margin-top: 3px; /* Align with text top */
+            min-width: 30px;
         }
 
-        .address-text {
-            color: #374151;
-            font-size: 1rem;
+        .info-text {
+            font-size: 16px;
+            color: #374151; /* Dark Grey */
             line-height: 1.6;
+            margin: 0;
         }
 
-        .email-link {
-            color: #7C3AED;
-            font-size: 1.1rem;
+        .info-link {
+            font-size: 18px;
+            color: #6366F1; /* Purple Link */
             text-decoration: none;
             font-weight: 500;
         }
 
-        .mt-large {
-            margin-top: 50px;
+            .info-link:hover {
+                text-decoration: underline;
+            }
+
+        /* Sales & Office Blocks */
+        .text-block {
+            margin-top: 40px;
         }
 
-        .info-title {
-            font-size: 1.3rem;
+        .block-title {
+            font-family: 'Archivo', sans-serif;
+            font-size: 22px;
             font-weight: 700;
-            color: #1F2937;
-            margin-bottom: 10px;
+            color: #1F2937; /* Dark Heading */
+            margin-bottom: 12px;
         }
 
+        .block-desc {
+            font-size: 16px;
+            color: #4B5563; /* Grey Text */
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Right Map Visual */
         .map-container {
             flex: 1.2;
+            height: auto;
         }
 
         .map-img {
             width: 100%;
             height: auto;
             border-radius: 20px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
             display: block;
+        }
+
+        /* Responsive */
+        @@media (max-width: 900px) {
+            .map-section-wrapper
+
+        {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .map-text-content {
+            max-width: 100%;
+            margin-bottom: 40px;
+        }
+
         }
 
         /* --- FOOTER --- */
@@ -1037,10 +1084,10 @@
                 </ul>
 
                 <!-- Fixed HTML Tag <p1> to <p> -->
-                <p class="trust-text">
+                <p1 class="trust-text">
                     Trusted, 100% Secure. To Book a Time To Learn More About Qadryn<br>
                     Please Complete The Contact Form Or Call Us Now At +880 4567321
-                </p>
+                </p1>
 
                 <div class="reviews">
                     <div class="avatar-group">
@@ -1185,38 +1232,62 @@
         </div>
     </section>
 
+
     <!-- Map Section -->
     <section class="contact-map-section">
         <div class="container">
-            <div class="contact-wrapper">
-                <div class="contact-content">
-                    <div class="contact-item">
-                        <div class="icon-box"><i class="fa-solid fa-location-dot"></i></div>
-                        <p class="address-text">House: 445, Road: 11 (3rd Floor), Avenue: 4,<br>Mirpur DOHS, Dhaka - 1216</p>
+            <div class="map-section-wrapper">
+
+                <!-- Left Side: Text Content -->
+                <div class="map-text-content">
+
+                    <!-- Address -->
+                    <div class="info-row">
+                        <span class="info-icon"><i class="fa-regular fa-location-dot"></i></span>
+                        <p class="info-text">
+                            House: 445, Road: 11 (3rd Floor), Avenue: 4,<br>
+                            Mirpur DOHS, Dhaka - 1216
+                        </p>
                     </div>
-                    <div class="contact-item">
-                        <div class="icon-box"><i class="fa-regular fa-envelope"></i></div>
-                        <a href="mailto:Support@Qadryn.com" class="email-link">Support@Qadryn.com</a>
+
+                    <!-- Email -->
+                    <div class="info-row">
+                        <span class="info-icon"><i class="fa-regular fa-envelope"></i></span>
+                        <a href="mailto:Support@Qadryn.com" class="info-link">Support@Qadryn.com</a>
                     </div>
-                    <div class="info-block mt-large">
-                        <h3 class="info-title">Sales Enquiries</h3>
-                        <p class="info-desc">Interested in Qadryn Software? Just pick up the<br>phone to chat with our team.</p>
+
+                    <!-- Sales Enquiries -->
+                    <div class="text-block">
+                        <h3 class="block-title">Sales Enquiries</h3>
+                        <p class="block-desc">
+                            Interested in Qadryn Software? Just pick up the phone to chat with our team.
+                        </p>
                     </div>
-                    <div class="info-block">
-                        <h3 class="info-title">Our Office</h3>
-                        <p class="info-desc">House 12, Road 5, Block C, Mohammadpur,<br>Dhaka 1207.</p>
+
+                    <!-- Our Office -->
+                    <div class="text-block">
+                        <h3 class="block-title">Our Office</h3>
+                        <p class="block-desc">
+                            House 12, Road 5, Block C, Mohammadpur,<br>
+                            Dhaka 1207.
+                        </p>
                     </div>
+
                 </div>
+
+                <!-- Right Side: Map Image -->
                 <div class="map-container">
-                    <img src="~/image/map.png" alt="Map Location" class="map-img">
+                   
+                    <img src="~/image/map.png" alt="Dhaka Location Map" class="map-img">
                 </div>
+
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <section class="footer-container">
-        <footer class="footer-container" style="margin: 0; padding:0; background: transparent; width:100%;">
+
+        <footer class="footer-container">
             <div class="footer-left">
                 <div class="top-content">
                     <div class="brand-logo"><i class="fa-solid fa-layer-group"></i> Qadryn</div>
@@ -1264,7 +1335,7 @@
                 </div>
             </div>
         </footer>
-    </section>
+
 
     <!-- Mobile Menu Script -->
     <script>
