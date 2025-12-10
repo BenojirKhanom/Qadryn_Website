@@ -6,9 +6,10 @@
     <title>Qadryn - Contact Us</title>
     <!-- Inter Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome for Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome (Only One Version) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
         /* --- RESET & VARIABLES --- */
         * {
@@ -19,7 +20,7 @@
         }
 
         :root {
-            --primary-purple: #6366F1; /* The main button color */
+            --primary-purple: #6366F1;
             --primary-hover: #4F46E5;
             --text-dark: #1F1F38;
             --text-grey: #4B5563;
@@ -42,7 +43,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 100vh;
+            height: 100%; /* Fixed height issue */
             background-image: linear-gradient(var(--bg-grid-color) 1px, transparent 1px), linear-gradient(90deg, var(--bg-grid-color) 1px, transparent 1px);
             background-size: 60px 60px;
             z-index: -1;
@@ -71,6 +72,7 @@
             border: 1px solid rgba(255, 255, 255, 0.5);
             margin-top: 20px;
             margin-bottom: 60px;
+            position: relative; /* Needed for absolute mobile menu */
         }
 
         .logo {
@@ -82,7 +84,6 @@
             gap: 8px;
         }
 
-            /* Logo icon simulation */
             .logo i {
                 color: var(--primary-purple);
             }
@@ -99,10 +100,6 @@
                 font-weight: 500;
             }
 
-                .nav-links a.active {
-                    color: var(--primary-purple);
-                }
-
         .btn-nav {
             background-color: var(--primary-purple);
             color: white;
@@ -112,6 +109,51 @@
             font-weight: 600;
             font-size: 14px;
         }
+
+        /* --- MOBILE MENU STYLES --- */
+        @@media (max-width: 991px) {
+            .nav-links
+
+        {
+            display: none;
+            gap: 10px;
+        }
+
+        /* Class added via JS */
+        .nav-links.mobile-menu-active {
+            display: flex !important;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%; /* Changed from 200px to full width for better UX */
+            background: #ffffff;
+            padding: 20px;
+            margin-top: 10px;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            border: 1px solid #f0f0f0;
+            z-index: 9999;
+        }
+
+            .nav-links.mobile-menu-active li {
+                width: 100%;
+                margin-bottom: 15px;
+                text-align: center;
+            }
+
+                .nav-links.mobile-menu-active li a {
+                    font-size: 1.1rem;
+                    font-weight: 600;
+                    color: #100C29;
+                    display: block;
+                }
+
+        .btn-nav {
+            display: none; /* Hide Get Started button on mobile to save space */
+        }
+
+        } /* <--- ERROR FIXED: Missing closing bracket added here */
 
         /* --- MAIN CONTENT LAYOUT --- */
         .contact-wrapper {
@@ -123,19 +165,14 @@
 
         /* --- LEFT SIDE: TEXT --- */
         .contact-info {
-            flex: 0 0 45%;
+            flex: 1; /* Changed from 0 0 45% */
             padding-top: 20px;
         }
 
-        .contact-info p1 {
-            flex: 0 0 45%;
-            padding-top: 20px;
-            color:#000;
-        }
             .contact-info h1 {
                 font-size: 48px;
                 font-weight: 700;
-                color: #312E81; /* Deep Purple */
+                color: #312E81;
                 line-height: 1.2;
                 margin-bottom: 20px;
             }
@@ -147,7 +184,6 @@
                 margin-bottom: 30px;
             }
 
-        /* Feature List */
         .feature-list {
             list-style: none;
             margin-bottom: 40px;
@@ -170,6 +206,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-shrink: 0; /* Prevents icon from squashing */
         }
 
         .icon-dot {
@@ -180,13 +217,13 @@
         }
 
         .trust-text {
+            display: block; /* <p1> fix */
             font-size: 14px;
             color: #6B7280;
             line-height: 1.5;
             margin-bottom: 20px;
         }
 
-        /* Review Avatars */
         .reviews {
             display: flex;
             align-items: center;
@@ -203,7 +240,7 @@
             height: 40px;
             border-radius: 50%;
             border: 2px solid #fff;
-            margin-left: -10px; /* Overlap effect */
+            margin-left: -10px;
         }
 
             .avatar:first-child {
@@ -216,7 +253,6 @@
             font-size: 14px;
         }
 
-        /* Action Buttons */
         .action-buttons {
             display: flex;
             gap: 20px;
@@ -334,8 +370,8 @@
                 background-color: var(--primary-hover);
             }
 
-        /* Responsive */
-        @@media (max-width: 1024px) {
+        /* Responsive Fixes */
+            @@media (max-width: 1024px) {
             .contact-wrapper
 
         {
@@ -344,20 +380,15 @@
 
         .contact-info, .contact-form-card {
             width: 100%;
-            flex: none;
         }
-
-        .navbar {
-            display: none;
-        }
-        /* Hide navbar on mobile for simplicity, or add burger menu */
-        .contact-info h1 {
-            font-size: 36px;
-        }
+            /* REMOVED .navbar { display: none; } so mobile menu works */
+            .contact-info h1 {
+                font-size: 36px;
+            }
 
         }
 
-        @@media (max-width: 600px) {
+            @@media (max-width: 600px) {
             .form-grid
 
         {
@@ -377,29 +408,26 @@
             justify-content: center;
         }
 
+        .contact-form-card {
+            padding: 20px;
         }
-        /* Section Layout */
+
+        }
+
+        /* --- TESTIMONIAL --- */
         .testimonial-section {
-            background-color: #fcfcfc; /* Matches the light background */
+            background-color: #fcfcfc;
             padding: 60px 20px;
-            font-family: sans-serif; /* Or your preferred font like 'Inter' */
             text-align: center;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* Title */
         .section-title {
-            color: #5e4b8b; /* Purple color from image */
+            color: #5e4b8b;
             font-size: 32px;
             font-weight: 700;
             margin-bottom: 50px;
         }
 
-        /* Slider Layout */
         .testimonial-slider {
             display: flex;
             align-items: center;
@@ -408,7 +436,6 @@
             margin-bottom: 20px;
         }
 
-        /* Arrows */
         .nav-arrow {
             width: 50px;
             height: 50px;
@@ -429,7 +456,6 @@
                 transform: scale(1.05);
             }
 
-        /* Review Card (Bubble) */
         .testimonial-body {
             max-width: 700px;
             display: flex;
@@ -443,11 +469,11 @@
             border-radius: 20px;
             box-shadow: 0 10px 40px rgba(0,0,0,0.05);
             position: relative;
-            margin-bottom: 45px; /* Space for the arrow tail and profile */
+            margin-bottom: 45px;
         }
 
         .stars {
-            color: #ffce31; /* Star yellow color */
+            color: #ffce31;
             font-size: 18px;
             margin-bottom: 15px;
             letter-spacing: 3px;
@@ -457,10 +483,8 @@
             font-size: 18px;
             line-height: 1.6;
             color: #333;
-            margin: 0;
         }
 
-        /* The Speech Bubble Triangle */
         .card-tail {
             position: absolute;
             bottom: -10px;
@@ -469,11 +493,10 @@
             width: 20px;
             height: 20px;
             background: #fff;
-            box-shadow: 4px 4px 4px rgba(0,0,0,0.02); /* Subtle shadow on bottom right */
+            box-shadow: 4px 4px 4px rgba(0,0,0,0.02);
             z-index: 1;
         }
 
-        /* Client Profile */
         .client-info {
             position: relative;
             z-index: 2;
@@ -509,7 +532,6 @@
             margin: 0;
         }
 
-        /* Pagination Dots */
         .dots-wrapper {
             display: flex;
             justify-content: center;
@@ -529,8 +551,7 @@
                 background-color: #666;
             }
 
-        /* Responsive */
-        @@media (max-width: 768px) {
+            @@media (max-width: 768px) {
             .nav-arrow
 
         {
@@ -546,11 +567,11 @@
         }
 
         }
-        /* Main Section Styling */
+
+        /* --- CONTACT CARDS --- */
         .qadryn-contact-section {
             padding: 80px 20px;
             background-color: #ffffff;
-            font-family: sans-serif; /* Use your website's font here */
         }
 
         .q-container {
@@ -558,7 +579,6 @@
             margin: 0 auto;
         }
 
-        /* Header Styling */
         .q-header {
             text-align: center;
             max-width: 800px;
@@ -566,7 +586,7 @@
         }
 
         .q-title {
-            color: #4C3B8D; /* Exact Deep Purple from image */
+            color: #4C3B8D;
             font-size: 32px;
             font-weight: 700;
             margin-bottom: 20px;
@@ -576,10 +596,8 @@
             color: #4a5568;
             font-size: 16px;
             line-height: 1.6;
-            margin: 0;
         }
 
-        /* Grid Layout */
         .q-grid {
             display: flex;
             justify-content: center;
@@ -587,9 +605,8 @@
             flex-wrap: wrap;
         }
 
-        /* Card Styling */
         .q-card {
-            background-color: #F8F9FE; /* The light bluish/white background */
+            background-color: #F8F9FE;
             border-radius: 10px;
             padding: 50px 20px;
             flex: 1;
@@ -606,12 +623,11 @@
                 transform: translateY(-5px);
             }
 
-        /* Icon Box Styling */
         .q-icon-box {
             width: 60px;
             height: 60px;
-            background-color: #EAE6F6; /* Light Purple square background */
-            color: #7A66CC; /* Icon color */
+            background-color: #EAE6F6;
+            color: #7A66CC;
             border-radius: 12px;
             display: flex;
             align-items: center;
@@ -620,7 +636,6 @@
             margin-bottom: 20px;
         }
 
-        /* Text and Links inside Card */
         .q-card-title {
             color: #2D3748;
             font-size: 20px;
@@ -629,7 +644,7 @@
         }
 
         .q-link {
-            color: #7A66CC; /* Matches Icon color */
+            color: #7A66CC;
             font-weight: 500;
             text-decoration: none;
             font-size: 16px;
@@ -639,34 +654,15 @@
                 text-decoration: underline;
             }
 
-        /* Mobile Responsive */
-        @@media (max-width: 768px) {
-            .q-grid
-
-        {
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .q-card {
-            width: 100%;
-            max-width: 100%;
-        }
-
-        }
-        /* --- TRUSTED PARTNERS TEXT SECTION --- */
+        /* --- PARTNERS --- */
         .partners-text-section {
-            padding-top: 100px;
-            padding-bottom: 60px;
-            background-color: #ffffff;
+            padding: 100px 0 60px 0;
             text-align: center;
         }
 
         .badge-outlined {
             display: inline-block;
             border: 1px solid #C4B5FD;
-            background-color: #fff;
-            color: #100C29;
             padding: 8px 24px;
             border-radius: 8px;
             font-size: 0.95rem;
@@ -675,30 +671,17 @@
         }
 
         .big-heading {
-            font-family: Archivo;
+            font-family: Archivo, sans-serif;
             font-size: 3.2rem;
             font-weight: 700;
             color: #433582;
             line-height: 1.25;
-            letter-spacing: -0.02em;
-            text-align: center;
         }
 
-        @@media (max-width: 768px) {
-            .partners-text-section {
-                padding-top: 60px;
-            }
-
-            .big-heading {
-                font-size: 2rem;
-            }
-        }
-        /* --- PARTNERS SECTION STYLES --- */
         .partners-section {
             max-width: 1200px;
             margin: 0 auto 80px auto;
             padding: 0 20px;
-            background-color: #ffffff;
         }
 
         .partners-grid {
@@ -714,7 +697,6 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            transition: background-color 0.3s;
             user-select: none;
         }
 
@@ -722,9 +704,7 @@
                 background-color: #F3F4F6;
             }
 
-        /* --- TEXT STYLES TO MIMIC LOGOS --- */
-
-        /* TechCrunch Style */
+        /* Mimic Logos */
         .text-techcrunch {
             font-family: 'Inter', sans-serif;
             font-weight: 700;
@@ -733,7 +713,6 @@
             display: flex;
             align-items: center;
             gap: 5px;
-            letter-spacing: -0.5px;
         }
 
         .tc-box {
@@ -743,35 +722,29 @@
             border-radius: 2px;
         }
 
-        /* Bloomberg Style */
         .text-bloomberg {
             font-family: 'Inter', sans-serif;
             font-weight: 800;
             color: #8899A6;
             font-size: 22px;
-            letter-spacing: -0.5px;
         }
 
-        /* Washington Post Style */
         .text-washpost {
             font-family: 'Times New Roman', serif;
             font-weight: 700;
             color: #8899A6;
             font-size: 24px;
-            text-align: center;
             line-height: 1;
+            text-align: center;
         }
 
-        /* Forbes Style */
         .text-forbes {
-            font-family: 'Georgia', 'Times New Roman', serif;
+            font-family: 'Georgia', serif;
             font-weight: 700;
             color: #8899A6;
             font-size: 26px;
-            letter-spacing: -0.5px;
         }
 
-        /* Gizmodo Style */
         .text-gizmodo {
             font-family: 'Inter', sans-serif;
             font-weight: 700;
@@ -781,38 +754,33 @@
             letter-spacing: 2px;
         }
 
-        /* Mobile Responsive */
-        @@media (max-width: 900px) {
-            .partners-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+            @@media (max-width: 900px) {
+            .partners-grid
+
+        {
+            grid-template-columns: repeat(2, 1fr);
         }
-        /* --- Section Layout --- */
+
+        }
+            @@media (max-width: 768px) {
+            .partners-text-section
+
+        {
+            padding-top: 60px;
+        }
+
+        .big-heading {
+            font-size: 2rem;
+        }
+
+        }
+
+        /* --- MAP SECTION --- */
         .contact-map-section {
             padding: 100px 0;
             background-color: #fff;
-            font-family: 'Inter', sans-serif;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .contact-wrapper {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 60px; 
-        }
-
-        /* --- Left Side Styling --- */
-        .contact-content {
-            flex: 1;
-            max-width: 500px;
-            padding-top: 40px;
-        }
         .contact-item {
             display: flex;
             align-items: flex-start;
@@ -823,15 +791,14 @@
         .icon-box {
             color: #7C3AED;
             font-size: 1.2rem;
-            min-width: 25px; 
-            margin-top: 2px; 
+            min-width: 25px;
+            margin-top: 2px;
         }
 
         .address-text {
             color: #374151;
             font-size: 1rem;
             line-height: 1.6;
-            margin: 0;
         }
 
         .email-link {
@@ -839,15 +806,6 @@
             font-size: 1.1rem;
             text-decoration: none;
             font-weight: 500;
-        }
-
-            .email-link:hover {
-                text-decoration: underline;
-            }
-
-        /* --- Sales & Office Headings --- */
-        .info-block {
-            margin-bottom: 35px;
         }
 
         .mt-large {
@@ -861,60 +819,32 @@
             margin-bottom: 10px;
         }
 
-        .info-desc {
-            color: #4B5563;
-            font-size: 1rem;
-            line-height: 1.6;
-            margin: 0;
-        }
-
-        /* --- Right Side (Map) Styling --- */
         .map-container {
-            flex: 1.2; 
+            flex: 1.2;
         }
 
         .map-img {
             width: 100%;
             height: auto;
-            border-radius: 20px; 
+            border-radius: 20px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
             display: block;
         }
 
-        /* --- Mobile Responsive --- */
-        @@media (max-width: 900px) {
-            .contact-wrapper
-
-        {
-            flex-direction: column;
-            gap: 40px;
-        }
-
-        .contact-content {
-            padding-top: 0;
-            max-width: 100%;
-        }
-
-        }
-         /* --- Footer Section --- */
+        /* --- FOOTER --- */
         .footer-container {
-            width: 100%;
             max-width: 1300px;
             background-color: #7065f0;
             border-radius: 24px;
-            padding: 20px;
-            color: #ffffff;
+            padding: 40px;
+            color: white;
             display: flex;
             justify-content: space-between;
-            position: relative;
-            min-height: 500px;
             margin: 50px auto;
+            gap: 40px;
         }
 
-        /* ============================
-                                            (LEFT COLUMN)
-                                           ============================ */
-        .footer-left {
+        .footer-left, .footer-right {
             width: 45%;
             display: flex;
             flex-direction: column;
@@ -934,7 +864,6 @@
             font-size: 1.1rem;
             line-height: 1.6;
             margin-bottom: 30px;
-            max-width: 400px;
             opacity: 0.9;
             color: white;
         }
@@ -942,7 +871,7 @@
         .btn-learn {
             display: inline-block;
             padding: 10px 24px;
-            border: 1px solid rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(255,255,255,0.6);
             border-radius: 8px;
             color: white;
             text-decoration: none;
@@ -956,32 +885,10 @@
                 color: #7065f0;
             }
 
-        .left-bottom-row {
-            display: flex;
-            align-items: flex-end;
-            gap: 40px;
-        }
-
-        social-icons-wrapper {
+        .social-icons-wrapper {
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
-            gap: 5px;
-            color: #4252e3;
-        }
-
-
-        .social-circle {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 50px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: #fff;
-            color: #4252e3;
-            text-decoration: none;
-            font-size: 20px;
+            gap: 10px;
         }
 
         .social-row {
@@ -989,40 +896,42 @@
             gap: 10px;
         }
 
-        .social-circle:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        .social-circle {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #fff;
+            color: #4252e3;
+            text-decoration: none;
+            font-size: 18px;
         }
+
+            .social-circle:hover {
+                transform: translateY(-3px);
+            }
 
         .copyright-text {
             font-size: 0.9rem;
             opacity: 0.8;
-            line-height: 1.5;
+            margin-top: 20px;
         }
 
-        /* ============================
-                                           (RIGHT COLUMN)
-                                           ============================ */
-        .footer-right {
-            width: 45%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        /*  (Features, Pricing...) */
         .nav-linksfooter {
             list-style: none;
             display: flex;
-            gap: 30px;
+            gap: 20px;
             font-weight: 500;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
         }
 
             .nav-linksfooter a {
                 color: white;
                 text-decoration: none;
                 opacity: 0.9;
-                transition: 0.2s;
             }
 
                 .nav-linksfooter a:hover {
@@ -1030,85 +939,53 @@
                     text-decoration: underline;
                 }
 
-        /*contact location */
-        .contact-section h4,
-        .location-section h4 {
+        .contact-section h4, .location-section h4 {
             font-size: 1.1rem;
             margin-bottom: 12px;
             font-weight: 600;
             color: white;
         }
 
-        .contact-info p,
-        .location-info p {
+        .contact-info p, .location-info p {
             font-size: 1rem;
             opacity: 0.85;
             margin-bottom: 6px;
-            line-height: 1.5;
             color: white;
         }
-
 
         .right-bottom-row {
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
-        }
-
-        .language-selector {
-            text-align: right;
-        }
-
-        .lang-title {
-            display: block;
-            margin-bottom: 8px;
-            font-size: 0.9rem;
-            opacity: 0.9;
+            margin-top: auto;
         }
 
         .lang-options span {
-            font-size: 0.9rem;
-            opacity: 0.7;
             cursor: pointer;
+            opacity: 0.7;
         }
 
             .lang-options span:hover {
                 opacity: 1;
             }
 
-        /* ============================
-                                          Responsive (MOBILE)
-                                           ============================ */
-        @@media (max-width: 900px) {
-            .footer-container {
-                flex-direction: column;
-                padding: 40px 24px;
-                gap: 50px;
-            }
+            @@media (max-width: 900px) {
+            .footer-container
 
-            .footer-left, .footer-right {
-                width: 100%;
-            }
+        {
+            flex-direction: column;
+        }
 
-            .nav-linksfooter {
-                flex-wrap: wrap;
-                margin-bottom: 30px;
-            }
+        .footer-left, .footer-right {
+            width: 100%;
+        }
 
-            .footer-left {
-                gap: 40px;
-            }
+        .right-bottom-row {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;
+        }
 
-            .right-bottom-row {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 20px;
-            }
-
-            .language-selector {
-                text-align: left;
-                margin-top: 20px;
-            }
         }
     </style>
 </head>
@@ -1124,11 +1001,15 @@
             <div class="logo">
                 <i class="fa-solid fa-layer-group"></i> Qadryn
             </div>
-            <ul class="nav-links">
+
+            <!-- Mobile Menu Toggle Button -->
+            <i class="fas fa-bars d-lg-none" id="mobile-menu-btn" style="font-size: 1.5rem; cursor: pointer; display:none;"></i>
+
+            <!-- Navbar Links -->
+            <ul class="nav-links" id="navbar-links">
                 <li><a href="/Home/Index">Home</a></li>
-                <!-- Active Feature Page -->
                 <li><a href="/Home/feature">Features</a></li>
-                <li><a href="/Home/pricing" >Pricing</a></li>
+                <li><a href="/Home/pricing">Pricing</a></li>
                 <li><a href="/Home/devices">Devices</a></li>
                 <li><a href="/Home/Blog">Blog</a></li>
                 <li><a href="/Home/contact" style="color: var(--primary-purple); font-weight:700;">Contact</a></li>
@@ -1155,10 +1036,11 @@
                     </li>
                 </ul>
 
-                <p1 class="trust-text">
+                <!-- Fixed HTML Tag <p1> to <p> -->
+                <p class="trust-text">
                     Trusted, 100% Secure. To Book a Time To Learn More About Qadryn<br>
                     Please Complete The Contact Form Or Call Us Now At +880 4567321
-                </p1>
+                </p>
 
                 <div class="reviews">
                     <div class="avatar-group">
@@ -1183,28 +1065,22 @@
             <div class="contact-form-card">
                 <form>
                     <div class="form-grid">
-                        <!-- Full Name -->
                         <div class="form-group">
                             <label>Full Name</label>
                             <input type="text" placeholder="Full Name">
                         </div>
-                        <!-- Last Name -->
                         <div class="form-group">
                             <label>Last Name</label>
                             <input type="text" placeholder="Last Name">
                         </div>
-                        <!-- Job Email -->
                         <div class="form-group">
                             <label>Job Email</label>
                             <input type="email" placeholder="Job Email">
                         </div>
-                        <!-- Phone Number -->
                         <div class="form-group">
                             <label>Phone Number</label>
                             <input type="tel" placeholder="Phone Number">
                         </div>
-
-                        <!-- Company Size -->
                         <div class="form-group full-width">
                             <label>Company Size</label>
                             <select>
@@ -1214,269 +1090,151 @@
                                 <option>50+ Employees</option>
                             </select>
                         </div>
-
-                        <!-- Message -->
                         <div class="form-group full-width">
                             <label>Message</label>
                             <textarea placeholder="Your message here..."></textarea>
                         </div>
                     </div>
-
                     <button type="submit" class="btn-submit">Send Message</button>
                 </form>
             </div>
 
         </div>
     </div>
+
+    <!-- Testimonial Section -->
     <section class="testimonial-section">
         <div class="container">
-            <!-- Section Title -->
             <h2 class="section-title">Kind Words From Our Clients</h2>
-
             <div class="testimonial-slider">
-                <!-- Left Arrow -->
-                <button class="nav-arrow prev">
-                    <i class="fa-solid fa-chevron-left"></i>
-                </button>
-
-                <!-- Main Content -->
+                <button class="nav-arrow prev"><i class="fa-solid fa-chevron-left"></i></button>
                 <div class="testimonial-body">
-
-                    <!-- The Speech Bubble Card -->
                     <div class="review-card">
                         <div class="stars">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                         </div>
                         <p class="review-text">
                             "I've been consistently impressed with the quality of service provided by this website.
                             They have exceeded my expectations and delivered exceptional results. Highly recommended!"
                         </p>
-                        <!-- The little triangle at the bottom -->
                         <div class="card-tail"></div>
                     </div>
-
-                    <!-- User Profile -->
                     <div class="client-info">
                         <div class="client-img">
-                            <!-- Replace src with your specific image -->
                             <img src="~/image/Icon Strategy.png" alt="Client Photo">
                         </div>
                         <h3 class="client-name">Muzharul Akh (Riad)</h3>
                         <p class="client-role">CEO of Managing Director, Automotive Software</p>
                     </div>
-
                 </div>
-
-                <!-- Right Arrow -->
-                <button class="nav-arrow next">
-                    <i class="fa-solid fa-chevron-right"></i>
-                </button>
+                <button class="nav-arrow next"><i class="fa-solid fa-chevron-right"></i></button>
             </div>
-
-            <!-- Pagination Dots -->
             <div class="dots-wrapper">
                 <span class="dot active"></span>
                 <span class="dot"></span>
             </div>
         </div>
     </section>
+
+    <!-- Additional Contact Cards -->
     <section class="qadryn-contact-section">
         <div class="q-container">
-            <!-- Header -->
             <div class="q-header">
                 <h2 class="q-title">Contact Us About Qadryn Software</h2>
-                <p class="q-desc">
-                    We'd love to talk on how we can work together. Write a message and we'll respond as soon as possible. You can also send us an email or call us at the regular address below. We look forward to hearing from you!
-                </p>
+                <p class="q-desc">We'd love to talk on how we can work together.</p>
             </div>
-
-            <!-- Cards Row -->
             <div class="q-grid">
-
-                <!-- Card 1 -->
                 <div class="q-card">
-                    <div class="q-icon-box">
-                        <!-- Replace class below with your icon class or use <img> -->
-                        <i class="fa-solid fa-phone-volume"></i>
-                    </div>
+                    <div class="q-icon-box"><i class="fa-solid fa-phone-volume"></i></div>
                     <h3 class="q-card-title">Call Us</h3>
                     <a href="tel:+8801701626626" class="q-link">+880 17 0162 6626</a>
                 </div>
-
-                <!-- Card 2 -->
                 <div class="q-card">
-                    <div class="q-icon-box">
-                        <i class="fa-solid fa-user-group"></i>
-                    </div>
+                    <div class="q-icon-box"><i class="fa-solid fa-user-group"></i></div>
                     <h3 class="q-card-title">Talk to our team</h3>
                     <a href="#" class="q-link">Chat with us</a>
                 </div>
-
-                <!-- Card 3 -->
                 <div class="q-card">
-                    <div class="q-icon-box">
-                        <i class="fa-solid fa-file-lines"></i>
-                    </div>
+                    <div class="q-icon-box"><i class="fa-solid fa-file-lines"></i></div>
                     <h3 class="q-card-title">Read More</h3>
                     <a href="#" class="q-link">Know More</a>
                 </div>
-
             </div>
         </div>
     </section>
-    <!-- === TRUSTED PARTNERS TEXT SECTION === -->
+
+    <!-- Partners Section -->
     <section class="partners-text-section text-center">
         <div class="container">
-            <div class="mb-3">
-                <span class="badge-outlined">Trusted partners</span>
-            </div>
-            <h2 class="big-heading">
-                Managing people made effortless.<br>
-                Because great teams deserve great systems.
-            </h2>
-
+            <div class="mb-3"><span class="badge-outlined">Trusted partners</span></div>
+            <h2 class="big-heading">Managing people made effortless.<br>Because great teams deserve great systems.</h2>
         </div>
     </section>
-    <!-- PARTNERS TEXT SECTION -->
+
     <section class="partners-section">
         <div class="partners-grid">
-
-            <!-- TechCrunch -->
-            <div class="partner-card">
-                <span class="text-techcrunch"><span class="tc-box">TC</span> TechCrunch</span>
-            </div>
-
-            <!-- Bloomberg -->
-            <div class="partner-card">
-                <span class="text-bloomberg">Bloomberg</span>
-            </div>
-
-            <!-- The Washington Post -->
-            <div class="partner-card">
-                <span class="text-washpost">The Washington Post</span>
-            </div>
-
-            <!-- Forbes -->
-            <div class="partner-card">
-                <span class="text-forbes">Forbes</span>
-            </div>
-
-            <!-- Gizmodo -->
-            <div class="partner-card">
-                <span class="text-gizmodo">GIZMODO</span>
-            </div>
-
-            <!-- Forbes (Repeated) -->
-            <div class="partner-card">
-                <span class="text-forbes">Forbes</span>
-            </div>
-
-            <!-- Bloomberg (Repeated) -->
-            <div class="partner-card">
-                <span class="text-bloomberg">Bloomberg</span>
-            </div>
-
-            <!-- Tech -->
-            <div class="partner-card">
-                <span class="text-techcrunch"><span class="tc-box">TC</span> Tech</span>
-            </div>
-
+            <div class="partner-card"><span class="text-techcrunch"><span class="tc-box">TC</span> TechCrunch</span></div>
+            <div class="partner-card"><span class="text-bloomberg">Bloomberg</span></div>
+            <div class="partner-card"><span class="text-washpost">The Washington Post</span></div>
+            <div class="partner-card"><span class="text-forbes">Forbes</span></div>
+            <div class="partner-card"><span class="text-gizmodo">GIZMODO</span></div>
+            <div class="partner-card"><span class="text-forbes">Forbes</span></div>
+            <div class="partner-card"><span class="text-bloomberg">Bloomberg</span></div>
+            <div class="partner-card"><span class="text-techcrunch"><span class="tc-box">TC</span> Tech</span></div>
         </div>
     </section>
+
+    <!-- Map Section -->
     <section class="contact-map-section">
         <div class="container">
             <div class="contact-wrapper">
-
-                <!-- Left Side: Content -->
                 <div class="contact-content">
-
-                    <!-- Address Section (House No) -->
                     <div class="contact-item">
-                        <div class="icon-box">
-                            <i class="fa-solid fa-location-dot"></i>
-                        </div>
-                        <p class="address-text">
-                            House: 445, Road: 11 (3rd Floor), Avenue: 4,<br>
-                            Mirpur DOHS, Dhaka - 1216
-                        </p>
+                        <div class="icon-box"><i class="fa-solid fa-location-dot"></i></div>
+                        <p class="address-text">House: 445, Road: 11 (3rd Floor), Avenue: 4,<br>Mirpur DOHS, Dhaka - 1216</p>
                     </div>
-
-                    <!-- Email Section -->
                     <div class="contact-item">
-                        <div class="icon-box">
-                            <i class="fa-regular fa-envelope"></i>
-                        </div>
+                        <div class="icon-box"><i class="fa-regular fa-envelope"></i></div>
                         <a href="mailto:Support@Qadryn.com" class="email-link">Support@Qadryn.com</a>
                     </div>
-
-                    <!-- Sales Enquiries -->
                     <div class="info-block mt-large">
                         <h3 class="info-title">Sales Enquiries</h3>
-                        <p class="info-desc">
-                            Interested in Qadryn Software? Just pick up the<br>
-                            phone to chat with our team.
-                        </p>
+                        <p class="info-desc">Interested in Qadryn Software? Just pick up the<br>phone to chat with our team.</p>
                     </div>
-
-                    <!-- Our Office -->
                     <div class="info-block">
                         <h3 class="info-title">Our Office</h3>
-                        <p class="info-desc">
-                            House 12, Road 5, Block C, Mohammadpur,<br>
-                            Dhaka 1207.
-                        </p>
+                        <p class="info-desc">House 12, Road 5, Block C, Mohammadpur,<br>Dhaka 1207.</p>
                     </div>
-
                 </div>
-
-                <!-- Right Side: Map -->
                 <div class="map-container">
                     <img src="~/image/map.png" alt="Map Location" class="map-img">
                 </div>
-
             </div>
         </div>
     </section>
-    <section class="footer-container">
-        <footer class="footer-container">
 
-            <!-- Left part -->
+    <!-- Footer -->
+    <section class="footer-container">
+        <footer class="footer-container" style="margin: 0; padding:0; background: transparent; width:100%;">
             <div class="footer-left">
                 <div class="top-content">
-                    <div class="brand-logo">
-                        <i class="fa-solid fa-layer-group"></i> Qadryn
-                    </div>
-                    <p class="brand-desc">
-                        All-in-one ERP built for next-gen finance and accounting. Designed for general ledger, revenue automation, and close management.
-                    </p>
+                    <div class="brand-logo"><i class="fa-solid fa-layer-group"></i> Qadryn</div>
+                    <p class="brand-desc">All-in-one ERP built for next-gen finance and accounting.</p>
                     <a href="#" class="btn-learn">Learn more</a>
                 </div>
-
-                <!-- -->
                 <div class="left-bottom-row">
                     <div class="social-icons-wrapper">
                         <a href="#" class="social-circle"><i class="fa-brands fa-facebook-f"></i></a>
                         <div class="social-row">
                             <a href="#" class="social-circle"><i class="fa-brands fa-instagram"></i></a>
-                            <a href="#" class="social-circle"><i class="fa-solid fa-x"></i></a> <!-- X Icon -->
+                            <a href="#" class="social-circle"><i class="fa-solid fa-x"></i></a>
                         </div>
                     </div>
-                    <div class="copyright-text">
-                        © 2025 Rivo.<br>
-                        All rights reserved.
-                    </div>
+                    <div class="copyright-text">© 2025 Rivo.<br>All rights reserved.</div>
                 </div>
-
             </div>
-
-            <!-- Right Part -->
             <div class="footer-right">
-
-                <!-- Footer menu link -->
                 <ul class="nav-linksfooter">
                     <li><a href="#">Features</a></li>
                     <li><a href="#">Pricing</a></li>
@@ -1484,8 +1242,6 @@
                     <li><a href="#">Blog</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
-
-                <!-- Contact US -->
                 <div class="contact-section">
                     <h4>Contact us</h4>
                     <div class="contact-info">
@@ -1493,8 +1249,6 @@
                         <p>help@solvcompany.com</p>
                     </div>
                 </div>
-
-                <!--  -->
                 <div class="right-bottom-row">
                     <div class="location-section">
                         <h4>Location</h4>
@@ -1503,18 +1257,44 @@
                             <p>Myasnitskaya 22/24, Office 43</p>
                         </div>
                     </div>
-
                     <div class="language-selector">
                         <span class="lang-title">Languages</span>
-                        <div class="lang-options">
-                            <span>EN</span> | <span>BN</span>
-                        </div>
+                        <div class="lang-options"><span>EN</span> | <span>BN</span></div>
                     </div>
                 </div>
-
             </div>
-
         </footer>
     </section>
+
+    <!-- Mobile Menu Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuBtn = document.getElementById("mobile-menu-btn");
+            const navLinks = document.getElementById("navbar-links");
+
+            // Make sure the hamburger icon is visible on mobile in CSS
+            // The style tag handles the media query to show it
+
+            if (menuBtn && navLinks) {
+                // Ensure icon is visible on mobile (inline style force for safety)
+                if(window.innerWidth <= 991) {
+                    menuBtn.style.display = 'block';
+                }
+
+                window.addEventListener('resize', function() {
+                    if(window.innerWidth <= 991) {
+                        menuBtn.style.display = 'block';
+                    } else {
+                        menuBtn.style.display = 'none';
+                        navLinks.classList.remove("mobile-menu-active");
+                    }
+                });
+
+                menuBtn.addEventListener("click", function () {
+                    navLinks.classList.toggle("mobile-menu-active");
+                });
+            }
+        });
+    </script>
 </body>
 </html>
