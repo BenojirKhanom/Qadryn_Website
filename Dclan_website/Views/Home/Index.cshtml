@@ -2667,7 +2667,882 @@
                 margin-top: 20px;
             }
         }
+        /* --- ALL-IN-ONE HEADER STYLES --- */
+        .aio-features-section {
+            padding-top: 100px;
+            padding-bottom: 50px;
+            background-color: transparent;
+        }
 
+        /* 1. Features Badge Style */
+        .badge-feature {
+            display: inline-block;
+            border: 1px solid #9ca3af;
+            border-radius: 6px;
+            padding: 6px 20px;
+            color: #100C29;
+            font-weight: 500;
+            font-size: 0.95rem;
+            background: #fff;
+            margin-bottom: 25px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        /* 2. Main Title Style */
+        .aio-title {
+            font-family: Archivo;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #433582;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+
+        /* 3. Subtitle Style */
+        .aio-subtitle {
+            font-size: 1.15rem;
+            color: #52525B;
+            line-height: 1.6;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* --- Responsive for Mobile --- */
+        @@media (max-width: 768px) {
+            .aio-features-section {
+                padding-top: 60px;
+            }
+
+            .aio-title {
+                font-size: 2rem;
+            }
+
+            .aio-subtitle {
+                font-size: 1rem;
+                padding: 0 15px;
+            }
+        }
+        /* --- SERVICE CARDS STYLES --- */
+        .service-cards-section {
+            padding-bottom: 100px;
+            background-color: transparent;
+        }
+
+        .service-card {
+            padding: 50px 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            height: 100%;
+            border: 1px solid transparent;
+            background-color: #f5f5f5;
+        }
+
+        /* Icon Box Style */
+        .s-icon-box {
+            width: 70px;
+            height: 70px;
+            background-color: #C4B5FD;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin: 0 auto 30px auto;
+            transition: all 0.4s ease;
+        }
+
+        /* Title Style */
+        .s-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #100C29;
+            margin-bottom: 20px;
+            transition: color 0.4s ease;
+        }
+
+        /* Description Style */
+        .s-desc {
+            font-size: 0.95rem;
+            color: #52525B;
+            line-height: 1.6;
+            transition: color 0.4s ease;
+        }
+
+        /* --- HOVER EFFECTS ONLY --- */
+
+        .service-card:hover {
+            background-color: #1A0B50;
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(26, 11, 80, 0.15);
+        }
+
+            .service-card:hover .s-title {
+                color: #ffffff;
+            }
+
+            .service-card:hover .s-desc {
+                color: rgba(255, 255, 255, 0.8);
+            }
+
+            .service-card:hover .s-icon-box {
+                background-color: #E0D9FF;
+                color: #1A0B50;
+            }
+
+        /* --- Responsive --- */
+        @@media (max-width: 991px) {
+            .service-card {
+                padding: 40px 20px;
+            }
+        }
+        /* Ensure the title color matches the deep purple in the image */
+        .benefits-title {
+            color: #433582; /* Deep Purple */
+            font-weight: 700;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Ensure the subtitle has a soft gray color */
+        .benefits-subtitle {
+            color: #6B7280; /* Gray-500 */
+            font-size: 1.15rem;
+        }
+
+        /* Responsive adjustment for small screens */
+        @@media (max-width: 768px) {
+            .benefits-title
+
+        {
+            font-size: 2rem;
+            padding: 0 10px;
+        }
+
+        .benefits-subtitle {
+            font-size: 1rem;
+            padding: 0 15px;
+        }
+
+        }
+        /* --- Visual Mockup Styles --- */
+
+        /* Node/Workflow Visual */
+        .workflow-visual {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .wf-node {
+            width: 45px;
+            height: 45px;
+            background: white;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            color: #666;
+        }
+
+            .wf-node.active {
+                background: #7047EB;
+                color: white;
+                transform: scale(1.1);
+                box-shadow: 0 8px 20px rgba(112, 71, 235, 0.2);
+            }
+
+        .wf-line {
+            width: 30px;
+            height: 2px;
+            background: #EAE6FF;
+        }
+
+        /* Chart Visual */
+        .chart-visual-inner {
+            width: 100%;
+            background: white;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+        }
+
+        .chart-badge {
+            background: #EAE6FF;
+            color: #7047EB;
+            font-size: 9px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 20px;
+        }
+
+        .cv-bars {
+            display: flex;
+            align-items: flex-end;
+            gap: 8px;
+            height: 80px;
+        }
+
+        .cv-bar {
+            flex: 1;
+            background: linear-gradient(to top, #7047EB, #C4B5FD);
+            border-radius: 4px 4px 0 0;
+            opacity: 0.8;
+        }
+
+        /* Security Visual */
+        .security-visual {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .shield-main {
+            font-size: 50px;
+            color: #7047EB;
+            position: relative;
+            z-index: 2;
+        }
+
+        .lock-inner {
+            position: absolute;
+            top: 55%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 16px;
+            color: white;
+        }
+
+        .s-dot {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+        }
+
+        .d1 {
+            top: 0;
+            left: 0;
+            background: #60A5FA;
+        }
+
+        .d2 {
+            top: 0;
+            right: 0;
+            background: #34D399;
+        }
+
+        .d3 {
+            bottom: 0;
+            left: 10px;
+            background: #10B981;
+        }
+
+        .d4 {
+            bottom: 10px;
+            right: -10px;
+            background: #FBBF24;
+        }
+
+        .d5 {
+            top: 30px;
+            left: -25px;
+            background: #FCD34D;
+        }
+
+        .d6 {
+            top: 30px;
+            right: -25px;
+            background: #C084FC;
+        }
+
+        /* Responsive Adjustments */
+        @@media (max-width: 991px) {
+            .benefit-card
+
+        {
+            min-height: auto !important;
+            margin-bottom: 20px;
+        }
+
+        }
+        /* --- Paperless Section Styles --- */
+        .paperless-section {
+            padding: 80px 0;
+            background-color: #ffffff;
+        }
+
+        /* 1. The Large Gradient Background Box */
+        .paperless-visual-wrapper {
+            /* Matches the soft lavender gradient in your image */
+            background: linear-gradient(135deg, #E0D4FF 0%, #FFFFFF 100%);
+            border-radius: 24px;
+            padding: 60px 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid rgba(224, 212, 255, 0.3);
+        }
+
+        /* 2. The White Card with the specific Shadow */
+        .white-mockup-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 20px;
+            width: 100%;
+            /* The deep, soft shadow from the image */
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+
+            .white-mockup-card img {
+                width: 100%;
+                height: auto;
+                display: block;
+                border-radius: 12px;
+            }
+
+        /* 3. Text Styles */
+        .paperless-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #100C29;
+            margin-bottom: 15px;
+        }
+
+        .paperless-subtitle {
+            font-size: 1.15rem;
+            color: #52525B;
+            margin-bottom: 35px;
+        }
+
+        /* 4. List Items with Icon Circles */
+        .paperless-list {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 40px;
+        }
+
+            .paperless-list li {
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                margin-bottom: 20px;
+                font-size: 1.1rem;
+                color: #100C29;
+                font-weight: 500;
+            }
+
+        .icon-circle {
+            width: 38px;
+            height: 38px;
+            border: 1px solid #E5E7EB;
+            border-radius: 8px; /* Slightly rounded as per image */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6366F1;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+            background-color: #ffffff;
+        }
+
+        /* 5. The Specific Gradient Button */
+        .btn-paperless {
+            /* Purple to Blue gradient from your image */
+            background: linear-gradient(90deg, #8B5CF6 0%, #3B82F6 100%);
+            color: #ffffff !important;
+            padding: 14px 32px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.2);
+            border: none;
+        }
+
+            .btn-paperless:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 15px 25px rgba(59, 130, 246, 0.3);
+            }
+
+        /* --- Responsive Fixes --- */
+        @@media (max-width: 991px) {
+            .paperless-visual-wrapper
+
+        {
+            padding: 40px 20px;
+        }
+
+        .paperless-title {
+            font-size: 2.2rem;
+        }
+
+        .ps-lg-5 {
+            padding-left: 15px !important;
+        }
+
+        }
+        /* --- Cloud Access Section Styles --- */
+        .cloud-access-section {
+            padding: 80px 0;
+            background-color: #ffffff;
+        }
+
+        /* 1. The Mint/Teal Gradient Background Box */
+        .cloud-visual-wrapper {
+            /* Matches the soft teal/mint gradient in your image */
+            background: linear-gradient(135deg, #CCFBF1 0%, #F3F4F6 100%);
+            border-radius: 24px;
+            padding: 60px 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid rgba(204, 251, 241, 0.4);
+        }
+
+        /* 2. The White Card with specific Shadow */
+        .white-cloud-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 20px;
+            width: 100%;
+            /* Deep soft shadow to match the UI style */
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+        }
+
+            .white-cloud-card img {
+                width: 100%;
+                height: auto;
+                display: block;
+                border-radius: 12px;
+            }
+
+        /* 3. Text Styles */
+        .cloud-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #100C29;
+            margin-bottom: 15px;
+        }
+
+        .cloud-subtitle {
+            font-size: 1.15rem;
+            color: #52525B;
+            margin-bottom: 35px;
+        }
+
+        /* 4. List Items with rounded-square Icons */
+        .cloud-list {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 40px;
+        }
+
+            .cloud-list li {
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                margin-bottom: 20px;
+                font-size: 1.1rem;
+                color: #100C29;
+                font-weight: 500;
+            }
+
+        .c-icon-box {
+            width: 38px;
+            height: 38px;
+            border: 1px solid #E5E7EB;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6366F1; /* Icon color */
+            font-size: 0.9rem;
+            flex-shrink: 0;
+            background-color: #ffffff;
+        }
+
+        /* 5. The Specific Gradient Button */
+        .btn-cloud {
+            background: linear-gradient(90deg, #8B5CF6 0%, #3B82F6 100%);
+            color: #ffffff !important;
+            padding: 14px 32px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.2);
+            border: none;
+        }
+
+            .btn-cloud:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 15px 25px rgba(59, 130, 246, 0.3);
+            }
+
+        /* --- Responsive Fixes --- */
+        @@media (max-width: 991px) {
+            .cloud-title
+
+        {
+            font-size: 2.2rem;
+        }
+
+        .pe-lg-5 {
+            padding-right: 15px !important;
+        }
+
+        .order-1 {
+            order: 1 !important;
+        }
+
+        .order-2 {
+            order: 2 !important;
+        }
+
+        }
+        /* --- Analytics Section Styles --- */
+        .analytics-section {
+            padding: 80px 0;
+            background-color: #ffffff;
+        }
+
+        /* 1. The Golden/Yellow Gradient Background Box */
+        .analytics-visual-wrapper {
+            /* Matches the soft yellow/gold gradient in your image */
+            background: linear-gradient(135deg, #FFEFD2 0%, #F9FAFB 100%);
+            border-radius: 24px;
+            padding: 60px 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid rgba(255, 239, 210, 0.4);
+        }
+
+        /* 2. The White Card with specific Shadow */
+        .white-analytics-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 20px;
+            width: 100%;
+            /* Deep soft shadow to match the UI style in the image */
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+        }
+
+            .white-analytics-card img {
+                width: 100%;
+                height: auto;
+                display: block;
+                border-radius: 12px;
+            }
+
+        /* 3. Text Styles */
+        .analytics-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #100C29;
+            margin-bottom: 15px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .analytics-subtitle {
+            font-size: 1.15rem;
+            color: #52525B;
+            margin-bottom: 35px;
+            line-height: 1.6;
+        }
+
+        /* 4. List Items with Icon Boxes */
+        .analytics-list {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 40px;
+        }
+
+            .analytics-list li {
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                margin-bottom: 20px;
+                font-size: 1.1rem;
+                color: #100C29;
+                font-weight: 500;
+            }
+
+        .a-icon-box {
+            width: 38px;
+            height: 38px;
+            border: 1px solid #E5E7EB;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6366F1; /* Icon color matches your brand blue */
+            font-size: 0.9rem;
+            flex-shrink: 0;
+            background-color: #ffffff;
+        }
+
+        /* 5. The Brand Gradient Button */
+        .btn-analytics {
+            background: linear-gradient(90deg, #8B5CF6 0%, #3B82F6 100%);
+            color: #ffffff !important;
+            padding: 14px 32px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.2);
+            border: none;
+        }
+
+            .btn-analytics:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 15px 25px rgba(59, 130, 246, 0.3);
+            }
+
+        /* --- Responsive Adjustments --- */
+        @@media (max-width: 991px) {
+            .analytics-visual-wrapper
+
+        {
+            padding: 40px 20px;
+        }
+
+        .analytics-title {
+            font-size: 2.2rem;
+        }
+
+        .ps-lg-5 {
+            padding-left: 15px !important;
+        }
+
+        }
+        /* --- Why Choose Us Section --- */
+        .why-choose-one-line {
+            padding: 100px 0 50px 0;
+            background-color: transparent;
+        }
+
+        /* 1. Badge: Bordered and Centered */
+        .custom-badge-outline {
+            display: inline-block;
+            padding: 6px 20px;
+            border: 1px solid #94a3b8;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #1e293b;
+            background-color: white;
+        }
+
+        /* 2. Heading: Same Letters, One Line */
+        .main-title-one-line {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 3.2rem; /* Large size like image */
+            font-weight: 700;
+            color: #433582; /* Deep purple same as image */
+            letter-spacing: -0.03em; /* Tight letter spacing like image */
+            margin-bottom: 20px;
+            /* Forces one line on desktop */
+            white-space: nowrap;
+        }
+
+        /* 3. Subtitle Text */
+        .subtitle-content {
+            font-size: 1.15rem;
+            color: #64748b;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* --- RESPONSIVE: Only wraps on small mobile screens --- */
+        @@media (max-width: 1200px) {
+            .main-title-one-line
+
+        {
+            font-size: 2.5rem;
+            white-space: normal; /* Allows wrap on smaller tablets so it doesn't break screen */
+        }
+
+        }
+
+        @@media (max-width: 768px) {
+            .main-title-one-line
+
+        {
+            font-size: 1.8rem;
+            white-space: normal;
+            padding: 0 15px;
+        }
+
+        .why-choose-one-line {
+            padding: 60px 0;
+        }
+
+        }
+        /* --- Bento Grid Section Custom Styles --- */
+        .bento-features-section {
+            padding-bottom: 100px;
+            background-color: transparent;
+        }
+
+        /* 1. Wide Container for more width like Image 2 */
+        .container-wide {
+            max-width: 1400px; /* Increased width */
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .bento-grid-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px; /* Space between cards */
+        }
+
+        /* 2. Base Card Style */
+        .bento-card {
+            background: #ffffff;
+            border: 1px solid #E5E7EB; /* Subtle light border */
+            border-radius: 20px;
+            padding: 35px;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease-in-out;
+            position: relative;
+        }
+
+            /* 3. Hover Effect: All cards change border to purple */
+            .bento-card:hover {
+                border-color: #7047EB;
+                transform: translateY(-3px);
+                box-shadow: 0 15px 35px rgba(112, 71, 235, 0.05);
+            }
+
+        /* 4. First Card Highlight (Same as Image 1) */
+        .first-card-highlight {
+            border: 1.5px solid #7047EB !important;
+        }
+
+        /* 5. Icons inside cards */
+        .bento-icon {
+            width: 48px;
+            height: 48px;
+            background-color: #EAE6FF; /* Very light purple */
+            color: #7047EB;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            font-size: 1.25rem;
+        }
+
+        .bento-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #100C29;
+            margin-bottom: 15px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .bento-card p {
+            font-size: 1.05rem;
+            color: #52525B;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        /* 6. Width Controllers for the 3-2-1 Grid */
+        .w-33 {
+            flex: 1 1 calc(33.333% - 24px);
+        }
+
+        .w-50 {
+            flex: 1 1 calc(50% - 24px);
+        }
+
+        .w-100 {
+            flex: 1 1 100%;
+        }
+
+        /* 7. Bottom Wide Card Styles (Same as Image 2) */
+        .bento-wide-footer {
+            flex-direction: row !important;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px 50px;
+        }
+
+        .footer-text h3 {
+            margin-bottom: 8px;
+        }
+
+        .btn-bento-primary {
+            background: #6366F1; /* Primary brand purple-blue */
+            color: #ffffff !important;
+            padding: 14px 30px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            transition: 0.3s;
+            white-space: nowrap;
+        }
+
+            .btn-bento-primary:hover {
+                background: #4f46e5;
+                transform: scale(1.02);
+            }
+
+        /* --- Responsive Layout --- */
+        @@media (max-width: 1024px) {
+            .w-33
+
+        {
+            flex: 1 1 calc(50% - 24px); /* 2 per row on smaller tablets */
+        }
+
+        }
+
+        @@media (max-width: 768px) {
+            .w-33, .w-50, .w-100
+
+        {
+            flex: 1 1 100%; /* 1 per row on mobile */
+        }
+
+        .bento-wide-footer {
+            flex-direction: column !important;
+            align-items: flex-start;
+            gap: 25px;
+            padding: 30px;
+        }
+
+        .bento-card h3 {
+            font-size: 1.3rem;
+        }
+
+        }
     </style>
 </head>
 <body>
@@ -2680,10 +3555,10 @@
             <nav class="custom-navbar d-flex justify-content-between align-items-center">
                 <i class="fas fa-bars d-lg-none" id="mobile-menu-btn" style="font-size: 1.5rem; cursor: pointer;"></i>
                 <!-- Logo -->
-                <a href="/Home/Index" class="brand-logo">
-                    <i class="fas fa-layer-group" style="color: var(--primary-purple);"></i>
-                    Qadryn
-                </a>
+                <div class="brand-logo">
+                    <img src="~/image/logo.png" alt="Logo" style="height: 35px; width: auto; margin-right: 8px;">
+                    
+                </div>
 
                 <!-- Links -->
                 <ul class="nav-links d-none d-lg-flex">
@@ -2766,13 +3641,9 @@
                 </div>
 
                 <!-- ... Rest of the content ... -->
-                <!-- (বাকি অংশ কোডের আগের মতোই থাকবে, এখানে শুধু মেনু ফিক্স এবং প্যাডিং ঠিক করা হয়েছে) -->
 
             </div>
         </div>
-
-        <!-- ... Rest of the sections (Partners, Features, Footer etc) ... -->
-        <!-- এই অংশগুলো আপনার দেওয়া অরিজিনাল কোড থেকেই রেন্ডার হবে -->
         <!-- === NEW SECTION: STATS BANNER === -->
         <div class="container stats-section-wrapper">
             <div class="stats-banner">
@@ -2988,12 +3859,348 @@
                     </div>
                 </div>
             </section>
+            <section class="aio-features-section text-center">
+                <div class="container">
+                    <!-- Badge -->
+                    <span class="badge-feature">Features</span>
 
-            <!-- Remaining Sections (Same Structure as original but now properly nested) -->
-            <!-- ... All-in-one, Benefits, Paperless, Cloud, Partner Section, Pricing, Reviews, Footer ... -->
-            <!-- Note: Due to character limits, I'm ensuring the key fix (Sticky Navbar) works perfectly with the remaining content logic.
-                 The provided code above integrates the sticky navbar fix and ensures the layout flows correctly. -->
-            <!-- Footer Include (Simplified for brevity as per original structure) -->
+                    <!-- Heading -->
+                    <h2 class="aio-title">All-in-one HR and Payroll, tailored for you</h2>
+
+                    <!-- Subtitle -->
+                    <p class="aio-subtitle">
+                        Streamline HR operations, from onboarding to payroll, with smart <br class="d-none d-md-block">
+                        automation built around your business needs.
+                    </p>
+                </div>
+            </section>
+            <section class="service-cards-section">
+                <div class="container">
+                    <div class="row g-4">
+
+                        <!-- Card 1: Attendance -->
+                        <div class="col-lg-4">
+                            <div class="service-card">
+                                <div class="s-icon-box">
+                                    <i class="fas fa-id-card"></i>
+                                </div>
+                                <h3 class="s-title">Attendance management</h3>
+                                <p class="s-desc">
+                                    Track employee attendance effortlessly with our cloud-based system. Manage time logs, shifts, and attendance data in real-time — anytime, anywhere.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Card 2: Payroll -->
+                        <div class="col-lg-4">
+                            <div class="service-card">
+                                <div class="s-icon-box">
+                                    <i class="fas fa-wallet"></i>
+                                </div>
+                                <h3 class="s-title">Payroll Management</h3>
+                                <p class="s-desc">
+                                    Automate payroll processing with our integrated system. Manage salaries, deductions, and taxes in one place, ensuring accuracy and compliance.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Card 3: Shift -->
+                        <div class="col-lg-4">
+                            <div class="service-card">
+                                <div class="s-icon-box">
+                                    <i class="far fa-clock"></i>
+                                </div>
+                                <h3 class="s-title">Shift Management</h3>
+                                <p class="s-desc">
+                                    Clock in, clock out, and track breaks easily. Our system offers real-time data and detailed reports for optimal workforce management.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            <!-- BENEFITS HEADER SECTION -->
+            <section class="benefits-header-section text-center">
+                <div class="container">
+                    <!-- Badge -->
+                    <div class="mb-3">
+                        <span class="badge-benefits">Benefits</span>
+                    </div>
+
+                    <!-- Main Title -->
+                    <h2 class="benefits-title">Maximize Your HR Efficiency with Smart HR Software</h2>
+
+                    <!-- Subtitle -->
+                    <p class="benefits-subtitle">
+                        Transform the way your HR team works with powerful, easy-to-use HR software
+                        designed to simplify operations and boost overall efficiency.
+                    </p>
+                </div>
+            </section>
+            <!-- BENEFITS GRID SECTION -->
+            <section class="benefits-grid-section">
+                <div class="container">
+                    <div class="row g-4">
+
+                        <!-- Card 1: Automated Workflows -->
+                        <div class="col-lg-4 col-md-6">
+                            <div class="benefit-card">
+                                <div class="b-icon-box"><i class="fas fa-bolt"></i></div>
+                                <h3 class="b-title">Automated Workflows</h3>
+                                <p class="b-desc">Save time by automating attendance, leave approvals, and payroll processes.</p>
+
+                                <div class="benefit-visual-box">
+                                    <div class="workflow-visual">
+                                        <div class="wf-node"><i class="far fa-file-alt"></i></div>
+                                        <div class="wf-line"></div>
+                                        <div class="wf-node active"><i class="fas fa-cog"></i></div>
+                                        <div class="wf-line"></div>
+                                        <div class="wf-node"><i class="far fa-check-circle"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 2: Real-Time Insights -->
+                        <div class="col-lg-4 col-md-6">
+                            <div class="benefit-card">
+                                <div class="b-icon-box"><i class="fas fa-chart-bar"></i></div>
+                                <h3 class="b-title">Real-Time Insights</h3>
+                                <p class="b-desc">Track employee performance and make smarter decisions with live analytics.</p>
+
+                                <div class="benefit-visual-box">
+                                    <div class="chart-visual-inner">
+                                        <div class="cv-header d-flex justify-content-between align-items-center mb-3">
+                                            <span style="font-size: 10px; font-weight: 600; color: #666;"><i class="fas fa-wave-square me-1"></i> Analytics Dashboard</span>
+                                            <span class="chart-badge"><i class="fas fa-arrow-trend-up"></i> +18%</span>
+                                        </div>
+                                        <div class="cv-bars">
+                                            <div class="cv-bar" style="height: 40%;"></div>
+                                            <div class="cv-bar" style="height: 70%;"></div>
+                                            <div class="cv-bar" style="height: 30%;"></div>
+                                            <div class="cv-bar" style="height: 85%;"></div>
+                                            <div class="cv-bar" style="height: 50%;"></div>
+                                            <div class="cv-bar" style="height: 95%;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 3: Secure Data Handling -->
+                        <div class="col-lg-4 col-md-12">
+                            <div class="benefit-card">
+                                <div class="b-icon-box"><i class="fas fa-shield-alt"></i></div>
+                                <h3 class="b-title">Secure Data Handling</h3>
+                                <p class="b-desc">Protect sensitive employee data with enterprise-grade encryption and compliance.</p>
+
+                                <div class="benefit-visual-box">
+                                    <div class="security-visual">
+                                        <div class="shield-main"><i class="fas fa-shield-halved"></i><div class="lock-inner"><i class="fas fa-lock"></i></div></div>
+                                        <!-- Floating Dots -->
+                                        <div class="s-dot d1"></div><div class="s-dot d2"></div><div class="s-dot d3"></div>
+                                        <div class="s-dot d4"></div><div class="s-dot d5"></div><div class="s-dot d6"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            <!-- PAPERLESS MANAGEMENT SECTION -->
+            <section class="paperless-section">
+                <div class="container">
+                    <div class="row align-items-center">
+
+                        <!-- Left Side: Visual Mockup -->
+                        <div class="col-lg-6 mb-5 mb-lg-0">
+                            <div class="paperless-visual-wrapper">
+                                <div class="white-mockup-card">
+                                    <img src="/image/Container-3.png" alt="Paperless Management Mockup" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Side: Content -->
+                        <div class="col-lg-6 ps-lg-5">
+                            <h2 class="paperless-title">Paperless Management</h2>
+                            <p class="paperless-subtitle">Eliminate clutter by managing all HR workflows digitally.</p>
+
+                            <ul class="paperless-list">
+                                <li>
+                                    <div class="icon-circle"><i class="fas fa-check"></i></div>
+                                    <span>Digitize employee records and approvals</span>
+                                </li>
+                                <li>
+                                    <div class="icon-circle"><i class="fas fa-share-nodes"></i></div>
+                                    <span>Streamline document sharing and storage</span>
+                                </li>
+                                <li>
+                                    <div class="icon-circle"><i class="far fa-clock"></i></div>
+                                    <span>Reduce paperwork and save valuable time</span>
+                                </li>
+                            </ul>
+
+                            <a href="#" class="btn-paperless">Go Paperless now</a>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            <!-- CLOUD-BASED ACCESS SECTION -->
+            <section class="cloud-access-section">
+                <div class="container">
+                    <div class="row align-items-center">
+
+                        <!-- Left Side: Content -->
+                        <div class="col-lg-6 pe-lg-5 order-lg-1 order-2">
+                            <h2 class="cloud-title">Cloud-Based Access</h2>
+                            <p class="cloud-subtitle">Manage HR from anywhere with secure cloud storage.</p>
+
+                            <ul class="cloud-list">
+                                <li>
+                                    <div class="c-icon-box"><i class="fas fa-desktop"></i></div>
+                                    <span>Real-time HR dashboard from any device</span>
+                                </li>
+                                <li>
+                                    <div class="c-icon-box"><i class="fas fa-sync-alt"></i></div>
+                                    <span>Sync data securely across platforms</span>
+                                </li>
+                                <li>
+                                    <div class="c-icon-box"><i class="fas fa-users-viewfinder"></i></div>
+                                    <span>Enhance mobility for remote teams</span>
+                                </li>
+                            </ul>
+
+                            <a href="#" class="btn-cloud">Access Anywhere</a>
+                        </div>
+
+                        <!-- Right Side: Visual Mockup -->
+                        <div class="col-lg-6 mb-5 mb-lg-0 order-lg-2 order-1">
+                            <div class="cloud-visual-wrapper">
+                                <div class="white-cloud-card">
+                                    <img src="~/image/Container-5.png" alt="Cloud Access Mockup" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            <!-- ADVANCED ANALYTICS SECTION -->
+            <section class="analytics-section">
+                <div class="container">
+                    <div class="row align-items-center">
+
+                        <!-- Left Side: Visual Mockup -->
+                        <div class="col-lg-6 mb-5 mb-lg-0">
+                            <div class="analytics-visual-wrapper">
+                                <div class="white-analytics-card">
+                                    <img src="~/image/Container-4.png" alt="Advanced Analytics Mockup" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Side: Content -->
+                        <div class="col-lg-6 ps-lg-5">
+                            <h2 class="analytics-title">Advanced Analytics & Insights</h2>
+                            <p class="analytics-subtitle">Turn workforce data into insights that improve engagement and growth.</p>
+
+                            <ul class="analytics-list">
+                                <li>
+                                    <div class="a-icon-box"><i class="fas fa-chart-line"></i></div>
+                                    <span>Real-time performance tracking</span>
+                                </li>
+                                <li>
+                                    <div class="a-icon-box"><i class="fas fa-brain"></i></div>
+                                    <span>Predictive analytics for HR decisions</span>
+                                </li>
+                                <li>
+                                    <div class="a-icon-box"><i class="fas fa-bullseye"></i></div>
+                                    <span>Measure engagement and satisfaction trends</span>
+                                </li>
+                            </ul>
+
+                            <a href="#" class="btn-analytics">Explore Insights</a>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            <!-- WHY CHOOSE US - ONE LINE VERSION -->
+            <section class="why-choose-one-line">
+                <div class="container-fluid text-center">
+                    <!-- Badge -->
+                    <div class="mb-4">
+                        <span class="custom-badge-outline">Why Choose Us</span>
+                    </div>
+
+                    <!-- Heading (Forces one line on desktop) -->
+                    <h2 class="main-title-one-line">Your Trusted Partner in Smarter HR Management</h2>
+
+                    <!-- Subtitle -->
+                    <p class="subtitle-content">
+                        We’re more than just software — we’re your HR growth partner. Our platform is built to simplify complex <br class="d-none d-md-block">
+                        processes, improve team collaboration, and help you focus on what truly matters — your people.
+                    </p>
+                </div>
+            </section>
+            <!-- BENTO FEATURES GRID SECTION -->
+            <section class="bento-features-section">
+                <div class="container-wide">
+                    <div class="bento-grid-wrapper">
+
+                        <!-- ROW 1: THREE CARDS -->
+                        <div class="bento-card w-33 first-card-highlight">
+                            <div class="bento-icon"><i class="fas fa-bolt"></i></div>
+                            <h3>All-in-One Solution</h3>
+                            <p>From attendance to payroll — manage everything in one secure, connected system.</p>
+                        </div>
+
+                        <div class="bento-card w-33">
+                            <div class="bento-icon"><i class="fas fa-chart-line"></i></div>
+                            <h3>User-Friendly Interface</h3>
+                            <p>Simple navigation, quick actions, and a clean dashboard for smooth daily operations.</p>
+                        </div>
+
+                        <div class="bento-card w-33">
+                            <div class="bento-icon"><i class="fas fa-shield-halved"></i></div>
+                            <h3>Scalable for Every Business</h3>
+                            <p>Whether you’re a startup or an enterprise, our system grows with your team.</p>
+                        </div>
+
+                        <!-- ROW 2: TWO CARDS -->
+                        <div class="bento-card w-50">
+                            <div class="bento-icon"><i class="fas fa-cloud"></i></div>
+                            <h3>Dedicated Support Team</h3>
+                            <p>Get 24/7 expert assistance whenever you need it — we’re here to help you succeed.</p>
+                        </div>
+
+                        <div class="bento-card w-50">
+                            <div class="bento-icon"><i class="fas fa-file-shield"></i></div>
+                            <h3>Data Security You Can Trust</h3>
+                            <p>We use enterprise-grade encryption and compliance standards to keep your data safe.</p>
+                        </div>
+
+                        <!-- ROW 3: ONE WIDE CARD -->
+                        <div class="bento-card w-100 bento-wide-footer">
+                            <div class="footer-text">
+                                <h3>Continuous Innovation</h3>
+                                <p>We constantly update features to meet evolving HR and compliance needs.</p>
+                            </div>
+                            <div class="footer-action">
+                                <a href="#" class="btn-bento-primary">Get Started Now <i class="fas fa-arrow-right ms-2"></i></a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+
+
             <footer class="footer-container" style="margin-top: 50px;">
                 <div class="footer-left">
                     <div class="top-content">
