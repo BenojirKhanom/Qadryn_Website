@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Qadryn - HR & Payroll Solution</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
@@ -53,11 +53,43 @@
             width: 100%;
             z-index: 1;
         }
+        /* --- TOP BAR STYLES --- */
+        .top-header-bar {
+            background-color: #5b36cb; /* Brand Purple */
+            color: white;
+            padding: 5px 0;
+            font-size: 10px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10000; /* Higher than navbar */
+        }
 
+            .top-header-bar a {
+                color: white;
+                text-decoration: none;
+                transition: 0.3s;
+                margin-left: 15px;
+            }
+
+                .top-header-bar a:hover {
+                    opacity: 0.8;
+                }
+
+        .top-bar-left i {
+            margin-right: 8px;
+            transform: rotate(10deg); /* Slight tilt like the icon in image */
+        }
+
+        .top-bar-right {
+            display: flex;
+            gap: 20px;
+        }
         /* --- 3. NAVBAR (UPDATED FOR STICKY) --- */
         .navbar-container {
             position: fixed;
-            top: 0;
+            top: 20px !important;
             left: 0;
             width: 100%;
             z-index: 9999; 
@@ -1869,7 +1901,7 @@
         .feature-item {
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 6px;
             margin-bottom: 1.5rem;
         }
 
@@ -2278,20 +2310,26 @@
             list-style: none;
             display: flex;
             flex-direction: column;
-            margin-bottom: 0;
+            gap: 6px;
         }
 
         .feature-item {
             display: flex;
             align-items: flex-start;
-            font-size: 0.9rem;
-            line-height: 0.95;
+            gap: 5px;
+            font-size: 0.6rem;
+            line-height: 1.00;
         }
 
         .feature-list .feature-item:last-child {
             margin-bottom: 0;
             padding-bottom: 0;
         }
+
+        .feature-list {
+            margin-bottom: 0;
+        }
+
 
         .check-icon {
             min-width: 16px;
@@ -3543,11 +3581,492 @@
         }
 
         }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 18px;
+            border: 1px solid #9ca3af;
+            border-radius: 6px;
+            color: #1f2937;
+            font-size: 0.9rem;
+            font-weight: 500;
+            background-color: transparent;
+            margin-bottom: 30px;
+        }
+
+        .main-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #563f8f;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .sub-description {
+            color: #64748b;
+            font-size: 1.125rem;
+            line-height: 1.6;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+
+        @@media (max-width: 768px) {
+            .header-section {
+                padding: 3rem 16px;
+            }
+
+            .main-title {
+                font-size: 1.8rem;
+            }
+
+            .sub-description {
+                font-size: 1rem;
+            }
+        }
+        /* =========================================
+                                           MAIN PRICING SECTION
+                                           ========================================= */
+        .pricing-section {
+            width: 100%;
+            padding: 4rem 20px;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: center;
+        }
+
+        .pricing-container {
+            max-width: 1280px;
+            width: 100%;
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            align-items: stretch;
+            flex-wrap: wrap;
+        }
+
+        .price-card {
+            flex: 1;
+            min-width: 320px;
+            border-radius: 16px;
+            padding: 25px 16px 10px 16px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease;
+        }
+
+        .card-light {
+            background-color: #dcdcf7;
+            color: #1f2937;
+            border: 1px solid transparent;
+        }
+
+        .card-dark {
+            background-color: #6366f1;
+            color: #ffffff;
+            box-shadow: 0 20px 40px -10px rgba(99, 102, 241, 0.4);
+            transform: scale(1.02);
+            z-index: 2;
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #4f46e5;
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 3px solid #6366f1;
+        }
+
+        .card-header {
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        .card-title {
+            margin-bottom: 4px;
+            font-size: 1.2rem;
+        }
+
+        .starting-label {
+            margin-bottom: 4px;
+            font-size: 0.8rem;
+        }
+
+        .price {
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+            .price span {
+                font-size: 1rem;
+                font-weight: 400;
+                opacity: 0.8;
+            }
+
+        .tier-box {
+            border-radius: 12px;
+            padding: 10px 12px;
+            margin-bottom: 12px;
+        }
+
+        .card-light .tier-box {
+            background-color: #ffffff;
+        }
+
+        .card-dark .tier-box {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .tier-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 4px 0;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .card-light .tier-row:not(:last-child) {
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .card-dark .tier-row:not(:last-child) {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .feature-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 5px;
+            font-size: 0.9rem;
+            line-height: 1.95;
+        }
+
+        .feature-list .feature-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .feature-list {
+            margin-bottom: 0;
+        }
+
+        .check-icon {
+            min-width: 16px;
+            height: 16px;
+            margin-top: 3px;
+        }
+
+        @@media (max-width: 1024px) {
+            .pricing-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .price-card {
+                width: 100%;
+                max-width: 500px;
+            }
+
+            .card-dark {
+                transform: scale(1);
+                margin: 10px 0;
+            }
+        }
+        /* --- Review Section Styles --- */
+        .review-section {
+            width: 100vw;
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+            padding: 100px 0;
+            background-color: #FFF5F5; /* Soft pinkish background from image */
+            position: relative;
+            /* Small grid pattern */
+            background-image: linear-gradient(rgba(112, 71, 235, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(112, 71, 235, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .badge-review {
+            display: inline-block;
+            padding: 6px 20px;
+            border: 1px solid #94a3b8;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: #100C29;
+            background: white;
+        }
+
+        .review-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #433582;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+        }
+
+        .review-subtitle {
+            color: #52525B;
+            font-size: 1.1rem;
+            margin-bottom: 60px;
+        }
+
+        /* --- Slider Container & Stack --- */
+        .testimonial-slider-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            position: relative;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .testimonial-stack {
+            position: relative;
+            width: 850px;
+            height: 450px;
+        }
+
+        /* Stacked Background Effect */
+        .stack-bg {
+            position: absolute;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            width: 95%;
+            height: 100%;
+            left: 2.5%;
+            z-index: 1;
+        }
+
+        .stack-1 {
+            bottom: -15px;
+            opacity: 0.7;
+            width: 92%;
+            left: 4%;
+        }
+
+        .stack-2 {
+            bottom: -30px;
+            opacity: 0.4;
+            width: 88%;
+            left: 6%;
+        }
+
+        .testimonial-card-main {
+            position: relative;
+            z-index: 5;
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+            height: 100%;
+        }
+
+        .testimonial-img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .user-name {
+            font-size: 2.2rem;
+            color: #433582;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+
+        .user-quote {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #52525B;
+        }
+
+        /* --- Navigation Arrows --- */
+        .slider-arrow {
+            background: transparent;
+            border: none;
+            font-size: 2rem;
+            color: #433582;
+            cursor: pointer;
+            transition: 0.3s;
+            z-index: 10;
+        }
+
+            .slider-arrow:hover {
+                color: #7047EB;
+                transform: scale(1.2);
+            }
+
+        /* Responsive Fixes */
+        @@media (max-width: 991px) {
+            .testimonial-stack
+
+        {
+            width: 100%;
+            height: auto;
+        }
+
+        .testimonial-img {
+            height: 250px;
+            margin-bottom: 20px;
+        }
+
+        .review-title {
+            font-size: 2.2rem;
+        }
+
+        .stack-bg {
+            display: none;
+        }
+        /* Hide stack on mobile for speed */
+        }
+        /* --- Modal Styles --- */
+        .modal-overlay {
+            display: none; /* Hidden by default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Dim background */
+            backdrop-filter: blur(5px); /* Blur background */
+            z-index: 10000; /* Ensure it stays on top */
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+            /* When this class is added via JS, modal shows */
+            .modal-overlay.active {
+                display: flex;
+            }
+
+        .contact-form-card {
+            position: relative; /* For close button positioning */
+            width: 100%;
+            max-width: 600px; /* Control the width of the popup */
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            animation: slideUp 0.3s ease-out;
+        }
+
+        @@keyframes slideUp {
+            from
+
+        {
+            transform: translateY(30px);
+            opacity: 0;
+        }
+
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 30px;
+            cursor: pointer;
+            color: #999;
+            transition: 0.2s;
+        }
+
+            .close-modal:hover {
+                color: var(--primary-purple);
+            }
+
+        /* Ensure your existing form styles are still present below this */
     </style>
 </head>
 <body>
+    <!-- The Modal Popup Structure -->
+    <div class="modal-overlay" id="contactModal">
+        <div class="contact-form-card">
+            <!-- Close Button -->
+            <span class="close-modal" id="closeModal">&times;</span>
 
+            <h2 style="margin-bottom: 20px; color: var(--text-dark);">Get Started</h2>
+
+            <form>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>First Name</label>
+                        <input type="text" placeholder="First Name">
+                    </div>
+                    <div class="form-group">
+                        <label>Last Name</label>
+                        <input type="text" placeholder="Last Name">
+                    </div>
+                    <div class="form-group">
+                        <label>Job Email</label>
+                        <input type="email" placeholder="Job Email">
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="tel" placeholder="Phone Number">
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Company Size</label>
+                        <select>
+                            <option>Select company size</option>
+                            <option>1-10 Employees</option>
+                            <option>11-50 Employees</option>
+                            <option>50+ Employees</option>
+                        </select>
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Message</label>
+                        <textarea placeholder="Your message here..."></textarea>
+                    </div>
+                </div>
+                <button type="submit" class="btn-submit">Send Message</button>
+            </form>
+        </div>
+    </div>
     <div class="hero-wrapper">
+        <!-- TOP BAR SECTION -->
+        <div class="top-header-bar">
+            <div class="container d-flex justify-content-between align-items-center">
+                <!-- Left Side: Phone -->
+                <div class="top-bar-left">
+                    <a href="tel:+8801713428432">
+                        <i class="fas fa-phone-alt"></i> Sales: +8801713428432
+                    </a>
+                </div>
+                <!-- Right Side: Social Icons -->
+                <div class="top-bar-right">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
         <div class="grid-overlay"></div>
 
         <!-- NAVBAR -->
@@ -3556,7 +4075,7 @@
                 <i class="fas fa-bars d-lg-none" id="mobile-menu-btn" style="font-size: 1.5rem; cursor: pointer;"></i>
                 <!-- Logo -->
                 <div class="brand-logo">
-                    <img src="~/image/logo.png" alt="Logo" style="height: 35px; width: auto; margin-right: 8px;">
+                    <img src="~/image/logo (2).png" alt="Logo" style="height: 35px; width: auto; margin-right: 8px;">
                     
                 </div>
 
@@ -3571,7 +4090,9 @@
                 </ul>
 
                 <!-- Button -->
-                <a href="#" class="btn-purple d-none d-sm-inline-flex">Get Started For Free</a>
+                <a href="javascript:void(0)" class="btn-purple d-none d-sm-inline-flex" id="getStartedBtn">
+                    Get Started For Free
+                </a>
             </nav>
         </div>
 
@@ -3920,6 +4441,53 @@
                     </div>
                 </div>
             </section>
+            <section class="service-cards-section">
+                <div class="container">
+                    <div class="row g-4">
+
+                        <!-- Card 1: Attendance -->
+                        <div class="col-lg-4">
+                            <div class="service-card">
+                                <div class="s-icon-box">
+                                    <i class="fas fa-id-card"></i>
+                                </div>
+                                <h3 class="s-title">Attendance management</h3>
+                                <p class="s-desc">
+                                    Track employee attendance effortlessly with our cloud-based system. Manage time logs, shifts, and attendance data in real-time — anytime, anywhere.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Card 2: Payroll -->
+                        <div class="col-lg-4">
+                            <div class="service-card">
+                                <div class="s-icon-box">
+                                    <i class="fas fa-wallet"></i>
+                                </div>
+                                <h3 class="s-title">Payroll Management</h3>
+                                <p class="s-desc">
+                                    Automate payroll processing with our integrated system. Manage salaries, deductions, and taxes in one place, ensuring accuracy and compliance.
+                                </p>
+                            </div>
+                        </div>
+                   
+                        <!-- Card 3: Shift -->
+                        <div class="col-lg-4">
+                            <div class="service-card">
+                                <div class="s-icon-box">
+                                    <i class="far fa-clock"></i>
+                                </div>
+                                <h3 class="s-title">Shift Management</h3>
+                                <p class="s-desc">
+                                    Clock in, clock out, and track breaks easily. Our system offers real-time data and detailed reports for optimal workforce management.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
             <!-- BENEFITS HEADER SECTION -->
             <section class="benefits-header-section text-center">
                 <div class="container">
@@ -4198,9 +4766,186 @@
                     </div>
                 </div>
             </section>
+            <section class="header-section">
+                <!-- 1. Badge -->
+                <div class="badge">Packages</div>
 
+                <!-- 2. Main Title -->
+                <h2 class="main-title">Qadryn HRM Software Packages</h2>
 
+                <!-- 3. Subtitle -->
+                <p class="sub-description">
+                    Discover how Qadryn revolutionizes HR with automation tailored to your organizational structure.
+                </p>
+            </section>
+            <section class="pricing-section">
+                <div class="pricing-container">
 
+                    <!-- CARD 1: Essential -->
+                    <div class="price-card card-light">
+                        <div class="card-header">
+                            <div class="card-title">Qadryn Essential</div>
+                            <div class="starting-label">Starting Price</div>
+                            <div class="price">৳1000<span>/month</span></div>
+                        </div>
+
+                        <div class="tier-box">
+                            <div class="tier-row">
+                                <span>1-50 Employees</span>
+                                <span>৳1000/Month</span>
+                            </div>
+                            <div class="tier-row">
+                                <span>51-150 Employees</span>
+                                <span>৳1800/Month</span>
+                            </div>
+                            <div class="tier-row">
+                                <span>151-300 Employees</span>
+                                <span>৳2500/Month</span>
+                            </div>
+                        </div>
+
+                        <ul class="feature-list">
+                            <li class="feature-item"><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Centralized Attendance Management</li>
+                            <li class="feature-item"><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Access Control</li>
+                            <li class="feature-item"><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Shift Management</li>
+                            <li class="feature-item"><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Android & iOS App</li>
+                            <li class="feature-item"><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Use for International & Freelance fleet</li>
+                            <li class="feature-item"><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Leave Management System</li>
+                            <li class="feature-item"><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Bulk Data Upload</li>
+                            <li class="feature-item"><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Instantly Apply Leave</li>
+                            <li class="feature-item"><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> App & Email Notifications</li>
+                            <li class="feature-item"><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> App Based Attendance</li>
+                            <li class="feature-item"><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Employee Self Login</li>
+                        </ul>
+                    </div>
+
+                    <!-- CARD 2: Standard (Most Popular) -->
+                    <div class="price-card card-dark">
+                        <div class="popular-badge">Most Popular</div>
+                        <div class="card-header">
+                            <div class="card-title">Qadryn Standard</div>
+                            <div class="starting-label">Starting Price</div>
+                            <div class="price">৳1800<span>/month</span></div>
+                        </div>
+
+                        <div class="tier-box">
+                            <div class="tier-row">
+                                <span>1-50 Employees</span>
+                                <span>৳1800/Month</span>
+                            </div>
+                            <div class="tier-row">
+                                <span>51-150 Employees</span>
+                                <span>৳2750/Month</span>
+                            </div>
+                            <div class="tier-row">
+                                <span>151-300 Employees</span>
+                                <span>৳4000/Month</span>
+                            </div>
+                        </div>
+
+                        <ul class="feature-list">
+                            <li class="feature-item"><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> All Essential Package Features</li>
+                            <li class="feature-item"><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Monthly & Individual Attendance Reports</li>
+                            <li class="feature-item"><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Basic HRS Database</li>
+                            <li class="feature-item"><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Leave Management with Approval</li>
+                            <li class="feature-item"><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Multiple Shift Management with Rostering</li>
+                            <li class="feature-item"><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Temporary Allocation</li>
+                            <li class="feature-item"><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Overtime Management</li>
+                            <li class="feature-item"><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Comprehensive Reporting - Flexi log</li>
+                            <li class="feature-item"><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Advanced Dashboard View</li>
+                            <li class="feature-item"><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Dedicated Customer Experience Manager</li>
+                        </ul>
+                    </div>
+
+                    <!-- CARD 3: Premium -->
+                    <div class="price-card card-light">
+                        <div class="card-header">
+                            <div class="card-title">Qadryn Premium</div>
+                            <div class="starting-label">Starting Price</div>
+                            <div class="price">৳2500<span>/month</span></div>
+                        </div>
+
+                        <div class="tier-box">
+                            <div class="tier-row">
+                                <span>1-50 Employees</span>
+                                <span>৳2500/Month</span>
+                            </div>
+                            <div class="tier-row">
+                                <span>51-150 Employees</span>
+                                <span>৳3500/Month</span>
+                            </div>
+                            <div class="tier-row">
+                                <span>151-300 Employees</span>
+                                <span>৳5000/Month</span>
+                            </div>
+                        </div>
+
+                        <ul class="feature-list">
+                            <li class="feature-item"><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> All Essential Package Features</li>
+                            <li class="feature-item"><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> All Standard Package Features</li>
+                            <li class="feature-item"><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Shift Allocation, User - Managed File</li>
+                            <li class="feature-item"><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Advance Rostering with Auto Rotation</li>
+                            <li class="feature-item"><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Automate calculate shift violations</li>
+                            <li class="feature-item"><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> HRS Document Storage - Securely</li>
+                            <li class="feature-item"><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Upload and access employee records</li>
+                            <li class="feature-item"><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Upload and manage company files</li>
+                            <li class="feature-item"><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Advanced security (multi-RO)</li>
+                            <li class="feature-item"><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Strengthen security permission settings</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </section>
+            <!-- TESTIMONIAL SLIDER SECTION -->
+            <section class="review-section">
+                <div class="container text-center">
+                    <!-- Badge -->
+                    <div class="mb-3">
+                        <span class="badge-review">Review</span>
+                    </div>
+
+                    <!-- Header -->
+                    <h2 class="review-title">Don’t just take our words</h2>
+                    <p class="review-subtitle">Hear from teams who transformed their HR operations with our software.</p>
+
+                    <!-- Slider Wrapper -->
+                    <div class="testimonial-slider-container">
+                        <!-- Left Arrow -->
+                        <button class="slider-arrow left" onclick="prevTestimonial()">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+
+                        <!-- Card Stack -->
+                        <div class="testimonial-stack">
+                            <!-- Stacked Background Cards (Decoration) -->
+                            <div class="stack-bg stack-1"></div>
+                            <div class="stack-bg stack-2"></div>
+
+                            <!-- Main Active Card -->
+                            <div class="testimonial-card-main" id="testimonial-card">
+                                <div class="row g-0 align-items-center">
+                                    <div class="col-md-5">
+                                        <img src="~/image/image.png" id="user-img" alt="Reviewer" class="testimonial-img">
+                                    </div>
+                                    <div class="col-md-7 text-start ps-md-4">
+                                        <h3 class="user-name" id="user-name">Becky Nelson</h3>
+                                        <p class="user-quote" id="user-quote">
+                                            Ask agreed answer rather joy nature admire wisdom. Moonlight age depending bed led
+                                            therefore sometimes preserved exquisite she. An fail up so shot leaf wise in. Minuter
+                                            highest his arrived for put and. Hopes lived by rooms oh in no death house.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Arrow -->
+                        <button class="slider-arrow right" onclick="nextTestimonial()">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
             <footer class="footer-container" style="margin-top: 50px;">
                 <div class="footer-left">
                     <div class="top-content">
@@ -4271,6 +5016,82 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             if(slides.length > 0) showSlide(0);
+        });
+                // Testimonial Data Array
+        const testimonials = [
+            {
+                name: "Becky Nelson",
+                quote: "Ask agreed answer rather joy nature admire wisdom. Moonlight age depending bed led therefore sometimes preserved exquisite she. An fail up so shot leaf wise in. Minuter highest his arrived for put and. Hopes lived by rooms oh in no death house.",
+                image: "/image/image.png"
+            },
+            {
+                name: "James Wilson",
+                quote: "The software has completely streamlined our payroll and leave management. The UI is incredibly intuitive, and our employees love how easy it is to track their performance metrics. Highly recommended for modern HR teams.",
+                image: "/image/image.png"
+            },
+            {
+                name: "Sarah Parker",
+                quote: "We were looking for a cloud-based solution that could grow with us. Qadryn was the perfect fit. The automation features have saved us countless hours of manual data entry every single month.",
+                image: "/image/image.png"
+            }
+        ];
+
+        let currentIndex = 0;
+
+        function updateTestimonial(index) {
+            const card = document.getElementById('testimonial-card');
+            const nameEl = document.getElementById('user-name');
+            const quoteEl = document.getElementById('user-quote');
+            const imgEl = document.getElementById('user-img');
+
+            // Add a simple fade animation
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(10px)';
+
+            setTimeout(() => {
+                nameEl.innerText = testimonials[index].name;
+                quoteEl.innerText = testimonials[index].quote;
+                imgEl.src = testimonials[index].image;
+
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, 300);
+        }
+
+        function nextTestimonial() {
+            currentIndex = (currentIndex + 1) % testimonials.length;
+            updateTestimonial(currentIndex);
+        }
+
+        function prevTestimonial() {
+            currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
+            updateTestimonial(currentIndex);
+        }
+
+    </script>
+    <script>
+        const modal = document.getElementById('contactModal');
+        const openBtn = document.getElementById('getStartedBtn');
+        const closeBtn = document.getElementById('closeModal');
+
+        // Open Modal
+        openBtn.addEventListener('click', () => {
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Stop scrolling behind modal
+        });
+
+        // Close Modal via 'X' button
+        closeBtn.addEventListener('click', () => {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Re-enable scrolling
+        });
+
+        // Close Modal if user clicks on the dark background
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
         });
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
