@@ -8,6 +8,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&display=swap" rel="stylesheet">
     <!-- Font Awesome (Only One Version) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
@@ -20,11 +22,10 @@
         }
 
         :root {
-            --primary-purple: #6366F1;
-            --primary-hover: #4F46E5;
-            --text-dark: #1F1F38;
-            --text-grey: #4B5563;
-            --bg-grid-color: rgba(99, 102, 241, 0.1);
+            --brand-purple: #7047EB; /* Button and Brand color */
+            --top-bar-bg: #5D3CF3; /* Vibrant Purple from top of image */
+            --nav-bg: rgba(235, 229, 255, 0.7); /* Lavender tint with transparency */
+            --text-dark: #100C29;
         }
 
         body {
@@ -35,6 +36,7 @@
             min-height: 100vh;
             position: relative;
             padding-bottom: 50px;
+            padding-top: 160px;
         }
 
         /* --- BACKGROUND GRID PATTERN --- */
@@ -59,66 +61,184 @@
             padding: 0 20px;
         }
 
-        /* --- NAVBAR --- */
-        .navbar {
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 2000;
+        }
+
+        .top-bar {
+            background-color: var(--top-bar-bg);
+            color: white;
+            padding: 10px 0;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .top-bar-inner {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            padding: 15px 30px;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            margin-top: 20px;
-            margin-bottom: 60px;
-            position: relative; /* Needed for absolute mobile menu */
         }
 
-        .logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: #000;
+        .top-bar-left a {
+            color: white;
+            text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
 
-            .logo i {
-                color: var(--primary-purple);
+        .top-bar-right {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+            .top-bar-right a {
+                color: white;
+                text-decoration: none;
+                font-size: 18px;
+                transition: opacity 0.3s;
             }
 
+        /* --- 2. MAIN NAVBAR --- */
+        .main-nav {
+            background: var(--nav-bg);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+            padding: 12px 0;
+        }
+
+        .navbar-inner {
+            display: grid;
+            grid-template-columns: 200px 1fr 200px; /* Forces exact centering of links */
+            align-items: center;
+        }
+
+        /* LOGO & ICON STYLE */
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+            font-size: 26px;
+            color: var(--text-dark);
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 4px;
+            transform: rotate(-15deg); /* Slanted lines from image */
+        }
+
+        .logo-line {
+            height: 4px;
+            background: var(--brand-purple);
+            border-radius: 10px;
+        }
+
+            .logo-line:nth-child(1) {
+                width: 60%;
+                opacity: 0.5;
+            }
+
+            .logo-line:nth-child(2) {
+                width: 100%;
+            }
+
+            .logo-line:nth-child(3) {
+                width: 80%;
+                opacity: 0.8;
+            }
+
+        /* CENTERED LINKS */
         .nav-links {
             display: flex;
+            justify-content: center;
             gap: 30px;
             list-style: none;
         }
 
             .nav-links a {
                 text-decoration: none;
-                color: #000;
-                font-weight: 500;
+                color: var(--text-dark);
+                font-weight: 600;
+                font-size: 16px;
+                transition: 0.3s;
             }
 
-        .btn-nav {
-            background-color: var(--primary-purple);
-            color: white;
-            padding: 10px 24px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 14px;
+                .nav-links a.active {
+                    color: var(--top-bar-bg); /* Active matches top bar color */
+                }
+
+                .nav-links a:hover {
+                    color: var(--brand-purple);
+                }
+
+        /* RIGHT ALIGNED BUTTON */
+        .nav-actions {
+            display: flex;
+            justify-content: flex-end;
         }
 
-        /* --- MOBILE MENU STYLES --- */
-        @@media (max-width: 991px) {
-            .nav-links
+        .btn-purple {
+            background-color: var(--brand-purple);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 15px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+            .btn-purple:hover {
+                background-color: #5b36cb;
+                transform: translateY(-2px);
+                box-shadow: 0 8px 20px rgba(112, 71, 235, 0.3);
+            }
+
+        /* --- MOBILE RESPONSIVE FIXES --- */
+        @@media (max-width: 1100px) {
+            .navbar-inner
 
         {
-            display: none;
-            gap: 10px;
+            grid-template-columns: 1fr 1fr;
         }
 
+        .nav-links {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: white;
+            flex-direction: column;
+            padding: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+        #mobile-menu-btn {
+            display: block;
+            margin-left: 20px;
+        }
+
+        }
         /* Class added via JS */
         .nav-links.mobile-menu-active {
             display: flex !important;
@@ -153,7 +273,7 @@
             display: none; /* Hide Get Started button on mobile to save space */
         }
 
-        } /* <--- ERROR FIXED: Missing closing bracket added here */
+         /* <--- ERROR FIXED: Missing closing bracket added here */
 
         /* --- MAIN CONTENT LAYOUT --- */
         .contact-wrapper {
@@ -1037,14 +1157,61 @@
     </style>
 </head>
 <body>
+    <header>
+        <!-- TOP HEADER -->
+        <div class="top-bar">
+            <div class="container top-bar-inner">
+                <div class="top-bar-left">
+                    <a href="tel:+8801713428432">
+                        <i class="fa-solid fa-phone-flip" style="transform: rotate(15deg);"></i>
+                        Sales: +8801713428432
+                    </a>
+                </div>
+                <div class="top-bar-right">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
 
+        <!-- MAIN NAVBAR -->
+        <nav class="main-nav">
+            <div class="container navbar-inner">
+                <!-- 1. Logo -->
+                <a href="/" class="logo">
+                    <div class="logo">
+                        <img src="~/image/logo (2).png" alt="Logo" style="height: 35px; width: auto; margin-right: 8px;">
+
+                    </div>
+
+                </a>
+
+                <!-- 2. Centered Links -->
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="/" class="active">Home</a></li>
+                    <li><a href="/Home/feature">Features</a></li>
+                    <li><a href="/Home/pricing">Pricing</a></li>
+                    <li><a href="/Home/devices">Devices</a></li>
+                    <li><a href="/Home/Blog">Blog</a></li>
+                    <li><a href="/Home/contact">Contact</a></li>
+                </ul>
+
+                <!-- 3. Right Action -->
+                <div class="nav-actions">
+                    <a href="#" class="btn-purple">Get Started For Free</a>
+@*                     <i class="fa-solid fa-bars" id="mobile-menu-btn"></i>
+ *@                </div>
+            </div>
+        </nav>
+    </header>
     <!-- Background Grid -->
     <div class="grid-overlay"></div>
 
     <div class="container">
 
         <!-- Navbar -->
-        <nav class="navbar">
+        @* <nav class="navbar">
             <div class="logo">
                 <img src="~/image/logo (2).png" alt="Logo" style="height: 35px; width: auto; margin-right: 8px;">
 
@@ -1063,7 +1230,7 @@
                 <li><a href="/Home/contact" style="color: var(--primary-purple); font-weight:700;">Contact</a></li>
             </ul>
             <a href="#" class="btn-nav">Get Started For Free</a>
-        </nav>
+        </nav> *@
 
         <!-- Main Content -->
         <div class="contact-wrapper">

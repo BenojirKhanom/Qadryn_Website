@@ -4,15 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Qadryn - Devices</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* --- 1. BASIC RESET --- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Inter', sans-serif;
+        }
+
+        :root {
+            --brand-purple: #7047EB;
+            --top-bar-bg: #5D3CF3;
+             /* Darker purple for top bar */
+            --nav-bg: rgba(235, 229, 255, 0.85); /* Light purple glass effect */
         }
 
         body {
@@ -21,11 +29,9 @@
             background-size: 100% 100vh;
             background-color: #ffffff;
             min-height: 100vh;
-            position: relative;
-            padding-bottom: 50px;
+            padding-top: 160px; /* Space for the double header */
         }
 
-        /* --- BACKGROUND GRID PATTERN --- */
         .grid-overlay {
             position: absolute;
             top: 0;
@@ -41,52 +47,122 @@
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 1300px;
             margin: 0 auto;
-            padding: 20px 40px;
+            padding: 0 20px;
         }
 
-        /* --- 3. NAVBAR --- */
-        .navbar {
+        /* --- HEADER WRAPPER (STICKY) --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 2000;
+        }
+
+        /* --- 1. TOP HEADER BAR --- */
+        .top-bar {
+            background-color: var(--top-bar-bg);
+            color: white;
+            padding: 8px 0;
+            font-size: 13px;
+        }
+
+        .top-bar-inner {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(12px);
-            padding: 20px 20px;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            margin-bottom: 50px;
         }
 
+        .top-bar-left a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .top-bar-right {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+            .top-bar-right a {
+                color: white;
+                text-decoration: none;
+                font-size: 16px;
+                transition: opacity 0.3s;
+            }
+
+                .top-bar-right a:hover {
+                    opacity: 0.7;
+                }
+
+        /* --- 2. MAIN NAVBAR --- */
+        .main-nav {
+            background: var(--nav-bg);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 15px 0;
+        }
+
+        .navbar-inner {
+            display: grid;
+            grid-template-columns: 250px 1fr 250px; /* Logo | Links | Button */
+            align-items: center;
+        }
+
+        /* LOGO STYLE */
         .logo {
             display: flex;
             align-items: center;
             font-weight: 700;
+            font-size: 26px;
+            color: #100C29;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        /* Diagonal lines icon from image */
+        .logo {
             font-size: 24px;
-            color: #7C5DFA;
-            gap: 10px;
+            font-weight: 700;
+            color: #000;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        .logo-icon {
-            width: 32px;
-            height: 32px;
-            background: rgba(124, 93, 250, 0.2);
-            border-radius: 8px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3px;
-            padding: 5px;
+
+        .logo-line {
+            height: 4px;
+            background: var(--brand-purple);
+            border-radius: 10px;
+            width: 100%;
         }
 
-        .logo-dot {
-            background: #7C5DFA;
-            border-radius: 50%;
-        }
+            .logo-line:nth-child(1) {
+                width: 60%;
+                opacity: 0.6;
+            }
 
+            .logo-line:nth-child(2) {
+                width: 100%;
+            }
+
+            .logo-line:nth-child(3) {
+                width: 80%;
+                opacity: 0.8;
+            }
+
+        /* CENTERED LINKS */
         .nav-links {
             display: flex;
-            gap: 30px;
+            justify-content: center;
+            gap: 35px;
             list-style: none;
         }
 
@@ -95,16 +171,94 @@
                 color: #100C29;
                 font-weight: 500;
                 font-size: 16px;
+                transition: 0.3s;
             }
 
-        .btn-nav {
-            background-color: #7C5DFA;
+                .nav-links a.active {
+                    color: var(--brand-purple);
+                }
+
+                .nav-links a:hover {
+                    color: var(--brand-purple);
+                }
+
+        /* RIGHT ALIGNED BUTTON */
+        .nav-actions {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .btn-purple {
+            background-color: var(--brand-purple);
             color: white;
             border: none;
-            padding: 12px 24px;
-            border-radius: 8px;
+            padding: 14px 28px;
+            border-radius: 12px;
             font-weight: 600;
+            font-size: 15px;
             cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+            .btn-purple:hover {
+                background-color: #5b36cb;
+                transform: translateY(-2px);
+                box-shadow: 0 5px 15px rgba(112, 71, 235, 0.3);
+            }
+
+        #mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* --- MOBILE RESPONSIVE --- */
+        @@media (max-width: 1100px) {
+            .navbar-inner
+
+        {
+            grid-template-columns: 1fr 1fr; /* Logo | Button + Burger */
+        }
+
+        .nav-links {
+            display: none; /* Hide standard links */
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: white;
+            flex-direction: column;
+            padding: 20px;
+            gap: 15px;
+            text-align: center;
+            box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+        }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+        #mobile-menu-btn {
+            display: block;
+        }
+
+        }
+
+        @@media (max-width: 600px) {
+            .top-bar-right
+
+        {
+            display: none;
+        }
+        /* Hide social on small mobile */
+        .btn-purple {
+            display: none;
+        }
+        /* Hide button on small mobile or move to burger */
         }
 
         /* --- MOBILE MENU STYLES (Fixed) --- */
@@ -1012,12 +1166,59 @@
     </style>
 </head>
 <body>
+    <header>
+        <!-- TOP HEADER -->
+        <div class="top-bar">
+            <div class="container top-bar-inner">
+                <div class="top-bar-left">
+                    <a href="tel:+8801713428432">
+                        <i class="fa-solid fa-phone-flip" style="transform: rotate(15deg);"></i>
+                        Sales: +8801713428432
+                    </a>
+                </div>
+                <div class="top-bar-right">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
 
+        <!-- MAIN NAVBAR -->
+        <nav class="main-nav">
+            <div class="container navbar-inner">
+                <!-- 1. Logo -->
+                <a href="/" class="logo">
+                    <div class="logo">
+                        <img src="~/image/logo (2).png" alt="Logo" style="height: 35px; width: auto; margin-right: 8px;">
+
+                    </div>
+                   
+                </a>
+
+                <!-- 2. Centered Links -->
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="/" class="active">Home</a></li>
+                    <li><a href="/Home/feature">Features</a></li>
+                    <li><a href="/Home/pricing">Pricing</a></li>
+                    <li><a href="/Home/devices">Devices</a></li>
+                    <li><a href="/Home/Blog">Blog</a></li>
+                    <li><a href="/Home/contact">Contact</a></li>
+                </ul>
+
+                <!-- 3. Right Action -->
+                <div class="nav-actions">
+                    <a href="#" class="btn-purple">Get Started For Free</a>
+                    <i class="fa-solid fa-bars" id="mobile-menu-btn"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
     <div class="grid-overlay"></div>
 
     <div class="container">
 
-        <nav class="navbar">
+       @*  <nav class="navbar">
             <div class="logo">
                 <div class="logo-icon">
                     <div class="logo-dot"></div><div class="logo-dot"></div>
@@ -1037,7 +1238,7 @@
                 <li><a href="/Home/contact">Contact</a></li>
             </ul>
             <button class="btn-nav">Get Started For Free</button>
-        </nav>
+        </nav> *@
 
         <div class="hero-section">
             <div class="text-content">

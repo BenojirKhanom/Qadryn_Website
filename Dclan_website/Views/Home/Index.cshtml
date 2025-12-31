@@ -29,7 +29,8 @@
             min-height: 100vh;
             position: relative;
             padding-bottom: 50px;
-            padding-top: 120px;
+        
+            padding-top: 160px;
         }
 
         /* --- BACKGROUND GRID PATTERN --- */
@@ -52,13 +53,14 @@
             position: relative;
             width: 100%;
             z-index: 1;
+
         }
         /* --- TOP BAR STYLES --- */
         .top-header-bar {
-            background-color: #5b36cb; /* Brand Purple */
+            background-color: #5D3CF3; /* Brand Purple */
             color: white;
             padding: 5px 0;
-            font-size: 10px;
+            font-size: 14px;
             position: fixed;
             top: 0;
             left: 0;
@@ -92,7 +94,7 @@
             top: 20px !important;
             left: 0;
             width: 100%;
-            z-index: 9999; 
+            z-index: 2000; 
             padding-top: 20px;
             padding-bottom: 20px;
             max-width: 100% !important;
@@ -3941,52 +3943,76 @@
         /* Hide stack on mobile for speed */
         }
         /* --- Modal Styles --- */
+        /* --- FIXED MODAL / POPUP CSS --- */
         .modal-overlay {
-            display: none; /* Hidden by default */
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5); /* Dim background */
-            backdrop-filter: blur(5px); /* Blur background */
-            z-index: 10000; /* Ensure it stays on top */
+            background: rgba(0, 0, 0, 0.7) !important; /* Darker background */
+            backdrop-filter: blur(8px);
+            z-index: 99999 !important; /* Higher than EVERYTHING else */
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            padding: 15px;
         }
 
-            /* When this class is added via JS, modal shows */
             .modal-overlay.active {
-                display: flex;
+                display: flex !important; /* Forces it to show when JS triggers */
             }
 
         .contact-form-card {
-            position: relative; /* For close button positioning */
-            width: 100%;
-            max-width: 600px; /* Control the width of the popup */
-            background: white;
-            padding: 40px;
+            background: white !important;
+            padding: 30px !important;
             border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
-            animation: slideUp 0.3s ease-out;
+            width: 100%;
+            max-width: 500px;
+            max-height: 90vh;
+            overflow-y: auto; /* Allows scrolling inside popup on small phones */
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
         }
 
-        @@keyframes slideUp {
-            from
-
-        {
-            transform: translateY(30px);
-            opacity: 0;
+        /* Style for the form labels inside popup */
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #333;
+            font-size: 14px;
         }
 
-        to {
-            transform: translateY(0);
-            opacity: 1;
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 15px;
         }
 
+        .btn-submit {
+            background: linear-gradient(90deg, #8B5CF6 0%, #3B82F6 100%); /* Purple to Blue gradient */
+            color: #ffffff !important;
+            width: 100%; /* Makes it full width to match the inputs */
+            padding: 14px; /* Adds height and space */
+            border: none; /* Removes the ugly black border */
+            border-radius: 10px; /* Matches the rounded corners of your inputs */
+            font-size: 1rem;
+            font-weight: 700; /* Makes the text bold */
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3); /* Subtle purple glow */
         }
 
+            /* Hover effect to make it feel interactive */
+            .btn-submit:hover {
+                transform: translateY(-2px); /* Slight lift on hover */
+                box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+                opacity: 0.9;
+            }
         .close-modal {
             position: absolute;
             top: 15px;
@@ -4000,7 +4026,57 @@
             .close-modal:hover {
                 color: var(--primary-purple);
             }
+        @@media (max-width: 768px) {
+            /* Ensure the navbar doesn't get too tall */
+            .custom-navbar
 
+        {
+            padding: 8px 15px !important;
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            width: 95% !important;
+            margin: 0 auto;
+        }
+
+        /* Resize the Logo for mobile */
+        .brand-logo img {
+            height: 24px !important;
+        }
+
+        /* Style the SMALL button for the header */
+        .mobile-nav-btn {
+            display: inline-flex !important; /* Force show */
+            padding: 6px 12px !important; /* Small padding */
+            font-size: 11px !important; /* Small font */
+            border-radius: 6px !important;
+            white-space: nowrap; /* Prevent text wrapping */
+            background: var(--primary-purple);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Fix the overall header position */
+        .navbar-container {
+            top: 40px !important; /* Move it down slightly below the top bar */
+            padding: 0 !important;
+        }
+
+        }
+        @@media (max-width: 480px) {
+            .top-header-bar
+
+        {
+            font-size: 11px;
+            padding: 3px 0;
+        }
+        /* Hide "Sales:" text to save space, show only number */
+        .top-bar-left span {
+            display: none;
+        }
+
+        }
         /* Ensure your existing form styles are still present below this */
     </style>
 </head>
@@ -4078,7 +4154,10 @@
                     <img src="~/image/logo (2).png" alt="Logo" style="height: 35px; width: auto; margin-right: 8px;">
                     
                 </div>
-
+                <!-- 4. The SMALL Button (Now visible on mobile) -->
+               @*  <a href="javascript:void(0)" class="btn-purple mobile-nav-btn" id="getStartedBtn">
+                    Get Started
+                </a> *@
                 <!-- Links -->
                 <ul class="nav-links d-none d-lg-flex">
                     <li><a href="/Home/index" class="active">Home</a></li>
