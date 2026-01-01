@@ -445,7 +445,7 @@
         .form-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            gap: 15px;
             margin-bottom: 20px;
         }
 
@@ -490,23 +490,29 @@
                 height: 120px;
             }
 
-        .btn-submit {
-            background-color: var(--primary-purple);
-            color: white;
-            border: none;
-            width: 100%;
-            padding: 14px;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            margin-top: 10px;
-            transition: background 0.3s;
-        }
+       .btn-submit {
+    background: linear-gradient(90deg, #8B5CF6 0%, #6366F1 50%, #3B82F6 100%); 
+    color: white;
+    border: none;
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px; 
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 10px;
+    box-shadow: 0 10px 25px rgba(112, 71, 235, 0.3); 
 
-            .btn-submit:hover {
-                background-color: var(--primary-hover);
-            }
+    transition: all 0.3s ease;
+    display: block;
+    text-align: center;
+}
+
+.btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(112, 71, 235, 0.4);
+    opacity: 0.95;
+}
 
         /* Responsive Fixes */
             @@media (max-width: 1024px) {
@@ -1204,12 +1210,12 @@
 
                 <!-- 2. Centered Links -->
                 <ul class="nav-links" id="navLinks">
-                    <li><a href="/" class="active">Home</a></li>
+                    <li><a href="/" >Home</a></li>
                     <li><a href="/Home/feature">Features</a></li>
                     <li><a href="/Home/pricing">Pricing</a></li>
                     <li><a href="/Home/devices">Devices</a></li>
                     <li><a href="/Home/Blog">Blog</a></li>
-                    <li><a href="/Home/contact">Contact</a></li>
+                    <li><a href="/Home/contact" class="active">Contact</a></li>
                 </ul>
 
                 <!-- 3. Right Action -->
