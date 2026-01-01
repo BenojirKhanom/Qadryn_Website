@@ -21,6 +21,21 @@
             --text-muted: #52525B;
         }
 
+        html::-webkit-scrollbar,
+        body::-webkit-scrollbar {
+            width: 0px;
+            background: transparent;
+        }
+
+        /* Firefox */
+        html, body {
+            scrollbar-width: none;
+        }
+
+        /* IE & old Edge */
+        html, body {
+            -ms-overflow-style: none;
+        }
         body {
             background-image: linear-gradient(180deg, #CBB6FC 0%, #EBE5FF 30%, #FFF5F5 100%);
             background-repeat: no-repeat;
@@ -3998,6 +4013,20 @@
         /* Hide stack on mobile for speed */
         }
         /* --- Modal Styles --- */
+        .contact-form-card::-webkit-scrollbar {
+            width: 0px;
+            background: transparent;
+        }
+
+        /* Firefox */
+        .contact-form-card {
+            scrollbar-width: none;
+        }
+
+        /* IE & old Edge */
+        .contact-form-card {
+            -ms-overflow-style: none;
+        }
         /* --- FIXED MODAL / POPUP CSS --- */
         .modal-overlay {
             display: none;
@@ -5246,6 +5275,7 @@
             }
         });
     </script>
+   
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

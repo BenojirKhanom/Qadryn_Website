@@ -18,6 +18,21 @@
             --text-muted: #52525B;
         }
 
+        html::-webkit-scrollbar,
+        body::-webkit-scrollbar {
+            width: 0px;
+            background: transparent;
+        }
+
+        /* Firefox */
+        html, body {
+            scrollbar-width: none;
+        }
+
+        /* IE & old Edge */
+        html, body {
+            -ms-overflow-style: none;
+        }
         body {
             background-image: linear-gradient(180deg, #E0D4FC 0%, #F3F0FF 30%, #FFFFFF 100%);
             background-repeat: no-repeat;

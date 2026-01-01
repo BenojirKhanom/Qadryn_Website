@@ -28,6 +28,21 @@
             --text-dark: #100C29;
         }
 
+        html::-webkit-scrollbar,
+        body::-webkit-scrollbar {
+            width: 0px;
+            background: transparent;
+        }
+
+        /* Firefox */
+        html, body {
+            scrollbar-width: none;
+        }
+
+        /* IE & old Edge */
+        html, body {
+            -ms-overflow-style: none;
+        }
         body {
             background-image: linear-gradient(180deg, #CBB6FC 0%, #EBE5FF 30%, #FFF5F5 100%);
             background-repeat: no-repeat;
