@@ -1,16 +1,8 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Qadryn - Contact Us</title>
-    <!-- Inter Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome (Only One Version) -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+﻿@{
+    Layout = "/Pages/Shared/_Layout.cshtml";
+}
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
+     @section Styles {
     <style>
         /* --- RESET & VARIABLES --- */
         * {
@@ -75,219 +67,8 @@
             padding: 0 20px;
         }
 
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 2000;
-        }
-
-        .top-bar {
-            background-color: var(--top-bar-bg);
-            color: white;
-            padding: 10px 0;
-            font-size: 13px;
-            font-weight: 500;
-        }
-
-        .top-bar-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .top-bar-left a {
-            color: white;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .top-bar-right {
-            display: flex;
-            gap: 25px;
-            align-items: center;
-        }
-
-            .top-bar-right a {
-                color: white;
-                text-decoration: none;
-                font-size: 18px;
-                transition: opacity 0.3s;
-            }
-
-        /* --- 2. MAIN NAVBAR --- */
-        .main-nav {
-            background: var(--nav-bg);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-            padding: 12px 0;
-        }
-
-        .navbar-inner {
-            display: grid;
-            grid-template-columns: 200px 1fr 200px; /* Forces exact centering of links */
-            align-items: center;
-        }
-
-        /* LOGO & ICON STYLE */
-        .logo {
-            display: flex;
-            align-items: center;
-            font-weight: 700;
-            font-size: 26px;
-            color: var(--text-dark);
-            gap: 12px;
-            text-decoration: none;
-        }
-
-        .logo-icon {
-            width: 32px;
-            height: 32px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            gap: 4px;
-            transform: rotate(-15deg); /* Slanted lines from image */
-        }
-
-        .logo-line {
-            height: 4px;
-            background: var(--brand-purple);
-            border-radius: 10px;
-        }
-
-            .logo-line:nth-child(1) {
-                width: 60%;
-                opacity: 0.5;
-            }
-
-            .logo-line:nth-child(2) {
-                width: 100%;
-            }
-
-            .logo-line:nth-child(3) {
-                width: 80%;
-                opacity: 0.8;
-            }
-
-        /* CENTERED LINKS */
-        .nav-links {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            list-style: none;
-        }
-
-            .nav-links a {
-                text-decoration: none;
-                color: var(--text-dark);
-                font-weight: 600;
-                font-size: 16px;
-                transition: 0.3s;
-            }
-
-                .nav-links a.active {
-                    color: var(--top-bar-bg); /* Active matches top bar color */
-                }
-
-                .nav-links a:hover {
-                    color: var(--brand-purple);
-                }
-
-        /* RIGHT ALIGNED BUTTON */
-        .nav-actions {
-            display: flex;
-            justify-content: flex-end;
-        }
-
-        .btn-purple {
-            background-color: var(--brand-purple);
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 12px;
-            font-weight: 700;
-            font-size: 15px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-        }
-
-            .btn-purple:hover {
-                background-color: #5b36cb;
-                transform: translateY(-2px);
-                box-shadow: 0 8px 20px rgba(112, 71, 235, 0.3);
-            }
-
-        /* --- MOBILE RESPONSIVE FIXES --- */
-        @@media (max-width: 1100px) {
-            .navbar-inner
-
-        {
-            grid-template-columns: 1fr 1fr;
-        }
-
-        .nav-links {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            background: white;
-            flex-direction: column;
-            padding: 20px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-        }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-        #mobile-menu-btn {
-            display: block;
-            margin-left: 20px;
-        }
-
-        }
-        /* Class added via JS */
-        .nav-links.mobile-menu-active {
-            display: flex !important;
-            flex-direction: column;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%; /* Changed from 200px to full width for better UX */
-            background: #ffffff;
-            padding: 20px;
-            margin-top: 10px;
-            border-radius: 12px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-            border: 1px solid #f0f0f0;
-            z-index: 9999;
-        }
-
-            .nav-links.mobile-menu-active li {
-                width: 100%;
-                margin-bottom: 15px;
-                text-align: center;
-            }
-
-                .nav-links.mobile-menu-active li a {
-                    font-size: 1.1rem;
-                    font-weight: 600;
-                    color: #100C29;
-                    display: block;
-                }
-
-        .btn-nav {
-            display: none; /* Hide Get Started button on mobile to save space */
-        }
-
-         /* <--- ERROR FIXED: Missing closing bracket added here */
+     
+      
 
         /* --- MAIN CONTENT LAYOUT --- */
         .contact-wrapper {
@@ -1017,241 +798,136 @@
         }
 
         }
-
-        /* --- FOOTER --- */
-        .footer-container {
-            max-width: 1300px;
-            background-color: #7065f0;
-            border-radius: 24px;
-            padding: 40px;
-            color: white;
-            display: flex;
-            justify-content: space-between;
-            margin: 50px auto;
-            gap: 40px;
+        /* =========================================
+           CONTACT PAGE RESPONSIVE FIXES
+           ========================================= */
+        html, body {
+            max-width: 100% !important;
+            overflow-x: hidden !important;
+            width: 100% !important;
+            position: relative;
         }
 
-        .footer-left, .footer-right {
-            width: 45%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .brand-logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 24px;
-        }
-
-        .brand-desc {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 30px;
-            opacity: 0.9;
-            color: white;
-        }
-
-        .btn-learn {
-            display: inline-block;
-            padding: 10px 24px;
-            border: 1px solid rgba(255,255,255,0.6);
-            border-radius: 8px;
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: 0.3s;
-            width: fit-content;
-        }
-
-            .btn-learn:hover {
-                background-color: white;
-                color: #7065f0;
-            }
-
-        .social-icons-wrapper {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .social-row {
-            display: flex;
-            gap: 10px;
-        }
-
-        .social-circle {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: #fff;
-            color: #4252e3;
-            text-decoration: none;
-            font-size: 18px;
-        }
-
-            .social-circle:hover {
-                transform: translateY(-3px);
-            }
-
-        .copyright-text {
-            font-size: 0.9rem;
-            opacity: 0.8;
-            margin-top: 20px;
-        }
-
-        .nav-linksfooter {
-            list-style: none;
-            display: flex;
-            gap: 20px;
-            font-weight: 500;
-            flex-wrap: wrap;
-            margin-bottom: 30px;
-        }
-
-            .nav-linksfooter a {
-                color: white;
-                text-decoration: none;
-                opacity: 0.9;
-            }
-
-                .nav-linksfooter a:hover {
-                    opacity: 1;
-                    text-decoration: underline;
-                }
-
-        .contact-section h4, .location-section h4 {
-            font-size: 1.1rem;
-            margin-bottom: 12px;
-            font-weight: 600;
-            color: white;
-        }
-
-        .contact-info p, .location-info p {
-            font-size: 1rem;
-            opacity: 0.85;
-            margin-bottom: 6px;
-            color: white;
-        }
-
-        .right-bottom-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            margin-top: auto;
-        }
-
-        .lang-options span {
-            cursor: pointer;
-            opacity: 0.7;
-        }
-
-            .lang-options span:hover {
-                opacity: 1;
-            }
-
-            @@media (max-width: 900px) {
-            .footer-container
+        @@media (max-width: 1024px) {
+            body
 
         {
-            flex-direction: column;
+            padding-top: 180px !important;
         }
 
-        .footer-left, .footer-right {
-            width: 100%;
+        .contact-wrapper {
+            flex-direction: column !important;
+            gap: 40px !important;
+            text-align: center !important;
         }
 
-        .right-bottom-row {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 20px;
+        .contact-info {
+            padding-top: 0 !important;
+        }
+
+            .contact-info h1 {
+                font-size: 2.2rem !important;
+            }
+
+        .feature-list {
+            display: inline-block;
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .reviews {
+            justify-content: center;
+        }
+
+        .action-buttons {
+            justify-content: center;
+        }
+        .contact-form-card {
+            padding: 30px 20px !important;
+            width: 100% !important;
+        }
+
+        .form-grid {
+            grid-template-columns: 1fr !important; 
+        }
+
+        .form-group.full-width {
+            grid-column: span 1 !important;
+        }
+
+        }
+
+        @@media (max-width: 991px) {
+            .map-section-wrapper
+
+        {
+            flex-direction: column !important;
+            align-items: center !important;
+            gap: 30px !important;
+        }
+
+        .map-text-content {
+            max-width: 100% !important;
+            text-align: center !important;
+        }
+
+        .info-row {
+            justify-content: center;
+        }
+
+        .map-container {
+            width: 100% !important;
+        }
+
+        .map-img {
+            max-width: 100% !important;
+        }
+        .q-grid {
+            flex-direction: column !important;
+            align-items: center !important;
+        }
+
+        .q-card {
+            max-width: 100% !important;
+            width: 100% !important;
+        }
+
+        }
+
+        /*  (iPhone/Android Small) */
+        @@media (max-width: 576px) {
+            .section-title, .q-title, .big-heading
+
+        {
+            font-size: 1.8rem !important;
+        }
+
+        .testimonial-slider {
+            gap: 10px !important;
+        }
+
+        .nav-arrow {
+            display: none !important;
+        }
+
+        .review-card {
+            padding: 20px !important;
+        }
+
+        .btn-submit {
+            border-radius: 8px !important;
         }
 
         }
     </style>
-</head>
-<body>
-    <header>
-        <!-- TOP HEADER -->
-        <div class="top-bar">
-            <div class="container top-bar-inner">
-                <div class="top-bar-left">
-                    <a href="tel:+8801713428432">
-                        <i class="fa-solid fa-phone-flip" style="transform: rotate(15deg);"></i>
-                        Sales: +880 1834-652676
-                    </a>
-                </div>
-                <div class="top-bar-right">
-                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-
-        <!-- MAIN NAVBAR -->
-        <nav class="main-nav">
-            <div class="container navbar-inner">
-                <!-- 1. Logo -->
-                <a href="/" class="logo">
-                    <div class="logo">
-                        <img src="~/image/logo (2).png" alt="Logo" style="height: 35px; width: auto; margin-right: 8px;">
-
-                    </div>
-
-                </a>
-
-                <!-- 2. Centered Links -->
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="/" >Home</a></li>
-                    <li><a href="/Home/feature">Features</a></li>
-                    <li><a href="/Home/pricing">Pricing</a></li>
-                    <li><a href="/Home/devices">Devices</a></li>
-                    <li><a href="/Home/Blog">Blog</a></li>
-                    <li><a href="/Home/contact" class="active">Contact</a></li>
-                </ul>
-
-                <!-- 3. Right Action -->
-                <div class="nav-actions">
-                    <a href="#" class="btn-purple">Get Started For Free</a>
-@*                     <i class="fa-solid fa-bars" id="mobile-menu-btn"></i>
- *@                </div>
-            </div>
-        </nav>
-    </header>
+   }
+  
     <!-- Background Grid -->
     <div class="grid-overlay"></div>
 
     <div class="container">
 
-        <!-- Navbar -->
-        @* <nav class="navbar">
-            <div class="logo">
-                <img src="~/image/logo (2).png" alt="Logo" style="height: 35px; width: auto; margin-right: 8px;">
-
-            </div>
-
-            <!-- Mobile Menu Toggle Button -->
-            <i class="fas fa-bars d-lg-none" id="mobile-menu-btn" style="font-size: 1.5rem; cursor: pointer; display:none;"></i>
-
-            <!-- Navbar Links -->
-            <ul class="nav-links" id="navbar-links">
-                <li><a href="/Home/Index">Home</a></li>
-                <li><a href="/Home/feature">Features</a></li>
-                <li><a href="/Home/pricing">Pricing</a></li>
-                <li><a href="/Home/devices">Devices</a></li>
-                <li><a href="/Home/Blog">Blog</a></li>
-                <li><a href="/Home/contact" style="color: var(--primary-purple); font-weight:700;">Contact</a></li>
-            </ul>
-            <a href="#" class="btn-nav">Get Started For Free</a>
-        </nav> *@
-
+       
         <!-- Main Content -->
         <div class="contact-wrapper">
 
@@ -1287,13 +963,6 @@
                     <span class="review-text">100+ Reviews</span>
                 </div>
 
-               @*  <div class="action-buttons">
-                    <button class="btn-demo">
-                        Request a demo
-                        <span class="arrow-icon"><i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 8px;"></i></span>
-                    </button>
-                    <button class="btn-contact-sales">Contact Sales</button>
-                </div> *@
             </div>
 
             <!-- Right Side: Form -->
@@ -1471,55 +1140,7 @@
 
             </div>
         </div>
-    </section>
-
-    <!-- Footer -->
-
-        <footer class="footer-container">
-            <div class="footer-left">
-                <div class="top-content">
-                    <div class="brand-logo"><img src="~/image/logo (2).png" alt="Logo" style="height: 35px; width: auto; margin-right: 8px;"></div>
-                    <p class="brand-desc">All-in-one ERP built for next-gen finance and accounting.</p>
-                    <a href="#" class="btn-learn">Learn more</a>
-
-                </div>
-                <div class="left-bottom-row">
-                    <div class="social-icons-wrapper">
-                        <a href="#" class="social-circle"><i class="fa-brands fa-facebook-f"></i></a>
-                        <div class="social-row">
-                            <a href="#" class="social-circle"><i class="fa-brands fa-instagram"></i></a>
-                            <a href="#" class="social-circle"><i class="fa-solid fa-x"></i></a>
-                        </div>
-                    </div>
-                    <div class="copyright-text">© 2025 Rivo.<br>All rights reserved.</div>
-                </div>
-            </div>
-            <div class="footer-right">
-                <ul class="nav-linksfooter">
-                    <li><a href="#">Features</a></li>
-                    <li><a href="#">Pricing</a></li>
-                    <li><a href="#">Devices</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-                <div class="contact-section">
-                    <h4>Contact us</h4>
-                    <div class="contact-info">
-                    <p>info@qadryn.com</p>
-                    <p>sales@qadryn.com</p>
-                    </div>
-                </div>
-                <div class="right-bottom-row">
-                <div class="location-section"><h4>Location</h4><div class="location-info"><p>Level 8,</p><p>shaptak 27,Dhanmondi Dhaka</p></div></div>
-
-                    </div>
-                    <div class="language-selector">
-                        <span class="lang-title">Languages</span>
-                        <div class="lang-options"><span>EN</span> | <span>BN</span></div>
-                    </div>
-                </div>
-            @* </div> *@
-        </footer>
+    </section> 
 
 
     <!-- Mobile Menu Script -->
@@ -1552,5 +1173,3 @@
             }
         });
     </script>
-</body>
-</html>

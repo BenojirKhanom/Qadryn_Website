@@ -2,49 +2,803 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
+    <meta name="google-site-verification" content="-cyhEJMRUSGRxTDGnz6_oEbfGY_XHBW10RWR2iVztwc" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Dclan_website</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/Dclan_website.styles.css" asp-append-version="true" />
+    <link rel="shortcut icon" href="~/favicon.ico?v=2" type="image/x-icon" />
+    <title>@ViewData["Title"] - Qadryn</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7F82XVD0B9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-7F82XVD0B9');
+    </script>
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="~/css/site.css">
+
+    <style>
+        :root {
+            --primary-purple: #7047EB;
+            --text-dark: #100C29;
+        }
+
+        /* --- Global Scrolled Padding --- */
+        body {
+            padding-top: 140px; /* Space for fixed headers */
+        }
+
+        /* --- TOP HEADER (Purple Bar) --- */
+        .top-header {
+            background-color: #5D3CF3;
+            color: white;
+            padding: 8px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10001;
+        }
+
+            .top-header a {
+                color: white;
+                text-decoration: none;
+                margin-left: 15px;
+                font-size: 14px;
+            }
+
+            .top-header .sales-info {
+                font-size: 14px;
+                font-weight: 500;
+            }
+
+        /* --- FLOATING NAVBAR --- */
+        .navbar-container {
+            position: fixed;
+            top: 10px !important;
+            left: 0;
+            width: 100%;
+            z-index: 9999;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            max-width: 100% !important;
+            padding-left: 0px !important;
+            padding-right: 0px !important;
+            background: linear-gradient(to bottom, rgba(203, 182, 252, 0.2) 0%, rgba(255,255,255,0) 100%);
+            display: flex;
+            justify-content: center;
+        }
+
+        .custom-navbar {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            padding: 12px 30px;
+            box-shadow: 0 4px 20px rgba(112, 71, 235, 0.03);
+            width: 100% !important;
+            max-width: 100% !important;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand-logo img {
+            height: 40px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
+
+            .nav-links a {
+                text-decoration: none;
+                color: var(--text-dark);
+                font-weight: 500;
+                transition: 0.3s;
+            }
+
+                .nav-links a:hover, .nav-links a.active {
+                    color: var(--primary-purple);
+                    font-weight: 700;
+                }
+
+        .btn-purple-nav {
+            background-color: var(--primary-purple);
+            color: white !important;
+            padding: 10px 22px;
+            border-radius: 10px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        /* --- MOBILE MENU --- */
+        #mobile-menu-btn {
+            cursor: pointer;
+            display: none;
+            font-size: 1.5rem;
+        }
+
+        @@media (max-width: 991px) {
+            #mobile-menu-btn
+
+        {
+            display: block;
+        }
+        
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            left: 2.5%;
+            width: 95%;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-top: 10px;
+        }
+
+            .nav-links.mobile-menu-active {
+                display: flex;
+            }
+
+        .d-sm-none-custom {
+            display: none !important;
+        }
+
+        }
+
+        .nav-item-dropdown {
+            position: relative;
+        }
+
+        /* Dropdown box */
+        .services-dropdown {
+            position: absolute;
+            top: 50px;
+            left: 0;
+            width: 290px;
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 12px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+            display: none;
+            z-index: 999;
+        }
+
+        /* Service buttons */
+        .service-item {
+            display: block;
+            padding: 10px 14px;
+            margin-bottom: 10px;
+            border-radius: 14px;
+            border: 2px solid #7b6cff;
+            color: #7b6cff;
+            font-size: 12px;
+            text-decoration: none;
+            transition: all 0.25s ease;
+        }
+
+            /* Active */
+            .service-item.active {
+                background: #9b8cff;
+                color: #fff;
+                border-color: #9b8cff;
+                box-shadow: 0 6px 14px rgba(123, 108, 255, 0.4);
+            }
+
+            .service-item:hover {
+                background: #f2f0ff;
+            }
+
+            .service-item:last-child {
+                margin-bottom: 0;
+            }
+        /* Modal Background Overlay */
+        .modal-overlay {
+            display: none; /* Hidden by default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(16, 12, 41, 0.4); /* Dimmed background */
+            backdrop-filter: blur(4px);
+            z-index: 20000;
+            overflow-y: auto; /* This allows the MODAL to scroll if screen is small */
+            padding: 20px;
+        }
+
+        /* Prevent background body scroll when modal is open */
+        body.modal-open {
+            overflow: hidden;
+        }
+
+        /* Modal Card Design */
+        .contact-form-card {
+            background: #F4F5F8; /* Light gray background matching your image */
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 40px;
+            border-radius: 24px;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        .modal-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #334155;
+            margin-bottom: 25px;
+        }
+
+        /* Close Button */
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 30px;
+            cursor: pointer;
+            color: #64748b;
+        }
+
+        /* Form Grid Layout */
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+            .form-group.full-width {
+                grid-column: span 2;
+            }
+
+            .form-group label {
+                font-weight: 500;
+                font-size: 14px;
+                color: #475569;
+            }
+
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                padding: 12px 16px;
+                border-radius: 10px;
+                border: 1px solid transparent;
+                background: #fdfdfd;
+                font-size: 14px;
+                transition: 0.3s;
+            }
+
+            .form-group textarea {
+                height: 120px;
+                resize: none;
+            }
+
+        /* Purple Button from your image */
+        .btn-submit {
+            margin-top: 25px;
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(90deg, #7047EB 0%, #3B82F6 100%);
+            color: white;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(112, 71, 235, 0.3);
+        }
+
+        /* Responsive */
+        @@media (max-width: 600px) {
+            .form-grid
+
+        {
+            grid-template-columns: 1fr;
+        }
+
+        .form-group.full-width {
+            grid-column: span 1;
+        }
+
+        .contact-form-card {
+            padding: 20px;
+        }
+
+        }
+        body.modal-open {
+            overflow: hidden !important; 
+            padding-right: 0px; 
+        }
+
+            /* Hide scrollbar for Chrome, Safari and Opera */
+            body.modal-open::-webkit-scrollbar {
+                display: none;
+                width: 0 !important;
+            }
+
+        /* Hide scrollbar for IE, Edge and Firefox */
+        body.modal-open {
+            -ms-overflow-style: none; 
+            scrollbar-width: none;
+        }
+        .modal-overlay::-webkit-scrollbar {
+            display: none;
+        }
+
+        .modal-overlay {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        /* ---------------- MOBILE SIDEBAR ---------------- */
+
+        .mobile-sidebar {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 85%;
+            max-width: 320px;
+            height: 100%;
+            background: #fff;
+            z-index: 30000;
+            padding: 20px;
+            transition: left 0.35s ease;
+            overflow-y: auto;
+        }
+
+            .mobile-sidebar.active {
+                left: 0;
+            }
+
+        .sidebar-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.45);
+            z-index: 29999;
+            display: none;
+        }
+
+            .sidebar-overlay.active {
+                display: block;
+            }
+
+        .sidebar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+            .sidebar-header img {
+                height: 36px;
+            }
+
+            .sidebar-header i {
+                font-size: 22px;
+                cursor: pointer;
+            }
+
+        /* Links */
+        .sidebar-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+            .sidebar-links li {
+                margin-bottom: 10px;
+            }
+
+            .sidebar-links a,
+            .sidebar-dropdown span {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 12px;
+                border-radius: 10px;
+                font-weight: 500;
+                text-decoration: none;
+                color: var(--text-dark);
+            }
+
+                .sidebar-links a:hover {
+                    background: #f3f1ff;
+                    color: var(--primary-purple);
+                }
+
+        /* Services dropdown */
+        .sidebar-dropdown ul {
+            display: none;
+            padding-left: 15px;
+        }
+
+        .sidebar-dropdown.active ul {
+            display: block;
+        }
+
+        .sidebar-dropdown ul a {
+            font-size: 14px;
+        }
+
+        /* Button */
+        .sidebar-btn {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* Hide desktop nav on mobile */
+        @@media (max-width: 991px) {
+            .nav-links
+
+        {
+            display: none !important;
+        }
+
+        }
+        @@media (max-width: 991px) {
+            #mobile-menu-btn
+
+        {
+            display: block;
+            z-index: 99999;
+        }
+
+        .nav-links {
+            display: none !important;
+        }
+
+        }
+        @@media (max-width: 992px) {
+            body
+
+        {
+            padding-top: 180px !important;
+        }
+
+        .hero-badge {
+            margin-top: 40px !important;
+            position: relative;
+            z-index: 1;
+        }
+
+        }
+
+        @@media (max-width: 576px) {
+            body
+
+        {
+            padding-top: 160px !important;
+        }
+
+        .hero-badge {
+            margin-top: 30px !important;
+        }
+
+        }
+        /* --- FOOTER RESPONSIVE FIX (Add this at the end) --- */
+        @@media (max-width: 991px) {
+            .footer-section, footer
+
+        {
+            padding-top: 50px !important;
+            padding-bottom: 40px !important;
+            text-align: center !important;
+        }
+        .footer-section .row > div,
+        footer .row > div,
+        footer [class*="col-"] {
+            width: 100% !important;
+            margin-bottom: 40px !important; 
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important; 
+            justify-content: center !important;
+        }
+        .social-icons, .footer-social-links {
+            display: flex !important;
+            flex-direction: row !important;
+            gap: 15px !important;
+            margin-top: 20px !important;
+            justify-content: center !important;
+        }
+
+        .footer-logo, footer img {
+            margin-bottom: 20px !important;
+        }
+
+        .footer-section .btn, footer button, .learn-more-btn {
+            width: auto !important;
+            display: inline-block !important;
+            margin-bottom: 20px !important;
+        }
+        footer p, footer span, footer a {
+            text-align: center !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+        }
+
+        .language-switcher {
+            justify-content: center !important;
+            margin-top: 10px;
+        }
+
+        }
+        @@media (max-width: 576px) {
+            .copyright-text
+
+        {
+            font-size: 14px;
+            order: 10;
+        }
+
+        }
+    </style>
+    @await RenderSectionAsync("Styles", required: false)
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">Dclan_website</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
-                        </li>
-                    </ul>
+    <!-- Top Purple Header -->
+    <div class="top-header">
+        <div class="container-fluid px-lg-5">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="sales-info">
+                    <i class="fas fa-phone-alt me-2"></i> Sales: +880 1834-652676
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-x-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <!-- Main Navbar -->
+    <div class="navbar-container">
+        <nav class="custom-navbar">
+             <i class="fas fa-bars" id="mobile-menu-btn"></i>
+ 
+            <a href="/" class="brand-logo">
+                <img src="/image/logo (2).png" alt="Qadryn Logo">
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="/Home/index" class="@(ViewContext.HttpContext.Request.Path.Value.Contains("index") ? "active" : "")">Home</a></li>
+
+                <li><a href="/Home/feature" class="@(ViewContext.HttpContext.Request.Path.Value.Contains("feature") ? "active" : "")">Features</a></li>
+
+                <li class="nav-item-dropdown">
+                    <a href="javascript:void(0)" class="nav-services">
+                        Services <i class="fas fa-chevron-down dropdown-arrow"></i>
+                    </a>
+
+                    <div class="services-dropdown">
+                        <a class="service-item active">Customised ERP</a>
+                        <a class="service-item">UI/UX design</a>
+                        <a class="service-item">Brand & Graphic Design</a>
+                        <a class="service-item">Web development</a>
+                        <a class="service-item">App development</a>
+                        <a class="service-item">MVP development</a>
+                        <a class="service-item">Digital Marketing</a>
+                        <a class="service-item">Website SEO</a>
+                    </div>
+                </li>
+
+                <li><a href="/Home/pricing" class="@(ViewContext.HttpContext.Request.Path.Value.Contains("pricing") ? "active" : "")">Pricing</a></li>
+                <li><a href="/Home/devices" class="@(ViewContext.HttpContext.Request.Path.Value.Contains("devices") ? "active" : "")">Devices</a></li>
+                <li><a href="/Home/Blog" class="@(ViewContext.HttpContext.Request.Path.Value.Contains("Blog") ? "active" : "")">Blog</a></li>
+                <li><a href="/Home/contact" class="@(ViewContext.HttpContext.Request.Path.Value.Contains("contact") ? "active" : "")">Contact</a></li>
+            </ul>
+
+            <!-- Change this line in your navbar -->
+            <a href="javascript:void(0)" id="openContactModal" class="btn-purple-nav d-sm-none-custom">Get Started</a>
         </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
+    </div>
+    <!-- Modal Overlay -->
+    <div class="modal-overlay" id="contactModal">
+        <div class="contact-form-card">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <h2 class="modal-title">Get Started</h2>
+
+            <form>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>First Name</label>
+                        <input type="text" placeholder="Full Name">
+                    </div>
+                    <div class="form-group">
+                        <label>Last Name</label>
+                        <input type="text" placeholder="Last Name">
+                    </div>
+                    <div class="form-group">
+                        <label>Job Email</label>
+                        <input type="email" placeholder="Job Email">
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="tel" placeholder="Phone Number">
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Company Size</label>
+                        <select>
+                            <option>Select company size</option>
+                            <option>1-10 Employees</option>
+                            <option>11-50 Employees</option>
+                            <option>50+ Employees</option>
+                        </select>
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Message</label>
+                        <textarea placeholder="Your message here..."></textarea>
+                    </div>
+                </div>
+                <button type="submit" class="btn-submit">Request a demo</button>
+            </form>
+        </div>
+    </div>
+    <!-- MOBILE SIDEBAR -->
+    <div class="mobile-sidebar" id="mobileSidebar">
+        <div class="sidebar-header">
+            <img src="/image/logo (2).png" alt="Logo">
+            <i class="fas fa-times" id="closeSidebar"></i>
+        </div>
+
+        <ul class="sidebar-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/Home/feature">Features</a></li>
+
+            <li class="sidebar-dropdown">
+                <span>Services <i class="fas fa-chevron-down"></i></span>
+                <ul>
+                    <li><a href="#">Customised ERP</a></li>
+                    <li><a href="#">UI/UX Design</a></li>
+                    <li><a href="#">Brand & Graphic Design</a></li>
+                    <li><a href="#">Web Development</a></li>
+                    <li><a href="#">App Development</a></li>
+                    <li><a href="#">MVP Development</a></li>
+                    <li><a href="#">Digital Marketing</a></li>
+                    <li><a href="#">Website SEO</a></li>
+                </ul>
+            </li>
+
+            <li><a href="/Home/pricing">Pricing</a></li>
+            <li><a href="/Home/devices">Devices</a></li>
+            <li><a href="/Home/Blog">Blog</a></li>
+            <li><a href="/Home/contact">Contact</a></li>
+        </ul>
+
+        <a href="javascript:void(0)" class="btn-purple-nav sidebar-btn" id="openContactModalMobile">
+            Get Started
+        </a>
+    </div>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <div class="container-fluid p-0">
+        <main role="main">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2025 - Dclan_website - <a asp-area="" asp-page="/Privacy">Privacy</a>
-        </div>
-    </footer>
+    @await Html.PartialAsync("/Pages/Shared/_Footer.cshtml")
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+   @*  <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuBtn = document.getElementById("mobile-menu-btn");
+            const navLinks = document.querySelector(".nav-links");
+            if (menuBtn) {
+                menuBtn.addEventListener("click", function () {
+                    navLinks.classList.toggle("mobile-menu-active");
+                });
+            }
+        });
+    </script> *@
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const serviceBtn = document.querySelector(".nav-services");
+            const dropdown = document.querySelector(".services-dropdown");
+
+            serviceBtn.addEventListener("click", (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                dropdown.style.display =
+                    dropdown.style.display === "block" ? "none" : "block";
+            });
+
+            document.addEventListener("click", () => {
+                dropdown.style.display = "none";
+            });
+        });
+                document.addEventListener("DOMContentLoaded", function () {
+            const modal = document.getElementById("contactModal");
+            const openBtn = document.getElementById("openContactModal");
+            const closeBtn = document.getElementById("closeModal");
+            const body = document.body;
+
+            // Open Modal
+            if(openBtn) {
+                openBtn.addEventListener("click", function () {
+                    modal.style.display = "block";
+                    body.classList.add("modal-open"); // This now hides the scrollbar
+                });
+            }
+
+            // Close Modal via X button
+            if(closeBtn) {
+                closeBtn.addEventListener("click", function () {
+                    modal.style.display = "none";
+                    body.classList.remove("modal-open"); // This brings scrollbar back
+                });
+            }
+
+            // Close Modal if clicking outside the card
+            window.addEventListener("click", function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                    body.classList.remove("modal-open");
+                }
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const openBtn = document.getElementById("mobile-menu-btn");
+            const closeBtn = document.getElementById("closeSidebar");
+            const sidebar = document.getElementById("mobileSidebar");
+            const overlay = document.getElementById("sidebarOverlay");
+
+            openBtn.addEventListener("click", () => {
+                sidebar.classList.add("active");
+                overlay.classList.add("active");
+                document.body.classList.add("modal-open");
+            });
+
+            closeBtn.addEventListener("click", closeSidebar);
+            overlay.addEventListener("click", closeSidebar);
+
+            function closeSidebar() {
+                sidebar.classList.remove("active");
+                overlay.classList.remove("active");
+                document.body.classList.remove("modal-open");
+            }
+
+            /* Services dropdown */
+            document.querySelectorAll(".sidebar-dropdown span").forEach(item => {
+                item.addEventListener("click", () => {
+                    item.parentElement.classList.toggle("active");
+                });
+            });
+
+            /* Open modal from mobile */
+            const mobileGetStarted = document.getElementById("openContactModalMobile");
+            if (mobileGetStarted) {
+                mobileGetStarted.addEventListener("click", () => {
+                    closeSidebar();
+                    document.getElementById("contactModal").style.display = "block";
+                    document.body.classList.add("modal-open");
+                });
+            }
+        });
+    </script>
+
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>

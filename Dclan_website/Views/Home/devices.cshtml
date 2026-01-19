@@ -1,13 +1,9 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Qadryn - Devices</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+﻿@{
+    Layout = "/Pages/Shared/_Layout.cshtml";
+}
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+ @section Styles {
     <style>
         * {
             margin: 0;
@@ -66,164 +62,6 @@
             margin: 0 auto;
             padding: 0 20px;
         }
-
-        /* --- HEADER WRAPPER (STICKY) --- */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 2000;
-        }
-
-        /* --- 1. TOP HEADER BAR --- */
-        .top-bar {
-            background-color: var(--top-bar-bg);
-            color: white;
-            padding: 8px 0;
-            font-size: 13px;
-        }
-
-        .top-bar-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .top-bar-left a {
-            color: white;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .top-bar-right {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-        }
-
-            .top-bar-right a {
-                color: white;
-                text-decoration: none;
-                font-size: 16px;
-                transition: opacity 0.3s;
-            }
-
-                .top-bar-right a:hover {
-                    opacity: 0.7;
-                }
-
-        /* --- 2. MAIN NAVBAR --- */
-        .main-nav {
-            background: var(--nav-bg);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-            padding: 15px 0;
-        }
-
-        .navbar-inner {
-            display: grid;
-            grid-template-columns: 250px 1fr 250px; /* Logo | Links | Button */
-            align-items: center;
-        }
-
-        /* LOGO STYLE */
-        .logo {
-            display: flex;
-            align-items: center;
-            font-weight: 700;
-            font-size: 26px;
-            color: #100C29;
-            gap: 12px;
-            text-decoration: none;
-        }
-
-        /* Diagonal lines icon from image */
-        .logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: #000;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-
-        .logo-line {
-            height: 4px;
-            background: var(--brand-purple);
-            border-radius: 10px;
-            width: 100%;
-        }
-
-            .logo-line:nth-child(1) {
-                width: 60%;
-                opacity: 0.6;
-            }
-
-            .logo-line:nth-child(2) {
-                width: 100%;
-            }
-
-            .logo-line:nth-child(3) {
-                width: 80%;
-                opacity: 0.8;
-            }
-
-        /* CENTERED LINKS */
-        .nav-links {
-            display: flex;
-            justify-content: center;
-            gap: 35px;
-            list-style: none;
-        }
-
-            .nav-links a {
-                text-decoration: none;
-                color: #100C29;
-                font-weight: 500;
-                font-size: 16px;
-                transition: 0.3s;
-            }
-
-                .nav-links a.active {
-                    color: var(--brand-purple);
-                }
-
-                .nav-links a:hover {
-                    color: var(--brand-purple);
-                }
-
-        /* RIGHT ALIGNED BUTTON */
-        .nav-actions {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .btn-purple {
-            background-color: var(--brand-purple);
-            color: white;
-            border: none;
-            padding: 14px 28px;
-            border-radius: 12px;
-            font-weight: 600;
-            font-size: 15px;
-            cursor: pointer;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-        }
-
-            .btn-purple:hover {
-                background-color: #5b36cb;
-                transform: translateY(-2px);
-                box-shadow: 0 5px 15px rgba(112, 71, 235, 0.3);
-            }
 
         #mobile-menu-btn {
             display: none;
@@ -353,13 +191,13 @@
             margin-bottom: 25px;
         }
 
-        p {
+       /*  p {
             font-size: 18px;
             line-height: 1.6;
             color: #4B5563;
             margin-bottom: 40px;
             max-width: 90%;
-        }
+        } */
 
         .btn-order {
             background-color: #7C5DFA;
@@ -973,288 +811,117 @@
 
         }
 
-        /* --- FOOTER SECTION --- */
-        .footer-wrapper {
-            width: 100%;
-            max-width: 1300px;
-            background-color: #7065f0;
-            border-radius: 24px;
-            padding: 20px;
-            color: #ffffff;
-            display: flex;
-            justify-content: space-between;
-            position: relative;
-            min-height: 500px;
-            margin: 50px auto;
-        }
-
-        .footer-left {
-            width: 45%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .brand-logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 24px;
-        }
-
-        .brand-desc {
-            font-size: 1.1rem;
+        .hero-section p, .pricing-section p, .tracking-content p, .attendance-content p, .why-content-box p {
+            font-size: 18px;
             line-height: 1.6;
-            margin-bottom: 30px;
-            max-width: 400px;
-            opacity: 0.9;
-            color: white;
+            color: #4B5563;
+            margin-bottom: 40px;
+        }
+        /* =========================================
+           DEVICES PAGE RESPONSIVE FIXES
+           ========================================= */
+        html, body {
+            max-width: 100% !important;
+            overflow-x: hidden !important;
+            width: 100% !important;
+            position: relative;
         }
 
-        .btn-learn {
-            display: inline-block;
-            padding: 10px 24px;
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            border-radius: 8px;
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: 0.3s;
-            width: fit-content;
-        }
-
-            .btn-learn:hover {
-                background-color: white;
-                color: #7065f0;
-            }
-
-        .left-bottom-row {
-            display: flex;
-            align-items: flex-end;
-            gap: 40px;
-        }
-
-        /* Fixed missing dot */
-        .social-icons-wrapper {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 5px;
-            color: #4252e3;
-        }
-
-        .social-circle {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 50px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: #fff;
-            color: #4252e3;
-            text-decoration: none;
-            font-size: 20px;
-        }
-
-        .social-row {
-            display: flex;
-            gap: 10px;
-        }
-
-        .social-circle:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
-        .copyright-text {
-            font-size: 0.9rem;
-            opacity: 0.8;
-            line-height: 1.5;
-        }
-
-        .footer-right {
-            width: 45%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .nav-linksfooter {
-            list-style: none;
-            display: flex;
-            gap: 30px;
-            font-weight: 500;
-        }
-
-            .nav-linksfooter a {
-                color: white;
-                text-decoration: none;
-                opacity: 0.9;
-                transition: 0.2s;
-            }
-
-                .nav-linksfooter a:hover {
-                    opacity: 1;
-                    text-decoration: underline;
-                }
-
-        .contact-section h4,
-        .location-section h4 {
-            font-size: 1.1rem;
-            margin-bottom: 12px;
-            font-weight: 600;
-            color: white;
-        }
-
-        .contact-info p,
-        .location-info p {
-            font-size: 1rem;
-            opacity: 0.85;
-            margin-bottom: 6px;
-            line-height: 1.5;
-            color: white;
-        }
-
-        .right-bottom-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-        }
-
-        .language-selector {
-            text-align: right;
-        }
-
-        .lang-title {
-            display: block;
-            margin-bottom: 8px;
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-
-        .lang-options span {
-            font-size: 0.9rem;
-            opacity: 0.7;
-            cursor: pointer;
-        }
-
-            .lang-options span:hover {
-                opacity: 1;
-            }
-
-        @@media (max-width: 900px) {
-            .footer-wrapper
+        @@media (max-width: 991px) {
+            body
 
         {
-            flex-direction: column;
-            padding: 40px 24px;
-            gap: 50px;
+            padding-top: 180px !important;
         }
 
-        .footer-left, .footer-right {
-            width: 100%;
+        .hero-section {
+            flex-direction: column !important; 
+            text-align: center !important;
+            gap: 30px !important;
         }
 
-        .nav-linksfooter {
-            flex-wrap: wrap;
-            margin-bottom: 30px;
+        .text-content, .image-wrapper {
+            flex: 0 0 100% !important;
+            width: 100% !important;
         }
 
-        .footer-left {
-            gap: 40px;
+        h1 {
+            font-size: 2rem !important; 
+            line-height: 1.2 !important;
         }
 
-        .right-bottom-row {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 20px;
+        .main-image {
+            max-width: 300px !important;
         }
 
-        .language-selector {
-            text-align: left;
-            margin-top: 20px;
+        .products-container {
+            gap: 20px !important;
+            padding: 0 15px !important;
+        }
+
+        .product-card {
+            max-width: 100% !important;
+            margin-bottom: 20px;
+        }
+
+        .product-image-box {
+            height: 220px !important;
+        }
+        .partners-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 15px !important;
+        }
+
+        .big-heading {
+            font-size: 1.8rem !important;
+        }
+
+        .container-why, .container-attendance, .container-tracking {
+            flex-direction: column !important;
+            text-align: center !important;
+            gap: 40px !important;
+        }
+
+        .container-attendance {
+            flex-direction: column-reverse !important; 
+        }
+
+        .why-content-box h2, .attendance-content h2, .tracking-content h2 {
+            font-size: 1.8rem !important;
+        }
+
+        .why-content-box p, .attendance-content p, .tracking-content p {
+            text-align: center !important;
+        }
+
+        .why-img, .attendance-img, .tracking-img {
+            max-width: 280px !important;
+            margin: 0 auto;
+        }
+
+        }
+
+        /*  (iPhone/Android Small) */
+        @@media (max-width: 576px) {
+            .pricing-title
+
+        {
+            font-size: 1.6rem !important;
+        }
+
+        .btn-order, .btn-details, .btn-contact {
+            width: 100% !important; 
+            justify-content: center;
         }
 
         }
     </style>
-</head>
-<body>
-    <header>
-        <!-- TOP HEADER -->
-        <div class="top-bar">
-            <div class="container top-bar-inner">
-                <div class="top-bar-left">
-                    <a href="tel:+8801713428432">
-                        <i class="fa-solid fa-phone-flip" style="transform: rotate(15deg);"></i>
-                        Sales: +880 1834-652676
-                    </a>
-                </div>
-                <div class="top-bar-right">
-                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
+    }
 
-        <!-- MAIN NAVBAR -->
-        <nav class="main-nav">
-            <div class="container navbar-inner">
-                <!-- 1. Logo -->
-                <a href="/" class="logo">
-                    <div class="logo">
-                        <img src="~/image/logo (2).png" alt="Logo" style="height: 35px; width: auto; margin-right: 8px;">
-
-                    </div>
-                   
-                </a>
-
-                <!-- 2. Centered Links -->
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/Home/feature">Features</a></li>
-                    <li><a href="/Home/pricing">Pricing</a></li>
-                    <li><a href="/Home/devices" class="active">Devices</a></li>
-                    <li><a href="/Home/Blog">Blog</a></li>
-                    <li><a href="/Home/contact">Contact</a></li>
-                </ul>
-
-                <!-- 3. Right Action -->
-                <div class="nav-actions">
-                    <a href="#" class="btn-purple">Get Started For Free</a>
-                    <i class="fa-solid fa-bars" id="mobile-menu-btn"></i>
-                </div>
-            </div>
-        </nav>
-    </header>
+  
     <div class="grid-overlay"></div>
 
     <div class="container">
-
-       @*  <nav class="navbar">
-            <div class="logo">
-                <div class="logo-icon">
-                    <div class="logo-dot"></div><div class="logo-dot"></div>
-                    <div class="logo-dot"></div><div class="logo-dot"></div>
-                </div>
-                Qadryn
-            </div>
-            <i class="fas fa-bars d-lg-none" id="mobile-menu-btn" style="font-size: 1.5rem; cursor: pointer; display:none;"></i>
-            <!-- Added display:none to hamburger since d-lg-none class CSS isn't defined, or use media query to show it -->
-
-            <ul class="nav-links">
-                <li><a href="/Home/Index">Home</a></li>
-                <li><a href="/Home/feature">Features</a></li>
-                <li><a href="/Home/pricing">Pricing</a></li>
-                <li><a href="/Home/devices" style="color: #7C5DFA; font-weight:700;">Devices</a></li>
-                <li><a href="/Home/Blog">Blog</a></li>
-                <li><a href="/Home/contact">Contact</a></li>
-            </ul>
-            <button class="btn-nav">Get Started For Free</button>
-        </nav> *@
-
         <div class="hero-section">
             <div class="text-content">
                 <div class="badge">Devices</div>
@@ -1454,69 +1121,6 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <!-- Removed redundant section wrapper -->
-    <footer class="footer-wrapper">
-        <div class="footer-left">
-            <div class="top-content">
-                <div class="brand-logo">
- <img src="~/image/logo (2).png" alt="Logo" style="height: 35px; width: auto; margin-right: 8px;">
-
-                </div>
-                <p class="brand-desc">
-                    All-in-one ERP built for next-gen finance and accounting. Designed for general ledger, revenue automation, and close management.
-                </p>
-                <a href="#" class="btn-learn">Learn more</a>
-            </div>
-
-            <div class="left-bottom-row">
-                <div class="social-icons-wrapper">
-                    <a href="#" class="social-circle"><i class="fa-brands fa-facebook-f"></i></a>
-                    <div class="social-row">
-                        <a href="#" class="social-circle"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="#" class="social-circle"><i class="fa-solid fa-x"></i></a>
-                    </div>
-                </div>
-                <div class="copyright-text">
-                    © 2025 Rivo.<br>
-                    All rights reserved.
-                </div>
-            </div>
-        </div>
-
-        <div class="footer-right">
-            <ul class="nav-linksfooter">
-                <li><a href="#">Features</a></li>
-                <li><a href="#">Pricing</a></li>
-                <li><a href="#">Devices</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-
-            <div class="contact-section">
-                <h4>Contact us</h4>
-                <div class="contact-info">
-                    <p>info@qadryn.com</p>
-                    <p>sales@qadryn.com</p>
-                </div>
-            </div>
-
-            <div class="right-bottom-row">
-                <div class="location-section">
-                  
-                    <div class="location-section"><h4>Location</h4><div class="location-info"><p>Level 8,</p><p>shaptak 27,Dhanmondi Dhaka</p></div></div>
-                </div>
-
-                <div class="language-selector">
-                    <span class="lang-title">Languages</span>
-                    <div class="lang-options">
-                        <span>EN</span> | <span>BN</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const menuBtn = document.getElementById("mobile-menu-btn");
@@ -1534,5 +1138,3 @@
             }
         });
     </script>
-</body>
-</html>
