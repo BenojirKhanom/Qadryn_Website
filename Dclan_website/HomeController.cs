@@ -28,10 +28,10 @@ namespace Dclan_website
         {
             return View();
         }
-        //public IActionResult service()
-        //{
-        //    return View();
-        //}
+        public IActionResult service()
+        {
+            return View();
+        }
     }
 }
 

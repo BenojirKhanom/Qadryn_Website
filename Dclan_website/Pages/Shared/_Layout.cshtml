@@ -549,6 +549,26 @@
         }
 
         }
+        /* Dropdown hidden by default */
+        .services-dropdown {
+            display: none;
+            position: absolute;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            z-index: 100;
+        }
+
+        /* Show dropdown when active */
+        .nav-item-dropdown.open .services-dropdown {
+            display: block;
+        }
+
+        /* Optional styling */
+        .nav-services-toggle {
+            cursor: pointer;
+            margin-left: 5px;
+        }
+
     </style>
     @await RenderSectionAsync("Styles", required: false)
 </head>
@@ -583,12 +603,13 @@
                 <li><a href="/Home/index" class="@(ViewContext.HttpContext.Request.Path.Value.Contains("index") ? "active" : "")">Home</a></li>
 
                 <li><a href="/Home/feature" class="@(ViewContext.HttpContext.Request.Path.Value.Contains("feature") ? "active" : "")">Features</a></li>
-
-                <li class="nav-item-dropdown">
-                    <a href="javascript:void(0)" class="nav-services">
-                        Services <i class="fas fa-chevron-down dropdown-arrow"></i>
+                <li class="nav-item-dropdown @(ViewContext.HttpContext.Request.Path.Value.Contains("service") ? "active" : "")">
+                    <a href="/Home/service" class="nav-services-link">
+                        Services
                     </a>
-
+                    <a href="javascript:void(0)" class="nav-services-toggle">
+                        <i class="fas fa-chevron-down dropdown-arrow"></i>
+                    </a>
                     <div class="services-dropdown">
                         <a class="service-item active">Customised ERP</a>
                         <a class="service-item">UI/UX design</a>
@@ -701,17 +722,6 @@
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-   @*  <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const menuBtn = document.getElementById("mobile-menu-btn");
-            const navLinks = document.querySelector(".nav-links");
-            if (menuBtn) {
-                menuBtn.addEventListener("click", function () {
-                    navLinks.classList.toggle("mobile-menu-active");
-                });
-            }
-        });
-    </script> *@
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const serviceBtn = document.querySelector(".nav-services");
@@ -798,6 +808,15 @@
                 });
             }
         });
+                // Toggle dropdown on arrow click
+        document.querySelectorAll('.nav-services-toggle').forEach(toggle => {
+            toggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                const parent = this.closest('.nav-item-dropdown');
+                parent.classList.toggle('open');
+            });
+        });
+
     </script>
 
 
