@@ -3906,6 +3906,7 @@
             background-position: center;
             transition: background 1s ease;
         }
+
     </style>
     }
     
@@ -3934,7 +3935,16 @@
                     <p class="new-hero-subtitle">Build smarter, faster, and fully customized ERP solutions that integrate finance, HR, operations, and reporting in one powerful platform.</p>
                     <a href="#" class="btn-request-demo">Request Demo</a>
                 </div>
+                <div id="third-text-state" class="new-state-hidden">
+                    <div class="new-hero-badge">20k+ Employees Managed Effortlessly</div>
+                    <h1 class="new-hero-title">Manage your People, <br> Payroll & Performance <br> in one place</h1>
+                    <p class="new-hero-subtitle">
+                        Boost HR productivity, automate daily operations, and stay on top of your workforce with Qadryn’s all-in-one HR solution
+                    </p>
+                    <a href="#" class="btn-request-demo">Request Demo</a>
+                </div>
             </div>
+           
 
             <!-- Right Visuals Section -->
             <div class="col-12 col-lg-6 visual-wrapper">
@@ -3983,82 +3993,19 @@
                 <!-- NEW VISUALS (Dashboard Image) -->
                 <div id="new-visual-state" class="new-state-hidden">
                     <div class="new-dashboard-box">
-                        <!-- এখানে আপনার ড্যাশবোর্ড ইমেজের পাথ দিন -->
                         <img src="/image/Frame 2147224691.png" alt="Dashboard" class="img-fluid new-img-style">
+                    </div>
+                </div>
+                <div id="third-visual-state" class="new-state-hidden">
+                    <div class="new-dashboard-box">
+                        <img src="/image/Group3 1413373432.png" class="img-fluid new-img-style" alt="Dashboard 3">
                     </div>
                 </div>
 
             </div>
         </div>
     </div>
-        <!-- HERO CONTENT -->
-       @*  <div class="container">
-            <div class="row align-items-center">
-
-                <!-- Left Text -->
-                <div class="col-12 col-lg-6 mb-5 mb-lg-0">
-                    <div class="hero-badge">Solution for seamless HR management.</div>
-                    <h1 class="hero-title">Simplify HR & <br> Payroll for a Smarter <br> Workplace</h1>
-                    <p class="hero-subtitle">Handle employee management, attendance tracking, payroll and compliance-all in one easy-to-use platform built for modern teams.</p>
-                    <a href="#" class="btn-price-gradient" style="padding: 15px 35px; font-size: 1.1rem;">
-                        Know The Price <i class="fas fa-arrow-up-right-from-square ms-2"></i>
-                    </a>
-                </div>
-
-                <!-- Right Visuals -->
-                <div class="col-12 col-lg-6">
-                    <div class="visual-container">
-                        <div class="shape-square"></div>
-
-                        <!-- Cards -->
-                        <div class="floating-card card-team">
-                            <h6 class="mb-3">Team Activity</h6>
-                            <div class="user-item">
-                                <img src="https://i.pravatar.cc/150?img=1" class="avatar" alt="User" loading="lazy">
-                                <div class="u-info"><h6>Brooklyn Simmons</h6><p>On leave today</p></div>
-                            </div>
-                            <div class="user-item">
-                                <img src="https://i.pravatar.cc/150?img=5" class="avatar" alt="User" loading="lazy">
-                                <div class="u-info"><h6>Jenny Wilson</h6><p>Checked in at 9:02 AM</p></div>
-                            </div>
-                            <div class="user-item">
-                                <img src="https://i.pravatar.cc/150?img=3" class="avatar" alt="User" loading="lazy">
-                                <div class="u-info"><h6>Robert Fox</h6><p>Completed onboarding</p></div>
-                            </div>
-                        </div>
-
-                        <div class="floating-card card-payroll">
-                            <p class="text-muted mb-1" style="font-size: 0.8rem;">Payroll Summary</p>
-                            <h3 style="font-weight: 700; color: #100C29;">$36,000</h3>
-
-                            <div class="chart-bars">
-                                <div class="bar-group"><div class="bar" style="height: 140px;"></div><div class="month-label">Jan</div></div>
-                                <div class="bar-group"><div class="bar" style="height: 60px;"></div><div class="month-label">Feb</div></div>
-                                <div class="bar-group"><div class="bar" style="height: 140px;"></div><div class="month-label">March</div></div>
-                                <div class="bar-group"><div class="bar" style="height: 45px;"></div><div class="month-label">April</div></div>
-                                <div class="bar-group"><div class="bar" style="height: 140px;"></div><div class="month-label">May</div></div>
-                                <div class="bar-group"><div class="bar" style="height: 70px;"></div><div class="month-label">June</div></div>
-                                <div class="bar-group"><div class="bar" style="height: 70px;"></div><div class="month-label">June</div></div>
-                            </div>
-                        </div>
-
-                        <div class="floating-card card-stats">
-                            <div class="d-flex justify-content-between mb-3">
-                                <h6 class="m-0">Today's Stats</h6><i class="fas fa-ellipsis-h text-muted"></i>
-                            </div>
-                            <div class="stat-row"><span>42 employees checked in</span><div class="dot"></div></div>
-                            <div class="stat-row"><span>5 pending approvals</span><div class="dot"></div></div>
-                            <div class="stat-row"><span>3 new hires this month</span><div class="dot"></div></div>
-                        </div>
-
-                        <i class="fas fa-mouse-pointer cursor-icon"></i>
-                    </div>
-
-                </div>
-
-
-            </div>
-        </div> *@
+       
         <!-- === NEW SECTION: STATS BANNER === -->
         <div class="container stats-section-wrapper">
             <div class="stats-banner">
@@ -4935,42 +4882,105 @@
             currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
             updateTestimonial(currentIndex);
         }
-            document.addEventListener("DOMContentLoaded", function() {
-        const section = document.getElementById('hero-toggle-section');
-        const oldText = document.getElementById('old-text-state');
-        const oldVisual = document.getElementById('old-visual-state');
-        const newText = document.getElementById('new-text-state');
-        const newVisual = document.getElementById('new-visual-state');
+
+
+    //         document.addEventListener("DOMContentLoaded", function() {
+    //     const section = document.getElementById('hero-toggle-section');
+    //     const oldText = document.getElementById('old-text-state');
+    //     const oldVisual = document.getElementById('old-visual-state');
+    //     const newText = document.getElementById('new-text-state');
+    //     const newVisual = document.getElementById('new-visual-state');
 
         
-        let isNewStateActive = false;
+    //     let isNewStateActive = false;
 
-        setInterval(function() {
-            if (!isNewStateActive) {
+    //     setInterval(function() {
+    //         if (!isNewStateActive) {
                
+    //             section.classList.add('hero-bg-image-active');
+
+    //             oldText.style.display = 'none';
+    //             oldVisual.style.display = 'none';
+
+    //             newText.classList.add('show-new-state');
+    //             newVisual.classList.add('show-new-state');
+
+    //             isNewStateActive = true;
+    //         } else {
+    //             section.classList.remove('hero-bg-image-active');
+
+    //             newText.classList.remove('show-new-state');
+    //             newVisual.classList.remove('show-new-state');
+
+    //             oldText.style.display = 'block';
+    //             oldVisual.style.display = 'block';
+
+    //             isNewStateActive = false;
+    //         }
+    //     }, 5000); 
+    // });
+    </script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const section = document.getElementById('hero-toggle-section');
+
+        const states = [
+            {
+                text: document.getElementById('old-text-state'),
+                visual: document.getElementById('old-visual-state'),
+                bg: false
+            },
+            {
+                text: document.getElementById('new-text-state'),
+                visual: document.getElementById('new-visual-state'),
+                bg: true
+            },
+            {
+                text: document.getElementById('third-text-state'),
+                visual: document.getElementById('third-visual-state'),
+                bg: true
+            }
+        ];
+
+        let currentIndex = 0;
+
+        function hideAllStates() {
+            states.forEach(state => {
+                state.text.style.display = 'none';
+                state.visual.style.display = 'none';
+                state.text.classList.remove('show-new-state');
+                state.visual.classList.remove('show-new-state');
+            });
+        }
+
+        function showState(index) {
+            hideAllStates();
+
+            const current = states[index];
+
+            current.text.style.display = 'block';
+            current.visual.style.display = 'block';
+
+            current.text.classList.add('show-new-state');
+            current.visual.classList.add('show-new-state');
+
+            if (current.bg) {
                 section.classList.add('hero-bg-image-active');
-
-                oldText.style.display = 'none';
-                oldVisual.style.display = 'none';
-
-                newText.classList.add('show-new-state');
-                newVisual.classList.add('show-new-state');
-
-                isNewStateActive = true;
             } else {
                 section.classList.remove('hero-bg-image-active');
-
-                newText.classList.remove('show-new-state');
-                newVisual.classList.remove('show-new-state');
-
-                oldText.style.display = 'block';
-                oldVisual.style.display = 'block';
-
-                isNewStateActive = false;
             }
-        }, 5000); 
+        }
+
+        showState(0); // initial state
+
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % states.length;
+            showState(currentIndex);
+        }, 3000);
+
     });
-    </script>
-   
+</script>
+
 
     <script src="~/js/bootstrap.bundle.min.js" defer></script>

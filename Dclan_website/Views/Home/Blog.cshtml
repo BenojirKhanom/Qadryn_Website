@@ -31,7 +31,7 @@
         body {
             background-image: linear-gradient(180deg, #CBB6FC 0%, #EBE5FF 30%, #FFF5F5 100%);
             background-repeat: no-repeat;
-            background-size: 100% 600px; /* Adjusted background height */
+            background-size: 100% 750px; /* Adjusted background height */
             background-color: #ffffff;
             min-height: 100vh;
             position: relative;
@@ -54,217 +54,1054 @@
             mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
             -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
         }
-       
 
-        /* --- HEADER SECTION --- */
-        .blog-header {
-            text-align: center;
-            padding-top: 80px;
-            padding-bottom: 40px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .header-title {
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: #312E81; /* Darker purple for title */
-            margin-bottom: 15px;
-            font-family: 'Archivo', sans-serif;
-        }
-
-        .header-subtitle {
-            font-size: 1.1rem;
-            color: #4B5563;
-            margin-bottom: 40px;
-        }
-
-        /* SEARCH BAR */
-        .search-box-wrapper {
-            max-width: 600px;
+        /* Container Layout */
+        .hr-container {
+            display: flex;
+            gap: 30px;
+            max-width: 1400px;
             margin: 0 auto;
-            position: relative;
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 16px 25px 16px 50px;
-            border-radius: 12px;
-            border: 1px solid #C4B5FD;
-            background: #fff;
-            font-size: 1rem;
-            outline: none;
-            box-shadow: 0 4px 20px rgba(112, 71, 235, 0.05);
-            transition: border-color 0.3s;
-        }
-
-            .search-input:focus {
-                border-color: #7047EB;
-            }
-
-        .search-icon {
-            position: absolute;
-            left: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #9CA3AF;
-            font-size: 1.2rem;
-        }
-
-        /* --- BLOG CARDS SECTION --- */
-        .blog-grid-section {
-            padding-top: 20px;
-            padding-bottom: 60px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .qadryn-card {
-            background: #FFFFFF;
-            border: 1px solid #EAE6FF;
-            border-radius: 24px;
-            overflow: hidden;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-            .qadryn-card:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 12px 30px rgba(112, 71, 235, 0.1);
-            }
-
-        .card-thumb-box {
-            height: 240px;
-            width: 100%;
-            overflow: hidden;
-            background-color: #F3F0FF;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .card-thumb-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .card-content {
-            padding: 24px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
+            padding: 40px 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin-top: 140px !important;
             align-items: flex-start;
+        }
+
+        /* Sidebars Styling */
+        .sidebar {
+            width: 300px;
+            flex-shrink: 0;
+            position: sticky; /* This keeps them fixed while scrolling */
+            top: 20px;
+            height: fit-content;
+            top: 150px !important;
+
+        }
+
+        /* Middle Content Area */
+        .main-content {
+            max-height: calc(100vh - 180px);
+            overflow-y: auto;
+        }
+
+            /* Hide scrollbar for main content */
+            .main-content::-webkit-scrollbar {
+                width: 0;
+                height: 0;
+            }
+
+        .main-content {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+
+        /* UI Elements Styling */
+        .toc-card {
+            background: white;
+            border: 1px solid #7c6cf6;
+            border-radius: 12px;
+            padding: 20px;
+
+        }
+
+            .toc-card h3 {
+                color: #2d1b6b;
+                margin-top: 0;
+            }
+
+            .toc-card ol {
+                padding-left: 20px;
+                color: #444;
+                font-size: 14px;
+                line-height: 1.8;
+            }
+
+        .badge {
+            background: #7c6cf6;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        h1 {
+            font-size: 32px;
+            color: #1e293b;
+            margin: 15px 0;
+        }
+
+        .date {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        .featured-image img {
+            width: 100%;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+
+        /* Right Side Cards */
+        .subscribe-card {
+            background: linear-gradient(135deg, #4c3a9e, #6a53cf);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+            .subscribe-card input {
+                width: 100%;
+                padding: 12px;
+                border-radius: 8px;
+                border: none;
+                margin: 15px 0;
+                box-sizing: border-box;
+            }
+
+            .subscribe-card button {
+                width: 100%;
+                padding: 12px;
+                border-radius: 8px;
+                border: none;
+                background: #7c6cf6;
+                color: white;
+                font-weight: bold;
+                cursor: pointer;
+            }
+
+        .demo-card {
+            background: #0f172a;
+            color: white;
+            padding: 25px;
+            border-radius: 20px;
             text-align: left;
         }
 
-        .card-badge {
-            background-color: rgba(112, 71, 235, 0.1);
-            color: #7047EB;
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            padding: 6px 12px;
-            border-radius: 6px;
-            margin-bottom: 16px;
-            display: inline-block;
+        .profile-stack {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
         }
 
-        .card-title-text {
-            font-size: 1.25rem;
-            font-weight: 400;
-            color: #100C29;
-            margin-bottom: 12px;
+        .profile-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%; 
+            object-fit: cover;
+            border: 2px solid #0f172a; 
+            background-color: #ddd; 
+        }
+
+        .overlap {
+            margin-left: -20px; 
+            z-index: 1; 
+        }
+
+        .demo-card h3 {
+            font-size: 20px;
             line-height: 1.4;
-            font-family: 'Archivo', sans-serif;
-        }
-
-        .card-desc-text {
-            font-size: 0.95rem;
-            color: #52525B;
-            line-height: 1.6;
-            margin-bottom: 24px;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
-        .btn-card-action {
-            margin-top: auto;
-            border: 1px solid #7047EB;
-            color: #7047EB;
-            background: transparent;
-            padding: 8px 24px;
-            border-radius: 8px;
-            font-size: 0.9rem;
+            margin-bottom: 20px;
             font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
         }
 
-            .btn-card-action:hover {
-                background-color: #7047EB;
-                color: #fff;
-            }
-
-        /* --- PAGINATION STYLE --- */
-        .pagination-wrapper {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 25px;
-            margin-top: 40px;
-            margin-bottom: 80px;
-            font-family: 'Archivo', sans-serif;
-        }
-
-        .pagination-arrow {
-            width: 44px;
-            height: 44px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1.5px solid #7047EB;
-            border-radius: 12px;
-            color: #7047EB;
-            font-size: 14px;
-            text-decoration: none;
-            transition: all 0.3s ease;
+        .outline-btn {
+            width: 100%;
             background: transparent;
+            border: 1px solid #334155;
+            color: white;
+            padding: 12px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
         }
 
-            .pagination-arrow:hover {
-                background-color: #7047EB;
-                color: #fff;
-                box-shadow: 0 4px 10px rgba(112, 71, 235, 0.2);
+            .outline-btn:hover {
+                background: rgba(255, 255, 255, 0.1);
             }
 
-        .page-numbers-box {
+        /* Mobile Responsive */
+        @@media (max-width: 992px) {
+            .hr-container
+
+        {
+            flex-direction: column;
+        }
+
+        .sidebar {
+            width: 100%;
+            position: relative;
+            top: 0;
+        }
+
+        }
+        /*      New Section for Scrolling */
+        .article-section {
+            margin-top: 40px;
+        }
+  
+        .section-title {
+            color: #4c3a9e;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+
+        .content-image-card {
+            background: #f8f9fb; 
+            padding: 30px;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 25px;
+           
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+            margin-left: 10px;
+            margin-right: auto;
+            padding: 20px;
+        }
+
+            .content-image-card img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 10px;
+            }
+
+        .section-text {
+            font-size: 18px;
+            color: #64748b;
+            line-height: 1.8;
+            margin-top: 15px;
+        }
+        h1 {
+            font-size: 42px;
+            line-height: 1.2;
+            margin-bottom: 10px;
+        }
+
+        .date {
+            font-size: 16px;
+            color: #94a3b8;
+            margin-bottom: 30px;
+        }
+        /*      Section 2 */
+        .article-section2 {
+            margin-top: 40px;
+        }
+
+        .section-title2 {
+            color: #4c3a9e;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+
+        .content-image-card2 {
+            background: #f8f9fb;
+            padding: 30px;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 25px;
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+            margin-left: 10px;
+            margin-right: auto;
+            padding: 20px;
+        }
+
+            .content-image-card2 img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 10px;
+            }
+
+        .section-text2 {
+            font-size: 18px;
+            color: #64748b;
+            line-height: 1.8;
+            margin-top: 15px;
+        }
+
+        h1 {
+            font-size: 42px;
+            line-height: 1.2;
+            margin-bottom: 10px;
+        }
+
+        .date {
+            font-size: 16px;
+            color: #94a3b8;
+            margin-bottom: 30px;
+        }
+
+        .article-section3 {
+            margin-top: 40px;
+        }
+
+        .section-title3 {
+            color: #4c3a9e;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+
+        .content-image-card3 {
+            background: #f8f9fb;
+            padding: 30px;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 25px;
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+            margin-left: 10px;
+            margin-right: auto;
+            padding: 20px;
+        }
+
+            .content-image-card3 img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 10px;
+            }
+
+        .section-text3 {
+            font-size: 18px;
+            color: #64748b;
+            line-height: 1.8;
+            margin-top: 15px;
+        }
+
+        h1 {
+            font-size: 42px;
+            line-height: 1.2;
+            margin-bottom: 10px;
+        }
+
+        .date {
+            font-size: 16px;
+            color: #94a3b8;
+            margin-bottom: 30px;
+        }
+        .content-image-card4 {
+            background: #f8f9fb;
+            padding: 30px;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 25px;
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+            margin-left: 10px;
+            margin-right: auto;
+            padding: 20px;
+        }
+
+            .content-image-card4 img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 10px;
+            }
+
+        .content-image-card5 {
+            background: #f8f9fb;
+            padding: 30px;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 25px;
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+            margin-left: 10px;
+            margin-right: auto;
+            padding: 20px;
+        }
+
+            .content-image-card5 img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 10px;
+            }
+
+        .content-image-card6 {
+            background: #f8f9fb;
+            padding: 30px;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 25px;
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+            margin-left: 10px;
+            margin-right: auto;
+            padding: 20px;
+        }
+
+            .content-image-card6 img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 10px;
+            }
+
+        .content-image-card7 {
+            background: #f8f9fb;
+            padding: 30px;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 25px;
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+            margin-left: 10px;
+            margin-right: auto;
+            padding: 20px;
+        }
+
+            .content-image-card7 img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 10px;
+            }
+
+        .content-image-card8 {
+            background: #f8f9fb;
+            padding: 30px;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 25px;
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+            margin-left: 10px;
+            margin-right: auto;
+            padding: 20px;
+        }
+
+            .content-image-card8 img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 10px;
+            }
+
+        .content-image-card9 {
+            background: #f8f9fb;
+            padding: 30px;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 25px;
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+            margin-left: 10px;
+            margin-right: auto;
+            padding: 20px;
+        }
+
+            .content-image-card9 img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 10px;
+            }
+
+        .content-image-card10 {
+            background: #f8f9fb;
+            padding: 30px;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 25px;
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+            margin-left: 10px;
+            margin-right: auto;
+            padding: 20px;
+        }
+
+            .content-image-card10 img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 10px;
+            }
+        /* Container for the footer bar */
+        .article-footer-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 0;
+            margin-top: 40px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Views and Comments styling */
+        .stats-group {
+            display: flex;
+            gap: 40px; /* Space between views and comments */
+        }
+
+        .stat-item {
+            font-size: 20px;
+            color: #5c5c9d; /* That specific purple/blue color */
+            font-weight: 500;
+        }
+
+        /* Social icons group */
+        .social-share-group {
+            display: flex;
+            gap: 15px;
+        }
+
+        /* Individual circular buttons */
+        .social-btn {
+            width: 55px;
+            height: 55px;
+            background-color: #f0f0f8; /* Very light lavender/grey background */
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            color: #6366f1; /* Icon color */
+            font-size: 22px;
+            transition: all 0.3s ease;
+        }
+
+            .social-btn:hover {
+                background-color: #e2e2f3;
+                transform: translateY(-2px);
+            }
+        /* Container styling */
+        .comment-section-container {
+            border: 1px solid #dcdde1;
+            border-radius: 12px;
+            padding: 40px;
+            margin: 40px 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ffffff;
+        }
+
+        /* Header Text */
+        .comment-title {
+            color: #4a38a7; /* Deep purple */
+            font-size: 24px;
+            margin: 0 0 8px 0;
+            font-weight: 600;
+        }
+
+        .comment-subtitle {
+            color: #888888;
+            font-size: 15px;
+            margin: 0 0 20px 0;
+        }
+
+        /* Divider Line */
+        .form-divider {
+            border: 0;
+            border-top: 1px solid #f0f0f0;
+            margin-bottom: 30px;
+        }
+
+        /* Form Layout */
+        .form-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        /* Input Fields */
+        .form-input, .form-textarea {
+            width: 100%;
+            padding: 18px 20px;
+            border: 1px solid #dcdde1;
+            border-radius: 10px;
+            font-size: 16px;
+            color: #333;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+            .form-input::placeholder, .form-textarea::placeholder {
+                color: #999;
+            }
+
+            .form-input:focus, .form-textarea:focus {
+                border-color: #7367f0;
+            }
+
+        /* Textarea specific */
+        .form-textarea {
+            height: 180px;
+            resize: none;
+            margin-bottom: 25px;
+            box-sizing: border-box;
+        }
+
+        /* Button Styling */
+        .submit-comment-btn {
+            background-color: #7367f0; /* The specific purple-blue */
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 14px 30px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+            .submit-comment-btn:hover {
+                background-color: #5e54d6;
+            }
+
+        /* Responsive adjustment for small screens */
+        @@media (max-width: 600px) {
+            .form-row
+
+        {
+            flex-direction: column;
+        }
+
+        .comment-section-container {
+            padding: 20px;
+        }
+
+        }
+        .benefits-full-section {
+            width: 100%;
+            border-top: 1px solid #e2e2e2; 
+            border-bottom: 1px solid #e2e2e2; 
+            padding: 30px 0;
+            margin: 40px 0;
+            background-color: #ffffff;
+        }
+
+        .benefits-full-section2 {
+            width: 100%;
+            border-bottom: 1px solid #e2e2e2;
+            padding: 20px 0;
+            margin: 40px 0;
+            background-color: #ffffff;
+        }
+
+        .benefits-content-area {
+            max-width: 1200px; 
+            margin: 0 auto;
+            padding-left: 17%; 
+            text-align: left; 
+        }
+
+        .benefits-title-text {
+            color: #5d3fa2; 
+            font-size: 32px;
+            font-weight: 700;
+            margin: 0 0 15px 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        .benefits-sub-text {
+            color: #7a7a7a;
+            font-size: 20px;
+            margin-bottom: 10px;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        .benefits-bullet-list {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin: 0;
+        }
+
+            .benefits-bullet-list li {
+                color: #7a7a7a;
+                font-size: 18px;
+                line-height: 1.6;
+                margin-bottom: 5px;
+                font-family: 'Segoe UI', Arial, sans-serif;
+            }
+        @@media (max-width: 768px) {
+            .benefits-content-area
+
+        {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        }
+        /* FAQ Section */
+        .faq-section {
+            width: 100%;
+            padding: 40px 0;
+            border-bottom: 1px solid #e0e0e0; 
+            background-color: #fff;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+            
+        }
+
+        .faq-main-title {
+            text-align: left;
+            margin-left:10%;
+            color: #4b3ba8;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .faq-item {
+            border: 1px solid #b5a9f5;
+            margin-left: 10%;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-header {
+            padding: 22px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            cursor: pointer;
+        }
+
+        .faq-question {
+            margin: 0;
+            font-size: 20px;
+            color: #4b3ba8;
+            font-weight: 600;
+        }
+
+        .faq-icon {
+            font-size: 28px;
+            color: #4b3ba8;
+            font-weight: 300;
+            line-height: 1;
+        }
+
+        .faq-content {
+            padding: 0 30px 25px 30px;
+            display: none; 
+        }
+
+        .faq-item.active .faq-content {
+            display: block;
+        }
+
+        .faq-content p {
+            margin: 0;
+            color: #7a7a7a; 
+            line-height: 1.6;
+            font-size: 16px;
+        }
+        .faq-item:hover {
+            box-shadow: 0 4px 12px rgba(181, 169, 245, 0.2);
+        }
+        .author-card-section {
+            width: 100%;
+            border-bottom: 1px solid #e2e2e2; 
+            padding: 60px 0;
+            margin: 40px 0;
+            background-color: #ffffff;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        .author-card-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
             display: flex;
             align-items: center;
+            justify-content: center; 
+            gap: 40px;
+            left: 100px;
+        }
+
+        .author-image-box img {
+            width: 150px; 
+            height: 150px;
+            border-radius: 50%; 
+            object-fit: cover;
+            display: block;
+        }
+
+        .author-text-info {
+            max-width: 600px; 
+        }
+
+        .author-name-title {
+            color: #5d3fa2; 
+            font-size: 38px;
+            font-weight: 700;
+            margin: 0 0 10px 0;
+        }
+
+        .author-designation {
+            color: #2c3e50;
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        .author-biography {
+            color: #7a7a7a;
+            font-size: 18px;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        @@media (max-width: 768px) {
+            .author-card-container
+
+        {
+            flex-direction: column; 
+            text-align: center;
+        }
+
+        }
+
+        .related-blogs-section {
+            padding: 60px 0;
+            background-color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .blogs-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-heading {
+            font-size: 36px;
+            color: #34495e;
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+
+        .blogs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 30px; 
+        }
+        .blog-card {
+            background: #fff;
+            border: 1px solid #e0e6ed;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+            .blog-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            }
+
+        .blog-thumbnail img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .blog-details {
+            padding: 25px 20px;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        .blog-title {
+            font-size: 18px;
+            color: #34495e;
+            font-weight: 700;
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        @@media (max-width: 992px) {
+            .blogs-grid
+
+        {
+            grid-template-columns: repeat(2, 1fr); 
+        }
+
+        }
+
+        @@media (max-width: 600px) {
+            .blogs-grid
+
+        {
+            grid-template-columns: 1fr; 
+        }
+
+        .section-heading {
+            font-size: 28px;
+        }
+
+        }
+
+        /* --- RESPONSIVE OVERRIDES (To be included at the end of the Styles section) --- */
+
+        @@media (max-width: 1200px) {
+            .hr-container
+
+        {
+            max-width: 100%;
+            padding: 20px;
+        }
+
+        .benefits-content-area {
+            padding-left: 5%; /* Reduce large side padding */
+        }
+
+        }
+
+        @@media (max-width: 992px) {
+            /* Stack sidebars and main content */
+            .hr-container
+
+        {
+            flex-direction: column;
+                margin-top: 8px !important; 
+                padding-top: 10px !important;
+        }
+
+        .sidebar {
+            width: 100%;
+            position: static;
+            margin-bottom: 30px;
+        }
+        /* Fix the specific 10 image card containers with fixed heights */
+        [class*="content-image-card"] {
+            height: auto !important; /* Overrides fixed 400px */
+            min-height: 250px;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+        }
+
+        }
+
+        @@media (max-width: 768px) {
+            /* Typography adjustments */
+            h1
+
+        {
+            font-size: 28px !important;
+        }
+
+        .section-title, .section-title2, .section-title3 {
+            font-size: 22px !important;
+        }
+
+        /* Remove heavy margins from FAQ and Benefits */
+        .faq-main-title, .faq-item {
+            margin-left: 0 !important;
+        }
+
+        .benefits-content-area {
+            padding-left: 20px !important;
+            padding-right: 20px !important;
+        }
+
+        .author-card-container {
+            flex-direction: column;
+            text-align: center;
+            left: 0 !important; /* Remove the left: 100px */
             gap: 20px;
         }
 
-        .page-link-text {
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: 600;
-            color: #100C29;
-            transition: 0.3s;
+        .author-text-info {
+            max-width: 100%;
         }
 
-            .page-link-text.active {
-                color: #7047EB;
-            }
+        /* Footer Stats adjustment */
+        .article-footer-bar {
+            flex-direction: column;
+            gap: 20px;
+            align-items: flex-start;
+        }
 
-            .page-link-text:hover {
-                color: #7047EB;
-            }
+        /* Adjust blog grid for mobile */
+        .blogs-grid {
+            grid-template-columns: 1fr !important;
+        }
 
-       
+        }
+
+        @@media (max-width: 480px) {
+            .form-row
+
+        {
+            flex-direction: column;
+        }
+
+        .submit-comment-btn {
+            width: 100%;
+        }
+
+        .content-image-card, .content-image-card2, .content-image-card3,
+        .content-image-card4, .content-image-card5, .content-image-card6,
+        .content-image-card7, .content-image-card8, .content-image-card9,
+        .content-image-card10 {
+            padding: 10px !important;
+        }
+
+        .faq-header {
+            padding: 15px;
+        }
+
+        .faq-question {
+            font-size: 16px;
+        }
+
+        .author-name-title {
+            font-size: 28px;
+        }
+
+        }
+
+        /* Fix for images to never overflow their containers */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Ensure horizontal scrolling is prevented */
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
     </style>
     }
 
@@ -272,178 +1109,403 @@
    
 
     <!-- 2. HEADER & SEARCH -->
-    <div class="container blog-header">
-        <h1 class="header-title">Recent News & Information</h1>
-        <p class="header-subtitle">Get Latest and Updated News About HRM Softwares in Bangladesh</p>
+<section class="hr-container">
+    <!-- Left Sidebar: Table of Contents -->
+    <aside class="sidebar left-side">
+        <div class="toc-card">
+            <h3>Table of Contents</h3>
+            <ol>
+                <li>Introduction to Human Resource Management</li>
+                <li>Employee Information Management</li>
+                <li>Recruitment and Onboarding</li>
+                <li>Attendance and Leave Management</li>
+                <li>Payroll Management</li>
+                <li>Performance Management</li>
+                <li>Training and Development</li>
+                <li>Compliance and Risk Management</li>
+                <li>Employee Self-Service (ESS)</li>
+                <li>Reporting and HR Analytics</li>
+                <li>Exit and Offboarding Management</li>
+                <li>Conclusion</li>
+                <li>Benefits of Using an HRMS</li>
+                <li>HRMS Functions in Bangladesh</li>
+            </ol>
+        </div>
+    </aside>
 
-        <div class="search-box-wrapper">
-            <i class="fas fa-search search-icon"></i>
-            <input type="text" class="search-input" placeholder="Search any blog">
+    <!-- Middle Content: Scrollable -->
+    <main class="main-content">
+        <span class="badge">Human Resource Management</span>
+        <h1>Top 10 Functions of Human Resource Management System</h1>
+        <p class="date">Last Updated on December 31, 2025</p>
+
+        <div class="featured-image">
+            <img src="~/image/Human Resource Management System).png" alt="HR Management">
+        </div>
+        <br>
+        <div class="article-body">
+            <!-- Dummy text to enable scrolling -->
+            <p>
+                Human Resource Management (HRM) plays a vital role in building a productive, compliant, and engaged workforce. A modern HR management system helps organizations streamline people operations, reduce manual work, and improve employee experience.
+                In this article, we explore the top 10 functions of a Human Resource Management System and how they support business growth.
+            </p>
+            <!-- Start New Section -->
+            <div class="article-section">
+                <h2 class="section-title">1. Employee Information Management</h2>
+
+                <div class="content-image-card">
+                    <!-- Image link -->
+                    <img src="/image/blog circle.png" alt="Employee Information Management">
+                </div>
+
+                <p class="section-text">
+                    Employee Information Management is the core function of an HRMS. It maintains a centralized database of employee personal details, job roles, department information, documents, and employment history. This allows quick access to accurate data, improves security, reduces paperwork, and ensures smooth HR operations.
+                </p>
+            </div>
+            <div class="article-section2">
+                <h2 class="section-title2">2. Recruitment and Onboarding</h2>
+
+                <div class="content-image-card2">
+                    <!-- Image link -->
+                    <img src="/image/blog circle 2.png" alt="Employee Information Management">
+                </div>
+
+                <p class="section-text2">
+                    This function manages the complete hiring process, from job posting to candidate selection. The HRMS tracks applications, schedules interviews, and simplifies onboarding by collecting documents, assigning roles, and sharing company policies, ensuring a smooth start for new employees.
+                </p>
+            </div>
+            <div class="article-section3">
+                <h2 class="section-title3">3. Attendance and Leave Management</h2>
+
+                <div class="content-image-card3">
+                    <!-- Image link -->
+                    <img src="/image/blog circle3.png" alt="Employee Information Management">
+                </div>
+
+                <p class="section-text3">
+                    Attendance and Leave Management automates the tracking of employee working hours, overtime, holidays, and leave balances. It reduces manual errors, improves transparency, and ensures accurate payroll processing while helping employees easily apply for and track leave.
+                </p>
+            </div>
+             <div class="article-section">
+                <h2 class="section-title">4. Payroll Management</h2>
+
+                <div class="content-image-card4">
+                    <!-- Image link -->
+                    <img src="/image/blog circle 4.png" alt="Employee Information Management">
+                </div>
+
+                <p class="section-text">
+                    Payroll Management ensures accurate and timely salary processing by automating calculations, deductions, bonuses, and tax components. The HRMS generates payslips, maintains payroll records, and supports compliance with local payroll regulations, saving time and reducing errors.
+                </p>
+            </div>
+             <div class="article-section">
+                <h2 class="section-title">5. Performance Management</h2>
+
+                <div class="content-image-card5">
+                    <!-- Image link -->
+                    <img src="/image/blog circle 5.png" alt="Employee Information Management">
+                </div>
+
+                <p class="section-text">
+                    This function supports employee performance evaluation through goal setting, reviews, and feedback. The HRMS enables managers to track progress, identify skill gaps, and recognize high performers, improving productivity and employee engagement.
+                </p>
+            </div>
+             <div class="article-section">
+                <h2 class="section-title">6.Training and Development</h2>
+
+                <div class="content-image-card6">
+                    <!-- Image link -->
+                    <img src="/image/blog circle 6.png" alt="Employee Information Management">
+                </div>
+
+                <p class="section-text">
+
+                    Training and Development modules help organizations plan and manage employee learning programs.
+                    The HRMS tracks training schedules, attendance, skill development, and certifications, supporting
+                    continuous workforce improvement and long-term growth.
+                </p>
+            </div>
+            <div class="article-section">
+                <h2 class="section-title">7. Compliance and Policy Management</h2>
+
+                <div class="content-image-card7">
+                    <!-- Image link -->
+                    <img src="/image/blog circle 7.png" alt="Employee Information Management">
+                </div>
+
+                <p class="section-text">
+                    Compliance and Policy Management helps organizations follow labor laws, internal rules, and company policies.
+                    The HRMS stores policy documents, tracks acknowledgments, and maintains compliance records, reducing legal risks and ensuring transparency.
+                </p>
+            </div>
+            <div class="article-section">
+                <h2 class="section-title">8. Employee Self-Service (ESS)</h2>
+
+                <div class="content-image-card8">
+                    <!-- Image link -->
+                    <img src="/image/blog circle 8.png" alt="Employee Information Management">
+                </div>
+
+                <p class="section-text">
+                    Employee Self-Service allows employees to access HR information independently.
+                    Through ESS portals, employees can view payslips, apply for leave, update personal details,
+                    and access company announcements, reducing HR workload and improving satisfaction.
+                </p>
+            </div>
+            <div class="article-section">
+                <h2 class="section-title">9. Reporting and HR Analytics</h2>
+
+                <div class="content-image-card9">
+                    <!-- Image link -->
+                    <img src="/image/blog circle 9.png" alt="Employee Information Management">
+                </div>
+
+                <p class="section-text">
+                    The HRMS provides real-time reports and analytics on attendance, payroll, turnover, and performance.
+                    These insights help HR teams and management make data-driven decisions and improve organizational efficiency.
+                </p>
+            </div>
+            <div class="article-section">
+                <h2 class="section-title">10. Exit and Offboarding Management</h2>
+
+                <div class="content-image-card10">
+                    <!-- Image link -->
+                    <img src="/image/blog circle 10.png" alt="Employee Information Management">
+                </div>
+
+                <p class="section-text">
+                    Exit and Offboarding Management handles resignations, notice periods, final settlements, and exit documentation.
+                    The HRMS ensures a structured offboarding process, maintains records, and supports compliance while preserving a positive employee experience.
+                </p>
+            </div>
+            <h2 class="section-title">Concolusion</h2>
+            <p>
+                A Human Resource Management System is essential for modern organizations.
+                From recruitment to payroll and compliance, HRM software simplifies HR operations, improves accuracy, and enhances employee experience.
+                Investing in the right HRM solution helps businesses focus on growth while managing their workforce efficiently.</p>
+        </div>
+        <!-- Social Interaction Bar -->
+        <div class="article-footer-bar">
+            <div class="stats-group">
+                <span class="stat-item">23 Views</span>
+                <span class="stat-item">2 Comments</span>
+            </div>
+            <div class="social-share-group">
+                <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-btn"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+        </div>
+        <!-- Comment Form Section -->
+        <div class="comment-section-container">
+            <h3 class="comment-title">Post Comments</h3>
+            <p class="comment-subtitle">Your email address will notbe published.Required fileds are maked*</p>
+
+            <hr class="form-divider">
+
+            <form class="comment-form">
+                <div class="form-row">
+                    <input type="text" placeholder="Name*" class="form-input">
+                    <input type="email" placeholder="Email*" class="form-input">
+                </div>
+
+                <textarea placeholder="Write a comment*" class="form-textarea"></textarea>
+
+                <div class="form-footer">
+                    <button type="submit" class="submit-comment-btn">Post Comment</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- Right Sidebar: Widgets -->
+    <aside class="sidebar right-side">
+        <div class="subscribe-card">
+            <h3>Subscribe for the Daily Updates</h3>
+            <input type="email" placeholder="Write your email">
+            <button>Subscribe</button>
+        </div>
+
+        <div class="demo-card">
+            <!-- Profile overlapping section -->
+            <div class="profile-stack">
+                <img src="/image/b1.jpg" alt="User 1" class="profile-img">
+                <img src="/image/b2.jpg" alt="User 2" class="profile-img overlap">
+            </div>
+            <h3>Find the Right HR Management Solution for Your Business</h3>
+            <button class="outline-btn">Request Demo</button>
+        </div>
+    </aside>
+</section>
+
+<section class="benefits-full-section">
+    <div class="benefits-content-area">
+        <h2 class="benefits-title-text">Benefits of Using an HRMS</h2>
+        <p class="benefits-sub-text">Implementing an HRMS offers several advantages, including:</p>
+        <ul class="benefits-bullet-list">
+            <li>Reduced administrative workload</li>
+            <li>Improved HR efficiency</li>
+            <li>Enhanced employee satisfaction</li>
+            <li>Better compliance and transparency</li>
+            <li>Data-driven HR decisions</li>
+        </ul>
+    </div>
+</section>
+<section class="benefits-full-section2">
+    <div class="benefits-content-area">
+        <h2 class="benefits-title-text">HRMS Functions in Bangladesh: What to Consider?</h2>
+        <p class="benefits-sub-text">
+            When choosing an HRMS in Bangladesh, businesses should ensure:
+        </p>
+        <ul class="benefits-bullet-list">
+            <li>Local payroll & tax compliance</li>
+            <li>
+                Customizable attendance rules
+            </li>
+            <li>Secure employee data storage</li>
+            <li>Scalable features for growth</li>
+        </ul>
+    </div>
+</section>
+
+<section class="faq-section">
+    <div class="faq-container">
+        <h2 class="faq-main-title">Frequently Asked Questions</h2>
+
+        <!-- FAQ Item 1 (Expanded as in image) -->
+        <div class="faq-item active">
+            <div class="faq-header">
+                <h3 class="faq-question">What is Human Resource Management (HRM)?</h3>
+                <span class="faq-icon">−</span>
+            </div>
+            <div class="faq-content">
+                <p>Human Resource Management (HRM) is the process of managing an organization's workforce, including hiring, employee records, attendance, payroll, performance, training, and compliance. HRM focuses on improving productivity while supporting employee growth and satisfaction.</p>
+            </div>
+        </div>
+
+        <!-- FAQ Item 2 -->
+        <div class="faq-item">
+            <div class="faq-header">
+                <h3 class="faq-question">What is an HR Management System (HRMS)?</h3>
+                <span class="faq-icon">+</span>
+            </div>
+        </div>
+
+        <!-- FAQ Item 3 -->
+        <div class="faq-item">
+            <div class="faq-header">
+                <h3 class="faq-question">Is employee data secure in an HRMS?</h3>
+                <span class="faq-icon">+</span>
+            </div>
+        </div>
+
+        <!-- FAQ Item 4 -->
+        <div class="faq-item">
+            <div class="faq-header">
+                <h3 class="faq-question">Who can use an HRMS?</h3>
+                <span class="faq-icon">+</span>
+            </div>
+        </div>
+
+        <!-- FAQ Item 5 -->
+        <div class="faq-item">
+            <div class="faq-header">
+                <h3 class="faq-question">How does HRMS help reduce manual work?</h3>
+                <span class="faq-icon">+</span>
+            </div>
         </div>
     </div>
-
-    <!-- 3. BLOG CARDS GRID (Combined into one container for proper layout) -->
-    <div class="container blog-grid-section">
-        <div class="row g-4">
-
-            <!-- Row 1 Cards -->
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="qadryn-card">
-                    <div class="card-thumb-box">
-                        <img src="~/image/Human Resource Management System).png" alt="HR" class="card-thumb-img">
-                    </div>
-                    <div class="card-content">
-                        <span class="card-badge">Human Resource Management</span>
-                        <h3 class="card-title-text">Top 10 Functions of Human Resource Management System</h3>
-                        <p class="card-desc-text">Read the article to know more about the top 10 functions of a human resource management system of any particular firm in detail.</p>
-                        <a href="#" class="btn-card-action">Read More</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="qadryn-card">
-                    <div class="card-thumb-box">
-                        <img src="~/image/Functions of Human Resource Management System)-1.png" alt="Salary" class="card-thumb-img">
-                    </div>
-                    <div class="card-content">
-                        <span class="card-badge">HR Software</span>
-                        <h3 class="card-title-text">Appointment Letter Format in Bangladesh</h3>
-                        <p class="card-desc-text">Find the best appointment letter format in Bangladesh with 12 editable templates for various jobs and industries.</p>
-                        <a href="#" class="btn-card-action">Read More</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="qadryn-card">
-                    <div class="card-thumb-box">
-                        <img src="~/image/Image (Top 10 Functions of Human Resource Management System)-2.png" alt="Resignation" class="card-thumb-img">
-                    </div>
-                    <div class="card-content">
-                        <span class="card-badge">HR Software</span>
-                        <h3 class="card-title-text">Resignation Letter Format in Bangladesh</h3>
-                        <p class="card-desc-text">Learn the proper resignation letter format in Bangladesh with legal guidelines, notice period rules, and free templates.</p>
-                        <a href="#" class="btn-card-action">Read More</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Row 2 Cards -->
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="qadryn-card">
-                    <div class="card-thumb-box">
-                        <img src="~/image/Human Resource Management System).png" alt="HR" class="card-thumb-img">
-                    </div>
-                    <div class="card-content">
-                        <span class="card-badge">Human Resource Management</span>
-                        <h3 class="card-title-text">Top 10 Functions of Human Resource Management System</h3>
-                        <p class="card-desc-text">Read the article to know more about the top 10 functions of a human resource management system of any particular firm in detail.</p>
-                        <a href="#" class="btn-card-action">Read More</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="qadryn-card">
-                    <div class="card-thumb-box">
-                        <img src="~/image/Functions of Human Resource Management System)-1.png" alt="Salary" class="card-thumb-img">
-                    </div>
-                    <div class="card-content">
-                        <span class="card-badge">HR Software</span>
-                        <h3 class="card-title-text">Appointment Letter Format in Bangladesh</h3>
-                        <p class="card-desc-text">Find the best appointment letter format in Bangladesh with 12 editable templates for various jobs and industries.</p>
-                        <a href="#" class="btn-card-action">Read More</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="qadryn-card">
-                    <div class="card-thumb-box">
-                        <img src="~/image/Image (Top 10 Functions of Human Resource Management System)-2.png" alt="Resignation" class="card-thumb-img">
-                    </div>
-                    <div class="card-content">
-                        <span class="card-badge">HR Software</span>
-                        <h3 class="card-title-text">Resignation Letter Format in Bangladesh</h3>
-                        <p class="card-desc-text">Learn the proper resignation letter format in Bangladesh with legal guidelines, notice period rules, and free templates.</p>
-                        <a href="#" class="btn-card-action">Read More</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Row 3 Cards -->
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="qadryn-card">
-                    <div class="card-thumb-box">
-                        <img src="~/image/Human Resource Management System).png" alt="HR" class="card-thumb-img">
-                    </div>
-                    <div class="card-content">
-                        <span class="card-badge">Human Resource Management</span>
-                        <h3 class="card-title-text">Top 10 Functions of Human Resource Management System</h3>
-                        <p class="card-desc-text">Read the article to know more about the top 10 functions of a human resource management system of any particular firm in detail.</p>
-                        <a href="#" class="btn-card-action">Read More</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="qadryn-card">
-                    <div class="card-thumb-box">
-                        <img src="~/image/Functions of Human Resource Management System)-1.png" alt="Salary" class="card-thumb-img">
-                    </div>
-                    <div class="card-content">
-                        <span class="card-badge">HR Software</span>
-                        <h3 class="card-title-text">Appointment Letter Format in Bangladesh</h3>
-                        <p class="card-desc-text">Find the best appointment letter format in Bangladesh with 12 editable templates for various jobs and industries.</p>
-                        <a href="#" class="btn-card-action">Read More</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="qadryn-card">
-                    <div class="card-thumb-box">
-                        <img src="~/image/Image (Top 10 Functions of Human Resource Management System)-2.png" alt="Resignation" class="card-thumb-img">
-                    </div>
-                    <div class="card-content">
-                        <span class="card-badge">HR Software</span>
-                        <h3 class="card-title-text">Resignation Letter Format in Bangladesh</h3>
-                        <p class="card-desc-text">Learn the proper resignation letter format in Bangladesh with legal guidelines, notice period rules, and free templates.</p>
-                        <a href="#" class="btn-card-action">Read More</a>
-                    </div>
-                </div>
-            </div>
-
-        </div> <!-- End Row -->
-        <!-- PAGINATION -->
-        <div class="pagination-wrapper">
-            <a href="#" class="pagination-arrow">
-                <i class="fas fa-chevron-left"></i>
-            </a>
-            <div class="page-numbers-box">
-                <a href="#" class="page-link-text active">1</a>
-                <a href="#" class="page-link-text">2</a>
-                <a href="#" class="page-link-text">3</a>
-                <a href="#" class="page-link-text">4</a>
-            </div>
-            <a href="#" class="pagination-arrow">
-                <i class="fas fa-chevron-right"></i>
-            </a>
+</section>
+<section class="author-card-section">
+    <div class="author-card-container">
+        <div class="author-image-box">
+            <img src="~/image/blogprofile.jpg" alt="Arafat Hossain">
         </div>
 
-    </div> 
-    <!-- SCRIPTS -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const menuBtn = document.getElementById("mobile-menu-btn");
-            const navLinks = document.querySelector(".nav-links");
+        <div class="author-text-info">
+            <h2 class="author-name-title">Arafat Hossain</h2>
+            <h3 class="author-designation">CEO at Qadryn</h3>
+            <p class="author-biography">
+                I’m driven by a mission to systemize creativity while continuously learning and evolving.
+                Passionate about design in all its forms, I believe meaningful design serves people
+                and plays a vital role in shaping a better collective future.
+            </p>
+        </div>
+    </div>
+</section>
+<section class="related-blogs-section">
+    <div class="blogs-container">
+        <h2 class="section-heading">See Our Related Blogs</h2>
 
-            if (menuBtn && navLinks) {
-                menuBtn.addEventListener("click", function () {
-                    navLinks.classList.toggle("mobile-menu-active");
-                });
-            }
-        });
-    </script>
+        <div class="blogs-grid">
+            <!-- Blog Card 1 -->
+            <div class="blog-card">
+                <div class="blog-thumbnail">
+                    <img src="~/image/Image (Top 10 Functions of Human Resource Management System)-6.png" alt="Salary Scale">
+                </div>
+                <div class="blog-details">
+                    <h3 class="blog-title">Employee Onboarding Process: Step-by-Step Guide</h3>
+                </div>
+            </div>
+
+            <!-- Blog Card 2 -->
+            <div class="blog-card">
+                <div class="blog-thumbnail">
+                    <img src="/image/Image (Top 10 Functions of Human Resource Management System)-7.png" alt="Appointment Letter">
+                </div>
+                <div class="blog-details">
+                    <h3 class="blog-title">Appointment Letter Format in Bangladesh</h3>
+                </div>
+            </div>
+
+            <!-- Blog Card 3 -->
+            <div class="blog-card">
+                <div class="blog-thumbnail">
+                    <img src="~/image/Image (Top 10 Functions of Human Resource Management System)-8.png" alt="HR Challenges">
+                </div>
+                <div class="blog-details">
+                    <h3 class="blog-title">Top 20 Common HR Challenges and Solutions in Bangladesh</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="related-blogs-section">
+    <div class="blogs-container">
+
+        <div class="blogs-grid">
+            <!-- Blog Card 1 -->
+            <div class="blog-card">
+                <div class="blog-thumbnail">
+                    <img src="~/image/Human Resource Management System).png" alt="Salary Scale">
+                </div>
+                <div class="blog-details">
+                    <h3 class="blog-title">Labor Law Compliance Checklist for HR Teams</h3>
+                </div>
+            </div>
+
+            <!-- Blog Card 2 -->
+            <div class="blog-card">
+                <div class="blog-thumbnail">
+                    <img src="/image/Image (Top 10 Functions of Human Resource Management System)-10.png" alt="Appointment Letter">
+                </div>
+                <div class="blog-details">
+                    <h3 class="blog-title">Average Salary Range in Bangladesh</h3>
+                </div>
+            </div>
+
+            <!-- Blog Card 3 -->
+            <div class="blog-card">
+                <div class="blog-thumbnail">
+                    <img src="~/image/Functions of Human Resource Management System)-1.png" alt="HR Challenges">
+                </div>
+                <div class="blog-details">
+                    <h3 class="blog-title">10 Best HR Consulting Firm</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+   
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
