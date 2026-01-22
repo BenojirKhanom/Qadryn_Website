@@ -32,6 +32,14 @@ namespace Dclan_website
         {
             return View();
         }
+        public IActionResult customisederp()
+        {
+            return View();
+        }
+        public IActionResult uiuxdesign()
+        {
+            return View();
+        }
     }
 }
 

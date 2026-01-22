@@ -1,0 +1,1810 @@
+﻿@{
+    Layout = "/Pages/Shared/_Layout.cshtml";
+}
+
+ @section Styles {
+    <style>
+
+        /* main section */
+        .hero-wrapper {
+            position: relative;
+            width: 100%;
+            min-height: 120vh;
+            padding-top: 190px !important;
+            padding-left: 160px !important;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(180deg, #EADFF9 0%, #EADFF9 100%);
+            overflow: hidden;
+
+        }
+            .hero-wrapper::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-image: linear-gradient(rgba(180, 180, 180, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(180, 180, 180, 0.1) 1px, transparent 1px);
+                background-size: 80px 80px; /* গ্রিড সাইজ */
+                pointer-events: none;
+                z-index: 1;
+            }
+        .text-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin-bottom: 60px; 
+        }
+
+        .hero-title {
+            font-size: 60px;
+            line-height: 1.1;
+            color: #4E398C;
+            font-weight: 500;
+            margin-bottom: 25px;
+        }
+
+            .hero-title .bold-text {
+                font-weight: 800;
+            }
+
+        .hero-description {
+            font-size: 18px;
+            color: #666;
+            line-height: 1.5;
+            max-width: 700px;
+            margin-bottom: 35px;
+        }
+
+        .btn-consultation {
+            display: inline-block;
+            background-color: #7963FA;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .animation-area {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .image-track {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            width: max-content;
+            animation: infiniteSlide 50s linear infinite; 
+        }
+        .img-box {
+            flex-shrink: 0;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+            .img-box img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+        .small {
+            width: 400px;
+            height: 250px;
+        }
+
+        .medium {
+            width: 500px;
+            height: 350px;
+        }
+
+        .large {
+            width: 500px;
+            height: 350px;
+            border: 1px solid #ddd;
+        }
+        @@keyframes infiniteSlide {
+            0%
+
+        {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(-50%);
+        }
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .hero-wrapper {
+            margin-top: 0 !important;
+            background-color: #EADFF9;
+        }
+        body {
+            padding-top: 0;
+            margin: 0;
+        }
+
+        /* --- TRUSTED PARTNERS TEXT SECTION --- */
+        .partners-text-section {
+            padding-top: 100px;
+            padding-bottom: 60px;
+            background-color: transparent;
+        }
+
+        .badge-outlined {
+            display: inline-block;
+            border: 1px solid #C4B5FD;
+            background-color: #fff;
+            color: #100C29;
+            padding: 8px 24px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            margin-bottom: 30px;
+        }
+
+        .big-heading {
+            font-family: Archivo;
+            font-size: 3.2rem;
+            font-weight: 700;
+            color: #433582;
+            line-height: 1.25;
+            letter-spacing: -0.02em;
+        }
+
+        @@media (max-width: 768px) {
+            .partners-text-section {
+                padding-top: 60px;
+            }
+
+            .big-heading {
+                font-size: 2rem;
+            }
+        }
+
+        /* --- LOGO GRID SECTION --- */
+        .logo-grid-section {
+            padding-bottom: 100px;
+        }
+
+        .logo-box {
+            background-color: #F6F6F8;
+            border-radius: 12px;
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s ease;
+            cursor: pointer;
+        }
+
+            .logo-box:hover {
+                background-color: #EAEAF0;
+                transform: translateY(-3px);
+            }
+
+        .partner-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #9090A0;
+            font-family: 'Times New Roman', serif;
+            opacity: 0.8;
+        }
+
+        .font-sans {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .erp-section-section {
+            padding: 100px 20px; /* Adjust vertical spacing as needed */
+            text-align: center;
+            background-color: #ffffff;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .erpcontainer {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .title {
+            color: #524391; /* Dark purple/blue color from the image */
+            font-size: 3.5rem; /* Large heading size */
+            font-weight: 700;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+            margin-left: 30px;
+        }
+
+        .description {
+            color: #6b7280; /* Muted gray text color */
+            font-size: 1.25rem;
+            line-height: 1.6;
+            max-width: 720px;
+            margin: 0 auto;
+            font-weight: 400;
+        }
+
+        /* Responsive adjustments */
+        @@media (max-width: 768px) {
+            .title
+
+        {
+            font-size: 2.5rem;
+        }
+
+        .description {
+            font-size: 1.1rem;
+        }
+
+        }
+        /* erp-features */
+        .erp-features {
+            padding: 60px 20px;
+            font-family: 'Inter', sans-serif;
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: flex;
+            align-items: center;
+            gap: 40px; /* Space between image and cards */
+        }
+
+        .image-content {
+            flex: 1;
+        }
+
+            .image-content img {
+                width: 100%;
+                height: auto;
+                border-radius: 20px; /* Matching the rounded corners in the image */
+                display: block;
+            }
+
+        .cards-grid {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 columns */
+            gap: 20px; /* Space between cards */
+        }
+
+        .feature-card {
+            background-color: #f9f9ff; /* Very light purple/white background */
+            border: 1px solid #dcd7ff; /* Soft purple border */
+            border-radius: 16px;
+            padding: 40px 25px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 220px;
+            transition: transform 0.3s ease;
+        }
+
+            .feature-card:hover {
+                transform: translateY(-5px); /* Simple hover effect */
+            }
+
+            .feature-card h3 {
+                color: #524391; /* Primary purple color */
+                font-size: 1.25rem;
+                font-weight: 700;
+                margin-bottom: 15px;
+                line-height: 1.3;
+            }
+
+            .feature-card p {
+                color: #6b7280; /* Gray text color */
+                font-size: 0.95rem;
+                line-height: 1.6;
+            }
+
+        /* Responsive Design for Mobile and Tablets */
+        @@media (max-width: 1024px) {
+            .features-grid
+
+        {
+            flex-direction: column; /* Stack image on top of cards on tablets */
+        }
+
+        }
+
+        @@media (max-width: 640px) {
+            .cards-grid
+
+        {
+            grid-template-columns: 1fr; /* Stack cards in a single column on mobile */
+        }
+
+        .feature-card {
+            padding: 30px 20px;
+        }
+
+        }
+
+        .erp-offer-section {
+            /* This matches the light lavender background in your image */
+            background-color: #f6f8ff;
+            padding: 80px 20px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        .offer-header {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .header-img {
+            flex: 1;
+        }
+
+            .header-img img {
+                width: 100%;
+                height: auto;
+            }
+
+        .header-text {
+            flex: 1;
+        }
+
+            .header-text h2 {
+                color: #524391;
+                font-size: 2.5rem;
+                font-weight: 700;
+                margin-bottom: 20px;
+            }
+
+            .header-text p {
+                color: #5f6672;
+                font-size: 1.1rem;
+                line-height: 1.6;
+                margin-bottom: 30px;
+            }
+
+        .btn-start {
+            display: inline-block;
+            background-color: #7367f0;
+            color: white;
+            padding: 14px 32px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+            .btn-start:hover {
+                background-color: #5e52da;
+            }
+
+        /* Grid Styles */
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .module-card, .full-width-module {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            /* Subtle border/shadow as seen in the image */
+            border: 1px solid #eef0f7;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+        }
+
+            .module-card h3, .full-width-module h3 {
+                color: #524391;
+                font-size: 1.2rem;
+                font-weight: 700;
+                margin-bottom: 12px;
+            }
+
+            .module-card p, .full-width-module p {
+                color: #6b7280;
+                font-size: 0.95rem;
+                line-height: 1.5;
+            }
+
+        /* Full Width Bottom Card */
+        .full-width-module {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Responsive adjustments */
+        @@media (max-width: 992px) {
+            .offer-header
+
+        {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .modules-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        }
+
+        @@media (max-width: 600px) {
+            .modules-grid
+
+        {
+            grid-template-columns: 1fr;
+        }
+
+        .header-text h2 {
+            font-size: 2rem;
+        }
+
+        }
+
+        .erp-offer-section {
+            /* This matches the light lavender background in your image */
+            background-color: #f6f8ff;
+            padding: 80px 20px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        .offer-header {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .header-img {
+            flex: 1;
+        }
+
+            .header-img img {
+                width: 100%;
+                height: auto;
+            }
+
+        .header-text {
+            flex: 1;
+        }
+
+            .header-text h2 {
+                color: #524391;
+                font-size: 2.5rem;
+                font-weight: 700;
+                margin-bottom: 20px;
+            }
+
+            .header-text p {
+                color: #5f6672;
+                font-size: 1.1rem;
+                line-height: 1.6;
+                margin-bottom: 30px;
+            }
+
+        .btn-start {
+            display: inline-block;
+            background-color: #7367f0;
+            color: white;
+            padding: 14px 32px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+            .btn-start:hover {
+                background-color: #5e52da;
+            }
+
+        /* Grid Styles */
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .module-card, .full-width-module {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            /* Subtle border/shadow as seen in the image */
+            border: 5px solid #eef0f7;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+        }
+
+            .module-card h3, .full-width-module h3 {
+                color: #524391;
+                font-size: 1.2rem;
+                font-weight: 700;
+                margin-bottom: 12px;
+            }
+
+            .module-card p, .full-width-module p {
+                color: #6b7280;
+                font-size: 0.95rem;
+                line-height: 1.5;
+            }
+
+        /* Full Width Bottom Card */
+        .full-width-module {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Responsive adjustments */
+        @@media (max-width: 992px) {
+            .offer-header
+
+        {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .modules-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        }
+
+        @@media (max-width: 600px) {
+            .modules-grid
+
+        {
+            grid-template-columns: 1fr;
+        }
+
+        .header-text h2 {
+            font-size: 2rem;
+        }
+
+        }
+
+        :root {
+            --primary-purple: #524391;
+            --bg-purple: #6366f1;
+            --text-gray: #6b7280;
+            --border-color: #dcd7ff;
+        }
+
+        .pricing-section {
+            padding: 80px 20px;
+            background-color: #fff;
+            font-family: 'Inter', sans-serif;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .pricing-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+            .pricing-header h2 {
+                color: var(--primary-purple);
+                font-size: 2.5rem;
+                font-weight: 700;
+                margin-bottom: 15px;
+            }
+
+            .pricing-header p {
+                color: var(--text-gray);
+                max-width: 600px;
+                margin: 0 auto;
+                line-height: 1.6;
+            }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            align-items: start;
+        }
+
+        /* Base Card Styling */
+        .pricing-card {
+            background: #fcfcfd;
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 40px 30px;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+            /* Highlighted (Middle) Card Styling */
+            .pricing-card.highlighted {
+                background-color: var(--bg-purple);
+                color: white;
+                transform: scale(1.02);
+                box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);
+            }
+
+        .popular-badge {
+            position: absolute;
+            top: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #2563eb;
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Card Top Styling */
+        .card-top {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .plan-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-purple);
+            margin-bottom: 5px;
+        }
+
+        .highlighted .plan-name {
+            color: white;
+        }
+
+        .starting-label {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        .highlighted .starting-label {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: 500;
+            color: #374151;
+            margin-top: 10px;
+        }
+
+        .highlighted .price {
+            color: white;
+        }
+
+        .price span {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: var(--text-gray);
+        }
+
+        .highlighted .price span {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Inner Info Box Styling */
+        .info-box {
+            background: white;
+            border: 1px solid #eee;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 30px;
+            font-size: 0.9rem;
+        }
+
+        .highlighted .info-box {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .info-box p {
+            margin: 0;
+            color: #4b5563;
+        }
+
+        .highlighted .info-box p {
+            color: white;
+        }
+
+        .divider {
+            height: 1px;
+            background-color: #eee;
+            margin: 10px 0;
+        }
+
+            .divider.light {
+                background-color: rgba(255, 255, 255, 0.4);
+            }
+
+        .stat-line {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 500;
+        }
+
+        /* Features List Styling */
+        .features-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+            .features-list li {
+                padding-left: 30px;
+                position: relative;
+                margin-bottom: 12px;
+                font-size: 0.95rem;
+                line-height: 1.4;
+                color: #4b5563;
+            }
+
+        .highlighted .features-list li {
+            color: white;
+        }
+
+        /* Custom Checkmark Icon using CSS */
+        .features-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #374151;
+            font-weight: bold;
+        }
+
+        .highlighted .features-list li::before {
+            color: white;
+        }
+
+        /* Responsive adjustments */
+        @@media (max-width: 1024px) {
+            .pricing-grid
+
+        {
+            grid-template-columns: 1fr;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .pricing-card.highlighted {
+            transform: scale(1);
+        }
+
+        }
+
+        /* --- ALL-IN-ONE HEADER STYLES --- */
+        .aio-features-section {
+            padding-top: 100px;
+            padding-bottom: 50px;
+            background-color: transparent;
+        }
+
+        .badge-feature {
+            display: inline-block;
+            border: 1px solid #9ca3af;
+            border-radius: 6px;
+            padding: 6px 20px;
+            color: #100C29;
+            font-weight: 500;
+            font-size: 0.95rem;
+            background: #fff;
+            margin-bottom: 25px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .aio-title {
+            font-family: Archivo;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #433582;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+
+        .aio-subtitle {
+            font-size: 1.15rem;
+            color: #52525B;
+            line-height: 1.6;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        @@media (max-width: 768px) {
+            .aio-features-section {
+                padding-top: 60px;
+            }
+
+            .aio-title {
+                font-size: 2rem;
+            }
+
+            .aio-subtitle {
+                font-size: 1rem;
+                padding: 0 15px;
+            }
+        }
+
+        /* --- SERVICE CARDS STYLES --- */
+        .service-cards-section {
+            padding-bottom: 100px;
+            background-color: transparent;
+        }
+
+        .service-card {
+            padding: 50px 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            height: 100%;
+            border: 1px solid transparent;
+            background-color: #f5f5f5;
+        }
+
+        .s-icon-box {
+            width: 70px;
+            height: 70px;
+            background-color: #C4B5FD;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin: 0 auto 30px auto;
+            transition: all 0.4s ease;
+        }
+
+        .s-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #100C29;
+            margin-bottom: 20px;
+            transition: color 0.4s ease;
+        }
+
+        .s-desc {
+            font-size: 0.95rem;
+            color: #52525B;
+            line-height: 1.6;
+            transition: color 0.4s ease;
+        }
+
+        .service-card:hover {
+            background-color: #1A0B50;
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(26, 11, 80, 0.15);
+        }
+
+            .service-card:hover .s-title {
+                color: #ffffff;
+            }
+
+            .service-card:hover .s-desc {
+                color: rgba(255, 255, 255, 0.8);
+            }
+
+            .service-card:hover .s-icon-box {
+                background-color: #E0D9FF;
+                color: #1A0B50;
+            }
+
+        @@media (max-width: 991px) {
+            .service-card {
+                padding: 40px 20px;
+            }
+        }
+
+        .erp-workflow {
+            background: url('/image/blue bg.png') no-repeat center center;
+            background-size: cover;
+            padding: 100px 20px;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            text-align: center;
+        }
+
+        .content-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Header Section */
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            opacity: 0.9;
+            max-width: 750px;
+            margin: 0 auto 60px;
+        }
+
+        /* Steps Wrapper */
+        .steps-list {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            align-items: center;
+        }
+
+        /* Individual Step Card */
+        .step-card {
+            background: rgba(255, 255, 255, 0.05); /* Semi-transparent white for glass effect */
+            border: 1px solid rgba(255, 255, 255, 0.15); /* Subtle border */
+            border-radius: 20px;
+            padding: 35px 45px;
+            width: 100%;
+            max-width: 650px;
+            text-align: left;
+            backdrop-filter: blur(8px); /* Optional: Softens background behind card */
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+            .step-card:hover {
+                transform: translateY(-5px);
+                border-color: rgba(255, 255, 255, 0.3);
+            }
+
+        /* Step Badge/Label */
+        .step-label {
+            background: #ffffff;
+            color: #1a004b; /* Dark purple to match background */
+            padding: 6px 18px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        /* Step Content */
+        .step-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .step-card p {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0;
+        }
+
+        /* Responsive adjustments */
+        @@media (max-width: 768px) {
+            .section-header h2
+
+        {
+            font-size: 2rem;
+        }
+
+        .step-card {
+            padding: 25px 30px;
+        }
+
+        }
+
+        .who-for-section {
+            padding: 60px 20px;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            justify-content: center;
+            margin-right:10px;
+            
+        }
+
+        .main-gradient-container {
+            max-width: 1400px;
+            width: 100%;
+            background: linear-gradient(135deg, #FDFDFF 0%, #aba1fa 100%);
+            border-radius: 24px;
+            padding: 80px 60px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .content-wrapper {
+            display: flex;
+            gap: 60px;
+            align-items: center;
+        }
+
+        /* Left Content Styles */
+        .left-content {
+            flex: 1;
+        }
+
+        .title {
+            color: #524391;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+
+        .target-list {
+            padding-left: 0;
+            list-style-position: inside;
+            margin-bottom: 40px;
+        }
+
+            .target-list li {
+                font-size: 1.4rem;
+                font-weight: 600;
+                color: #374151;
+                margin-bottom: 12px;
+            }
+
+        .trust-text {
+            color: #6b7280;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 30px;
+        }
+
+        .social-proof {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .avatar-group {
+            display: flex;
+        }
+
+            .avatar-group img {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                border: 2px solid #fff;
+                margin-left: -10px;
+            }
+
+                .avatar-group img:first-child {
+                    margin-left: 0;
+                }
+
+        .reviews-count {
+            color: #6b7280;
+            font-weight: 500;
+        }
+
+        .cta-talk {
+            background-color: #7367f0;
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Form Card Styles */
+        .form-card {
+            flex: 1;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .form-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 15px;
+        }
+
+        .form-group {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+            .form-group label {
+                font-size: 0.85rem;
+                color: #4b5563;
+                font-weight: 500;
+            }
+
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                background: #f9fafb;
+                border: 1px solid #e5e7eb;
+                padding: 12px 15px;
+                border-radius: 10px;
+                font-size: 0.9rem;
+                outline: none;
+                transition: border-color 0.2s;
+            }
+
+            .form-group textarea {
+                height: 120px;
+                resize: none;
+            }
+
+        .submit-btn {
+            width: 100%;
+            background-color: #7367f0;
+            color: white;
+            border: none;
+            padding: 16px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        /* Responsive adjustments */
+        @@media (max-width: 1024px) {
+            .content-wrapper
+
+        {
+            flex-direction: column;
+        }
+
+        .main-gradient-container {
+            padding: 40px 20px;
+        }
+
+        }
+        /* --- RESPONSIVE FIXES --- */
+
+        @@media (max-width: 1200px) {
+            .hero-wrapper
+
+        {
+            padding-left: 60px !important; /* Reduced from 160px */
+            padding-top: 140px !important;
+        }
+
+        .hero-title {
+            font-size: 48px;
+        }
+
+        }
+
+        @@media (max-width: 992px) {
+            /* Stack form and text in "Who is this for" section */
+            .who-for-section .content-wrapper
+
+        {
+            flex-direction: column;
+        }
+
+        .who-for-section .main-gradient-container {
+            padding: 40px 20px;
+        }
+
+        .hero-wrapper {
+            padding-left: 30px !important;
+            min-height: auto;
+            padding-bottom: 60px;
+        }
+
+        .pricing-grid {
+            grid-template-columns: 1fr;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        }
+
+        @@media (max-width: 768px) {
+            /* Fix the white gap on the right */
+            body, html
+
+        {
+            overflow-x: hidden;
+        }
+
+        .who-for-section {
+            margin-right: 0 !important; /* Fixes the overflow shown in your screenshot */
+        }
+
+        .hero-title {
+            font-size: 32px;
+            line-height: 1.2;
+        }
+
+        .hero-description {
+            font-size: 16px;
+        }
+
+        .erp-section .title {
+            font-size: 2.5rem;
+            margin-left: 0; /* Centering the text properly */
+            text-align: center;
+        }
+
+        .erp-section .description {
+            text-align: center;
+            padding: 0 15px;
+        }
+
+        /* Stack form fields on mobile */
+        .form-row {
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .logo-box {
+            height: 100px; /* Smaller boxes for logos on mobile */
+        }
+
+        .partner-logo {
+            font-size: 1.1rem;
+        }
+
+        /* Scaling the hero images so they don't overwhelm the screen */
+        .img-box.small, .img-box.medium, .img-box.large {
+            width: 280px;
+            height: 180px;
+        }
+
+        }
+
+        @@media (max-width: 480px) {
+            .hero-wrapper
+
+        {
+            padding-left: 20px !important;
+            padding-right: 20px !important;
+            text-align: center;
+        }
+
+        .text-content {
+            margin-bottom: 30px;
+        }
+
+        .hero-title {
+            font-size: 28px;
+        }
+
+        .btn-consultation {
+            width: 100%;
+            text-align: center;
+        }
+
+        .target-list li {
+            font-size: 1.1rem;
+        }
+
+        }
+    </style>
+}
+<section class="hero-wrapper">
+    <div class="text-content">
+        <h1 class="hero-title">
+            Your Partner in growth:Expert<br>
+            <span class="bold-text">Customised ERP Solutions</span>
+        </h1>
+        <p class="hero-description">
+            We build fully customized ERP solutions designed around your workflows—helping you manage operations, data, and growth from one powerful platform.
+        </p>
+        <a href="#" class="btn-consultation">Get Free Consultation</a>
+    </div>
+    <!-- image animation -->
+    <div class="animation-area">
+        <div class="image-track">
+            <!-- 1st set iamges -->
+            <div class="img-box small"><img src="~/image/service main1.png" alt=""></div>
+            <div class="img-box large"><img src="~/image/service main2.png" alt=""></div>
+            <div class="img-box small"><img src="~/image/service main3.png" alt=""></div>
+            <div class="img-box medium"><img src="~/image/service main4.png" alt=""></div>
+            <div class="img-box medium"><img src="~/image/web.png" alt=""></div>
+            <div class="img-box medium"><img src="~/image/Rectangle 34624653-4.png" alt=""></div>
+            <div class="img-box medium"><img src="~/image/Rectangle 34624653-5.png" alt=""></div>
+            <div class="img-box medium"><img src="~/image/service main8.png" alt=""></div>
+
+            <!--for loop images-->
+            <div class="img-box small"><img src="~/image/service main1.png" alt=""></div>
+            <div class="img-box large"><img src="~/image/service main2.png" alt=""></div>
+            <div class="img-box small"><img src="~/image/service main3.png" alt=""></div>
+            <div class="img-box medium"><img src="~/image/service main4.png" alt=""></div>
+            <div class="img-box medium"><img src="~/image/web.png" alt=""></div>
+            <div class="img-box medium"><img src="~/image/Rectangle 34624653-4.png" alt=""></div>
+            <div class="img-box medium"><img src="~/image/Rectangle 34624653-5.png" alt=""></div>
+            <div class="img-box medium"><img src="~/image/service main8.png" alt=""></div>
+        </div>
+    </div>
+</section>
+
+<!-- TRUSTED PARTNERS -->
+<section class="partners-text-section text-center">
+    <div class="container">
+        <div class="mb-3"><span class="badge-outlined">Trusted partners</span></div>
+        <h2 class="big-heading">Managing people made effortless.<br>Because great teams deserve great systems.</h2>
+    </div>
+</section>
+
+<!-- LOGO GRID -->
+<section class="logo-grid-section">
+    <div class="container">
+        <div class="row g-3">
+            <div class="col-6 col-md-3"><div class="logo-box"><span class="partner-logo font-sans">TechCrunch</span></div></div>
+            <div class="col-6 col-md-3"><div class="logo-box"><span class="partner-logo font-sans">Bloomberg</span></div></div>
+            <div class="col-6 col-md-3"><div class="logo-box"><span class="partner-logo">The Washington Post</span></div></div>
+            <div class="col-6 col-md-3"><div class="logo-box"><span class="partner-logo">Forbes</span></div></div>
+            <div class="col-6 col-md-3"><div class="logo-box"><span class="partner-logo font-sans" style="text-transform: uppercase; letter-spacing: 2px;">GIZMODO</span></div></div>
+            <div class="col-6 col-md-3"><div class="logo-box"><span class="partner-logo">Forbes</span></div></div>
+            <div class="col-6 col-md-3"><div class="logo-box"><span class="partner-logo font-sans">Bloomberg</span></div></div>
+            <div class="col-6 col-md-3"><div class="logo-box"><span class="partner-logo font-sans">Tech <span style="font-weight:400">Tech</span></span></div></div>
+        </div>
+    </div>
+</section>
+
+<section class="erp-section">
+    <div class="erpcontainer">
+        <h1 class="title">One ERP. Total Control.</h1>
+        <p class="description">
+            Generic ERP software slows businesses down. Our customized ERP solutions adapt to your processes, not the other way around—so you work faster, smarter, and with full visibility.
+        </p>
+    </div>
+</section>
+<section class="erp-features">
+    <div class="container">
+        <div class="features-grid">
+
+            <!-- Left side: Image -->
+            <div class="image-content">
+                <img src="~/image/service main1.png" alt="ERP System Illustration">
+            </div>
+
+            <!-- Right side: Feature Cards -->
+            <div class="cards-grid">
+                <div class="feature-card">
+                    <h3>Tailor-Made ERP Development</h3>
+                    <p>ERP systems designed specifically for your business model, team structure, and goals.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>Seamless Integrations</h3>
+                    <p>Connect your ERP with CRM, accounting tools, payment gateways, and third-party systems.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>Centralized Business Data</h3>
+                    <p>Manage finance, HR, inventory, sales, and operations from one secure dashboard.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>Scalable & Secure</h3>
+                    <p>Add new modules, users, and features anytime—built with enterprise-grade security.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<section class="erp-offer-section">
+    <div class="container">
+
+        <!-- Top Header Section -->
+        <div class="offer-header">
+            <div class="header-img">
+                <!-- Replace with your actual image path -->
+                <img src="~/image/erp.png" alt="ERP Modules Illustration">
+            </div>
+            <div class="header-text">
+                <h2>ERP Modules We Offer</h2>
+                <p>Our ERP solutions are built with modular architecture, allowing you to choose only what your business needs while keeping the system flexible, scalable, and easy to manage.</p>
+                <a href="#" class="btn-start">Start a project</a>
+            </div>
+        </div>
+
+        <!-- Modules Grid (3 Columns) -->
+        <div class="modules-grid">
+            <div class="module-card">
+                <h3>Finance & Accounting</h3>
+                <p>We provide financial reporting, budgeting, forecasting, and auditing.</p>
+            </div>
+            <div class="module-card">
+                <h3>Inventory & Operations</h3>
+                <p>We handle warehouse management, order fulfillment, and demand planning.</p>
+            </div>
+            <div class="module-card">
+                <h3>HR & Payroll</h3>
+                <p>We provide employee onboarding, payroll processing, and performance management.</p>
+            </div>
+            <div class="module-card">
+                <h3>Sales & CRM</h3>
+                <p>We specialize in lead generation, customer segmentation, and email marketing.</p>
+            </div>
+            <div class="module-card">
+                <h3>Reports & Analytics</h3>
+                <p>We generate custom reports, dashboards, and data visualizations.</p>
+            </div>
+            <div class="module-card">
+                <h3>Project & Workflow Management</h3>
+                <p>Project tracking and task workflows structured to fit how your teams actually work—not forced templates.</p>
+            </div>
+        </div>
+
+        <!-- Bottom Full Width Card -->
+        <div class="full-width-module">
+            <h3>Custom Modules (as needed)</h3>
+            <p>We create bespoke modules tailored to your specific business needs. Our team designs and develops customized ERP modules built around your unique processes, enabling greater efficiency, scalability, and control across every department.</p>
+        </div>
+
+    </div>
+</section>
+
+<section class="pricing-section">
+    <div class="container">
+        <!-- Section Header -->
+        <div class="pricing-header">
+            <h2>ERP Pricing Packages</h2>
+            <p>Discover how Qadryn revolutionizes HR with automation tailored to your organizational structure.</p>
+        </div>
+
+        <!-- Pricing Cards Container -->
+        <div class="pricing-grid">
+
+            <!-- Card 1: Starter -->
+            <div class="pricing-card">
+                <div class="card-top">
+                    <h3 class="plan-name">ERP Starter</h3>
+                    <span class="starting-label">Starting Price</span>
+                    <div class="price">৳3000<span>/month</span></div>
+                </div>
+
+                <div class="info-box">
+                    <p class="target">Small businesses & startups ERP adoption</p>
+                    <div class="divider"></div>
+                    <div class="stat-line">
+                        <span>1-30 Employees</span>
+                        <span>৳3000/Month</span>
+                    </div>
+                    <div class="divider"></div>
+                    <p class="feature-highlight">Core operations & basic automation</p>
+                </div>
+
+                <ul class="features-list">
+                    <li>Custom ERP planning & setup</li>
+                    <li>Finance or HR (any one core module)</li>
+                    <li>Basic inventory or CRM</li>
+                    <li>Role-based user access</li>
+                    <li>Web dashboard (custom UI)</li>
+                    <li>Basic reports & analytics</li>
+                    <li>Email & app notifications</li>
+                    <li>Standard support</li>
+                </ul>
+            </div>
+
+            <!-- Card 2: Growth (Highlighted) -->
+            <div class="pricing-card highlighted">
+                <div class="popular-badge">Most Popular</div>
+                <div class="card-top">
+                    <h3 class="plan-name">ERP Growth</h3>
+                    <span class="starting-label">Starting Price</span>
+                    <div class="price">৳6000<span>/month</span></div>
+                </div>
+
+                <div class="info-box border-light">
+                    <p class="target">Growing companies needing integrated systems</p>
+                    <div class="divider light"></div>
+                    <div class="stat-line">
+                        <span>51-150 Employees</span>
+                        <span>৳6000/Month</span>
+                    </div>
+                    <div class="divider light"></div>
+                    <p class="feature-highlight">Multi-department workflows</p>
+                </div>
+
+                <ul class="features-list">
+                    <li>All Starter features</li>
+                    <li>ERP modules (Finance, HR, Inventory, CRM, Projects)</li>
+                    <li>Custom workflow automation</li>
+                    <li>Advanced reporting & dashboards</li>
+                    <li>Mobile-friendly ERP access</li>
+                    <li>Third-party integrations (basic APIs)</li>
+                    <li>Data migration support</li>
+                    <li>Priority support & onboarding</li>
+                </ul>
+            </div>
+
+            <!-- Card 3: Enterprise -->
+            <div class="pricing-card">
+                <div class="card-top">
+                    <h3 class="plan-name">ERP Enterprise</h3>
+                    <span class="starting-label">Starting Price</span>
+                    <div class="price">৳12000<span>/month</span></div>
+                </div>
+
+                <div class="info-box">
+                    <p class="target">Large organizations & complex operations</p>
+                    <div class="divider"></div>
+                    <div class="stat-line">
+                        <span>100+ Users</span>
+                        <span>৳12000/Month</span>
+                    </div>
+                    <div class="divider"></div>
+                    <p class="feature-highlight">High customization & scalability needs</p>
+                </div>
+
+                <ul class="features-list">
+                    <li>All Growth features</li>
+                    <li>Fully customized ERP architecture</li>
+                    <li>Advanced role & permission management</li>
+                    <li>High-performance analytics & BI dashboards</li>
+                    <li>Mobile apps (Android & iOS)</li>
+                    <li>Custom integrations & APIs</li>
+                    <li>Enhanced security & audit logs</li>
+                    <li>Dedicated project manager</li>
+                    <li>SLA-based support & maintenance</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="aio-features-section text-center">
+    <div class="container">
+        <!-- Heading -->
+        <h2 class="aio-title">Our ERP Development Process</h2>
+
+        <!-- Subtitle -->
+        <p class="aio-subtitles">
+            Generic ERP software slows businesses down. Our customized ERP solutions adapt to your<br>
+            processes, not the other way around—so you work faster, smarter, and with full visibility.
+        </p>
+    </div>
+</section>
+<section class="service-cards-section">
+    <div class="container">
+        <div class="row g-4">
+
+            <!-- Card 1: Business Analysis -->
+            <div class="col-lg-4">
+                <div class="service-card">
+                    <div class="s-icon-box">
+                        <i class="fas fa-id-card"></i>
+                    </div>
+                    <h3 class="s-title">Business Analysis</h3>
+                    <p class="s-desc">
+                        We begin by deeply understanding your business workflows, operational challenges, and long-term objectives.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Card 2: Solution Architecture -->
+            <div class="col-lg-4">
+                <div class="service-card">
+                    <div class="s-icon-box">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <h3 class="s-title">Solution Architecture</h3>
+                    <p class="s-desc">
+                        We design a scalable ERP structure with clear modules, data flow, user roles, and integrations for long-term flexibility and security.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Card 3: UI/UX Design -->
+            <div class="col-lg-4">
+                <div class="service-card">
+                    <div class="s-icon-box">
+                        <i class="far fa-clock"></i>
+                    </div>
+                    <h3 class="s-title">UI/UX Design</h3>
+                    <p class="s-desc">
+                        Clean, intuitive interfaces focused on usability—so your team can work efficiently with minimal learning time.
+                    </p>
+                </div>
+            </div>
+            <!-- Card 4: Development & Integration -->
+            <div class="col-lg-4">
+                <div class="service-card">
+                    <div class="s-icon-box">
+                        <i class="fas fa-id-card"></i>
+                    </div>
+                    <h3 class="s-title">Development & Integration</h3>
+                    <p class="s-desc">
+                        We build secure, high-performance ERP systems and integrate them with your existing tools and platforms.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Card 5: Testing & Deployment -->
+            <div class="col-lg-4">
+                <div class="service-card">
+                    <div class="s-icon-box">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <h3 class="s-title">Testing & Deployment</h3>
+                    <p class="s-desc">
+                        Thorough testing ensures reliability and performance, followed by smooth deployment with minimal business disruption.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Card 6: Support & Optimization -->
+            <div class="col-lg-4">
+                <div class="service-card">
+                    <div class="s-icon-box">
+                        <i class="far fa-clock"></i>
+                    </div>
+                    <h3 class="s-title">Support & Optimization</h3>
+                    <p class="s-desc">
+                        We provide continuous support, updates, and optimization to keep your ERP aligned with your business growth.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<section class="erp-workflow">
+    <div class="content-container">
+        <!-- Section Header -->
+        <div class="section-header">
+            <h2>How We Build Your ERP</h2>
+            <p>We follow a structured, business-focused approach to design, develop, and deliver ERP systems that are scalable, secure, and aligned with your operational goals—ensuring smooth adoption and long-term success.</p>
+        </div>
+
+        <!-- Steps List -->
+        <div class="steps-list">
+
+            <div class="step-card">
+                <span class="step-label">Step 1</span>
+                <h3>Business Analysis</h3>
+                <p>We understand your workflow, challenges, and goals.</p>
+            </div>
+
+            <div class="step-card">
+                <span class="step-label">Step 2</span>
+                <h3>Solution Planning</h3>
+                <p>We design a scalable ERP architecture tailored to you.</p>
+            </div>
+
+            <div class="step-card">
+                <span class="step-label">Step 3</span>
+                <h3>UI/UX Design</h3>
+                <p>Clean, intuitive, and easy-to-use interfaces.</p>
+            </div>
+
+            <div class="step-card">
+                <span class="step-label">Step 4</span>
+                <h3>Development & Testing</h3>
+                <p>Secure, high-performance, and fully tested systems.</p>
+            </div>
+
+            <div class="step-card">
+                <span class="step-label">Step 5</span>
+                <h3>Launch & Support</h3>
+                <p>Smooth deployment with ongoing optimization.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+<section class="who-for-section">
+    <div class="main-gradient-container">
+        <div class="content-wrapper">
+
+            <!-- Left Content -->
+            <div class="left-content">
+                <h2 class="title">Who Is This For?</h2>
+                <ol class="target-list">
+                    <li>Growing startups</li>
+                    <li>SMEs & enterprises</li>
+                    <li>Manufacturing & logistics</li>
+                    <li>Retail & eCommerce</li>
+                    <li>Service-based businesses</li>
+                </ol>
+
+                <p class="trust-text">
+                    Trusted, 100% Secure. To Book a Time To Learn More About Qadryn<br>
+                    Please Complete The Contact Form Or Call Us Now At +880 4567321
+                </p>
+
+                <div class="social-proof">
+                    <div class="avatar-group">
+                        <img src="https://i.pravatar.cc/150?u=1" alt="user">
+                        <img src="https://i.pravatar.cc/150?u=2" alt="user">
+                        <img src="https://i.pravatar.cc/150?u=3" alt="user">
+                        <img src="https://i.pravatar.cc/150?u=4" alt="user">
+                    </div>
+                    <span class="reviews-count">100+ Reviews</span>
+                </div>
+
+                <button class="cta-talk">Talk to Our Experts <span class="arrow">↗</span></button>
+            </div>
+
+            <!-- Right Form Card -->
+            <div class="form-card">
+                <form>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" placeholder="Full Name">
+                        </div>
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            <input type="text" placeholder="Last Name">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Job Email</label>
+                            <input type="email" placeholder="Job Email">
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <input type="text" placeholder="Phone Number">
+                        </div>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label>Company Size</label>
+                        <select>
+                            <option>Select company size</option>
+                            <option>1-10</option>
+                            <option>11-50</option>
+                            <option>50+</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label>Message</label>
+                        <textarea placeholder="Your message here..."></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</section>
