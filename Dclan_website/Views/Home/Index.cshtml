@@ -56,11 +56,38 @@
         }
 
         /* --- 2. BACKGROUND --- */
+        /* 1. Make the wrapper full width and flush with the top */
         .hero-wrapper {
             position: relative;
-            width: 100%;
-            z-index: 1;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            margin-right: calc(-50vw + 50%);
+            margin-top: -160px;
+            padding-top: 160px;
+            transition: background 0.8s ease-in-out;
 
+        }
+
+        .hero-bg-image-active {
+/*             background: linear-gradient(180deg, #FFFFFF 0%, #7047EB 100%) !important;
+ */            background-size: cover !important;
+            background-position: center top !important; 
+            background-repeat: no-repeat !important;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+        /* 3. Ensure the grid overlay also fills the new full-width wrapper */
+        .grid-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%; /* Changed from 100vh to 100% of wrapper */
+            z-index: -1;
+            pointer-events: none;
+            background-color: transparent !important;
         }
        
         /* --- DESKTOP ONLY FIX (Web View) --- */
@@ -3901,23 +3928,131 @@
             box-shadow: 0 30px 60px rgba(0,0,0,0.1);
         }
         .hero-bg-image-active {
-           /*  background-image: url('/image/homebackground.png'); */ 
-            background-size: cover;
-            background-position: center;
-            transition: background 1s ease;
+            background-image: url('/image/homebackground.png') !important;
+            background-size: cover !important;
+            background-position: center top !important; /* "top" helps close the header gap */
+            background-repeat: no-repeat;
+            width: 100vw;
+            transition: background 1s ease !important;
+            height: 105vh;
+        }
+
+        /* --- RESPONSIVE FIXES FOR ALL SLIDES --- */
+
+        @@media (max-width: 991px) {
+            .hero-wrapper
+
+        {
+            margin-top: -100px; 
+            padding-top: 120px;
+            padding-bottom: 50px;
+            text-align: center;
+            overflow-x: hidden;
+        }
+        .hero-title, .new-hero-title {
+            font-size: 2.2rem !important; 
+            line-height: 1.2 !important;
+            margin-bottom: 20px !important;
+        }
+        .hero-subtitle, .new-hero-subtitle {
+            font-size: 1rem !important;
+            margin: 0 auto 30px auto !important;
+            max-width: 100% !important;
+        }
+
+        .visual-container {
+            height: 400px !important; 
+            transform: scale(0.85); 
+            margin-top: 20px;
+        }
+
+        .card-team {
+            left: 0 !important;
+            width: 200px !important;
+        }
+
+        .card-payroll {
+            right: 0 !important;
+            width: 220px !important;
+            padding: 15px !important;
+        }
+
+        .card-stats {
+            bottom: 20px !important;
+            left: 20px !important;
+            width: 200px !important;
+        }
+
+        .new-dashboard-box {
+            padding: 10px !important;
+            margin-top: 30px;
+        }
+
+        .new-img-style {
+            width: 100% !important;
+            height: auto !important;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
+        }
+
+        #third-visual-state .new-dashboard-box {
+            padding: 20px !important;
+            border-radius: 15px !important;
+        }
+
+        }
+        @@media (max-width: 576px) {
+            .hero-title, .new-hero-title
+
+        {
+            font-size: 1.8rem !important;
+        }
+
+        .visual-container {
+            transform: scale(0.7); 
+            height: 320px !important;
+            margin-left: -15%; 
+        }
+
+        .new-hero-badge {
+            font-size: 0.75rem !important;
+            padding: 4px 12px !important;
+        }
+
+        .btn-request-demo, .btn-price-gradient {
+            width: 100%;
+            padding: 12px 20px !important;
+        }
+
+        }
+
+
+        @@media (max-width: 1400px) {
+            .new-hero-title
+
+        {
+            font-size: 2.8rem !important; 
+        }
+
+        .hero-wrapper {
+            min-height: 700px;
+            padding-top: 180px !important;
+        }
+
+        }
+        .hero-bg-image-active {
+            background-size: cover !important;
+            background-position: center center !important;
         }
 
     </style>
     }
-    
-    <div class="hero-wrapper"> 
-        <div class="grid-overlay"></div>
-    <div class="container hero-main-container" id="hero-toggle-section">
-        <div class="row align-items-center">
 
+<div class="hero-wrapper" id="hero-toggle-section">
+    <div class="grid-overlay"></div>
+    <div class="container hero-main-container" >
+        <div class="row align-items-center">
             <!-- Left Text Section -->
             <div class="col-12 col-lg-6 mb-5 mb-lg-0 content-wrapper">
-
                 <!-- OLD STATE (No names changed) -->
                 <div id="old-text-state">
                     <div class="hero-badge">Solution for seamless HR management.</div>
@@ -3997,7 +4132,7 @@
                     </div>
                 </div>
                 <div id="third-visual-state" class="new-state-hidden">
-                    <div class="new-dashboard-box">
+                    <div class="new-dashboard-box" style="background-image: url('/image/glow.png'); background-size: cover; background-position: center; background-repeat: no-repeat; padding: 50px; border-radius: 30px; box-shadow: 0 20px 50px rgba(0,0,0,0.1);">
                         <img src="/image/Group3 1413373432.png" class="img-fluid new-img-style" alt="Dashboard 3">
                     </div>
                 </div>
@@ -4005,8 +4140,8 @@
             </div>
         </div>
     </div>
-       
-        <!-- === NEW SECTION: STATS BANNER === -->
+</div>
+<!-- === NEW SECTION: STATS BANNER === -->
         <div class="container stats-section-wrapper">
             <div class="stats-banner">
                 <div class="banner-grid"></div>
@@ -4790,20 +4925,11 @@
             </section>
         
         </div>
-    </div>
+  
 
     <!-- SCRIPTS -->
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const menuBtn = document.getElementById("mobile-menu-btn");
-            const navLinks = document.querySelector(".nav-links");
-
-            if (menuBtn && navLinks) {
-                menuBtn.addEventListener("click", function () {
-                    navLinks.classList.toggle("mobile-menu-active");
-                });
-            }
-        });
+       
 
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
